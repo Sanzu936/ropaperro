@@ -36,9 +36,9 @@ window.MAISON = {
       season: "Paseo",
       text: "Abrigos de lana merino y gabardinas impermeables para el día a día en la ciudad.",
       products: [
-        { name: "Abrigo Montmartre", material: "Lana merino doble faz", price: 390, number: 7,  model: { fabric: "wool", color: "#7a5638", t0: 0.17, t1: 0.88, collar: 0.12, flare: 0.06, wr: 0.014, buttons: 5 } },
-        { name: "Gabardina Passy",   material: "Algodón encerado, forro de seda", price: 320, number: 12, model: { fabric: "gabardine", color: "#c8b08a", t0: 0.16, t1: 0.86, collar: 0.09, belt: true, flare: 0.05, buttons: 4, btnColor: 0x8a6a3c } },
-        { name: "Capa Tuileries",    material: "Lana virgen cardada", price: 260, number: 21, model: { fabric: "wool", color: "#8e867a", t0: 0.2, t1: 0.9, cape: true, flare: 0.28, collar: 0.07 } }
+        { name: "Abrigo Montmartre", material: "Lana merino doble faz", price: 390, number: 7,  model: { fabric: "wool", color: "#7a5638", t0: 0.17, t1: 0.88, collar: 0.12, flare: 0.06, wr: 0.014, folds: 0.025, buttons: 5 } },
+        { name: "Gabardina Passy",   material: "Algodón encerado, forro de seda", price: 320, number: 12, model: { fabric: "gabardine", color: "#c8b08a", t0: 0.16, t1: 0.86, collar: 0.09, belt: true, flare: 0.05, folds: 0.02, buttons: 4, btnColor: 0x6e5230 } },
+        { name: "Capa Tuileries",    material: "Lana virgen cardada", price: 260, number: 21, model: { fabric: "wool", color: "#8e867a", t0: 0.2, t1: 0.9, cape: true, flare: 0.3, folds: 0.07, foldN: 11, collar: 0.07, clasp: true } }
       ]
     },
     {
@@ -48,9 +48,9 @@ window.MAISON = {
       season: "Invierno",
       text: "Plumíferos y jerséis de punto para el frío y la montaña. Calor sin peso.",
       products: [
-        { name: "Plumífero Zermatt", material: "Plumón de oca, tejido técnico mate", price: 450, number: 3,  model: { fabric: "quilt", color: "#2d2a26", t0: 0.13, t1: 0.9, puff: 0.085, puffN: 12, puffM: 7, collar: 0.16 } },
-        { name: "Jersey Engadina",   material: "Punto de cachemira", price: 360, number: 15, model: { fabric: "knit", color: "#e3d6bf", t0: 0.18, t1: 0.9, collar: 0.15, thick: 0.02 } },
-        { name: "Jersey Verbier",    material: "Cachemira y seda, punto trenzado", price: 295, number: 9,  model: { fabric: "knit", color: "#8b6140", t0: 0.2, t1: 0.88, collar: 0.13, thick: 0.02 } }
+        { name: "Plumífero Zermatt", material: "Plumón de oca, tejido técnico mate", price: 450, number: 3,  model: { fabric: "quilt", color: "#2d2a26", t0: 0.13, t1: 0.9, puff: 0.1, baffles: true, puffM: 8, collar: 0.16 } },
+        { name: "Jersey Engadina",   material: "Punto de cachemira", price: 360, number: 15, model: { fabric: "knit", color: "#e3d6bf", t0: 0.18, t1: 0.9, collar: 0.15, thick: 0.02, ribHem: true } },
+        { name: "Jersey Verbier",    material: "Cachemira y seda, punto trenzado", price: 295, number: 9,  model: { fabric: "knit", color: "#8b6140", t0: 0.2, t1: 0.88, collar: 0.13, thick: 0.02, cable: 16, ribHem: true } }
       ]
     },
     {
@@ -60,9 +60,9 @@ window.MAISON = {
       season: "Ocasión · Edición limitada",
       text: "Edición limitada para eventos. Cada pieza va numerada y se produce en una única serie.",
       products: [
-        { name: "Chaleco Versalles", material: "Terciopelo de seda", price: 240, number: 18, model: { fabric: "velvet", color: "#6b4a2f", sheen: "#d9b98d", t0: 0.32, t1: 0.8, buttons: 5, btnColor: 0x8a6a3c, lining: "#3a2a20" } },
+        { name: "Chaleco Versalles", material: "Terciopelo de seda", price: 240, number: 18, model: { fabric: "velvet", color: "#6b4a2f", sheen: "#d9b98d", t0: 0.32, t1: 0.8, buttons: 5, btnColor: 0x6e5230, lining: "#3a2a20", piping: "#b8956a" } },
         { name: "Pajarita Opéra",    material: "Seda natural, cierre de latón", price: 180, number: 26, model: { fabric: "silk", color: "#c8b08a", bow: true } },
-        { name: "Capa Bellecour",    material: "Terciopelo y forro de satén", price: 420, number: 5,  model: { fabric: "velvet", color: "#3c2a1f", sheen: "#d9b98d", cape: true, t0: 0.18, t1: 0.9, flare: 0.3, collar: 0.08 } }
+        { name: "Capa Bellecour",    material: "Terciopelo y forro de satén", price: 420, number: 5,  model: { fabric: "velvet", color: "#3c2a1f", sheen: "#d9b98d", cape: true, t0: 0.18, t1: 0.9, flare: 0.32, folds: 0.08, foldN: 11, collar: 0.08, clasp: true, piping: "#b8956a" } }
       ]
     }
   ],
@@ -75,6 +75,16 @@ window.MAISON = {
       { title: "Materiales nobles", text: "Lana merino, cachemira, seda y terciopelo de hilaturas europeas." },
       { title: "Confección artesanal", text: "Costuras a mano, forros cosidos y acabados revisados uno a uno." },
       { title: "Series de treinta", text: "Treinta piezas por modelo. Nunca más." }
+    ]
+  },
+
+  /* ---- El estuche (escena 3D con scroll fijado) ---- */
+  unbox: {
+    title: "El estuche.",
+    steps: [
+      "Cada pieza viaja en su estuche de cuero, cerrado con lacre.",
+      "Papel de seda y la tarjeta con el número de su serie.",
+      "La prenda, doblada a mano, lista para estrenar."
     ]
   },
 

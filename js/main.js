@@ -120,6 +120,13 @@
     return '<div><dt><span class="readout__k">' + r[0] + "</span>" + r[1] + '</dt><dd><output data-key="' + r[2] + '">0</output> cm</dd></div>';
   }).join("");
 
+  // Estuche
+  var U = D.unbox;
+  $("unboxTitle").textContent = U.title;
+  $("unboxSteps").innerHTML = U.steps.map(function (t, i) {
+    return '<p class="ustep' + (i === 0 ? " is-active" : "") + '">' + esc(t) + "</p>";
+  }).join("");
+
   // Contacto y pie
   $("contactTitle").textContent = D.contact.title;
   $("contactText").textContent = D.contact.text;
@@ -238,8 +245,11 @@
     });
   });
 
+  var boxCtl = (window.THREE && window.initBox) ? window.initBox($("boxCanvas"), { reduceMotion: reduce || !hasGSAP }) : null;
+
   if (!animate) {
     document.querySelectorAll(".stage").forEach(function (el) { el.classList.add("stage--static"); });
+    document.querySelector(".unbox").classList.add("unbox--static");
     document.body.classList.remove("is-loading");
     var l = $("loader"); if (l) l.remove();
     heroChars.forEach(function (c) { c.style.transform = "none"; });
@@ -324,6 +334,21 @@
       });
     });
   });
+
+  /* ---- El estuche: se abre con el scroll ---- */
+  (function () {
+    var el = document.querySelector(".unbox"), steps = el.querySelectorAll(".ustep"), cur = 0;
+    ScrollTrigger.create({
+      trigger: el, start: "top top", pin: true, anticipatePin: 1, invalidateOnRefresh: true,
+      end: function () { return "+=" + Math.round(window.innerHeight * 3.2); },
+      onToggle: function (self) { threadEl.classList.toggle("on-dark", self.isActive); },
+      onUpdate: function (self) {
+        if (boxCtl) boxCtl.setP(self.progress);
+        var a = self.progress < 0.3 ? 0 : self.progress < 0.7 ? 1 : 2;
+        if (a !== cur) { cur = a; steps.forEach(function (x, i) { x.classList.toggle("is-active", i === a); }); }
+      }
+    });
+  })();
 
   /* ---- Atelier: la pieza se abre como un paño ---- */
   gsap.fromTo("#atelierFrame", { clipPath: "inset(16% 16% 16% 16%)" }, {

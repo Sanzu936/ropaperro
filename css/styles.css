@@ -262,6 +262,26 @@ body.has-cursor .cursor { opacity: 1; }
 .pillars h3 { font-family: var(--display); font-weight: 400; font-size: 24px; line-height: 1.2; }
 .pillars p { font-size: 14px; color: var(--ink-soft); margin-top: 4px; max-width: 40ch; }
 
+/* ---------- El estuche ---------- */
+.unbox { position: relative; background: #1b1612; color: var(--bg); }
+.unbox__pin { position: relative; height: 100vh; height: 100svh; overflow: hidden; }
+.unbox__canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.unbox__text { position: absolute; z-index: 2; left: var(--pad); top: 15vh; bottom: 9vh; right: var(--pad); pointer-events: none; display: flex; flex-direction: column; justify-content: space-between; }
+.unbox__title { font-family: var(--display); font-weight: 400; font-size: clamp(52px, 9vw, 112px); line-height: .95; }
+.unbox__steps { position: relative; height: 96px; max-width: min(420px, 100%); }
+.ustep {
+  position: absolute; inset: 0 auto auto 0;
+  font-family: var(--display); font-size: clamp(20px, 2.2vw, 28px); line-height: 1.3; color: rgba(245,240,232,.92);
+  opacity: 0; visibility: hidden; transform: translateY(16px);
+  transition: opacity .5s var(--ease-out), transform .9s var(--ease-out), visibility 0s .5s;
+}
+.ustep.is-active { opacity: 1; visibility: visible; transform: none; transition-delay: .18s, .18s, 0s; }
+.unbox--static .unbox__pin { height: auto; overflow: visible; padding-bottom: 72px; }
+.unbox--static .unbox__canvas { position: relative; height: 60vh; }
+.unbox--static .unbox__text { position: relative; inset: auto; padding: 72px var(--pad) 0; gap: 24px; }
+.unbox--static .unbox__steps { height: auto; display: grid; gap: 14px; }
+.unbox--static .ustep { position: relative; opacity: 1; visibility: visible; transform: none; }
+
 /* ---------- Tallas ---------- */
 .sizing {
   padding: 96px var(--pad); display: grid; gap: 48px;
