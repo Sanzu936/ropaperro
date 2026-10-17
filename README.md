@@ -8,7 +8,7 @@ Maqueta provisional de una marca premium de ropa para perros. Sitio estático (H
 - Cada colección fija el scroll y presenta sus prendas en 3D sobre un maniquí de sastre que gira; cada prenda se disuelve en la siguiente. Numeradas «Nº 07 / 30».
 - Hilo de costura que recorre la página y cursor propio.
 - Guía de tallas interactiva: dibujo técnico con cotas que se reescala por talla.
-- Respeta `prefers-reduced-motion` (versión estática sin animaciones) y funciona sin WebGL.
+- Las animaciones se muestran siempre, aunque el sistema tenga «reducir movimiento». Para respetar ese ajuste, `RESPECT_REDUCED_MOTION = true` al inicio de `js/main.js`. Funciona sin WebGL.
 
 ## Estructura
 

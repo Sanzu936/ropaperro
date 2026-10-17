@@ -1,7 +1,11 @@
 (function () {
   var D = window.MAISON;
   var $ = function (id) { return document.getElementById(id); };
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Decisión de diseño: las animaciones son parte de la identidad de la marca y se muestran a todo el
+  // mundo. Para respetar el ajuste «reducir movimiento» del sistema, cambiar a true.
+  var RESPECT_REDUCED_MOTION = false;
+  var reduce = RESPECT_REDUCED_MOTION && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) document.documentElement.classList.add("reduce-motion");
   var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   var hasGSAP = !!(window.gsap && window.ScrollTrigger);
   var animate = hasGSAP && !reduce;
