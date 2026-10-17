@@ -246,10 +246,10 @@
       var bow = new THREE.Group();
       bow.position.copy(center).addScaledVector(up, 0.42);
       bow.rotation.z = NECK_A;
-      var wing = new THREE.ConeGeometry(0.27, 0.58, 32);
-      var wl = new THREE.Mesh(wing, mat); wl.rotation.x = -Math.PI / 2; wl.position.z = 0.29; wl.scale.x = 0.35;
-      var wr = new THREE.Mesh(wing, mat); wr.rotation.x = Math.PI / 2; wr.position.z = -0.29; wr.scale.x = 0.35;
-      var knot = new THREE.Mesh(new THREE.SphereGeometry(0.13, 24, 18), mat);
+      var wing = new THREE.SphereGeometry(1, 28, 18);
+      var wl = new THREE.Mesh(wing, mat); wl.scale.set(0.06, 0.2, 0.3); wl.position.set(0, 0, 0.3); wl.rotation.y = -0.35;
+      var wr = new THREE.Mesh(wing, mat); wr.scale.set(0.06, 0.2, 0.3); wr.position.set(0, 0, -0.3); wr.rotation.y = 0.35;
+      var knot = new THREE.Mesh(new THREE.SphereGeometry(0.14, 24, 18), mat);
       wl.castShadow = wr.castShadow = knot.castShadow = true;
       bow.add(wl, wr, knot);
       g.add(bow);
@@ -373,7 +373,7 @@
       var portrait = w / h < 0.9;
       camera.position.set(0, 1.4, portrait ? 22 : 9.6);
       camera.lookAt(0, -0.2, 0);
-      stage.position.set(portrait ? 0 : w / h > 1.4 ? 1.3 : 0.6, portrait ? 0.2 : 0, 0);
+      stage.position.set(portrait ? 0 : w / h > 1.4 ? 0.9 : 0.5, portrait ? 0.2 : 0, 0);
       camera.updateProjectionMatrix();
     }
     function render() { renderer.render(scene, camera); }

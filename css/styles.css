@@ -12,6 +12,7 @@
   --sans: "Jost", "Inter", system-ui, sans-serif;
   --pad: 24px;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --kraft: #d6c29f;
   --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -375,3 +376,64 @@ body.has-cursor .cursor { opacity: 1; }
 /* ---------- Movimiento reducido (solo si RESPECT_REDUCED_MOTION = true en main.js) ---------- */
 .reduce-motion *, .reduce-motion *::before, .reduce-motion *::after { transition-duration: .01ms !important; animation: none !important; }
 .reduce-motion .thread { display: none; }
+
+/* =====================================================================
+   Patronaje: papel de patrón, marcas de corte y bordes dentados
+   ===================================================================== */
+.kraft { position: relative; background-color: var(--kraft); }
+.kraft::before { content: ""; position: absolute; inset: 0; background-image: var(--noise); opacity: .38; mix-blend-mode: multiply; pointer-events: none; }
+
+.cm { position: absolute; width: 18px; height: 18px; pointer-events: none; opacity: .5; --i: 22px; }
+.cm--tl { top: var(--i); left: var(--i); border-top: 1px solid; border-left: 1px solid; }
+.cm--tr { top: var(--i); right: var(--i); border-top: 1px solid; border-right: 1px solid; }
+.cm--bl { bottom: var(--i); left: var(--i); border-bottom: 1px solid; border-left: 1px solid; }
+.cm--br { bottom: var(--i); right: var(--i); border-bottom: 1px solid; border-right: 1px solid; }
+.cm--out { --i: -16px; opacity: .6; }
+
+.grainline { display: none; position: absolute; top: 50%; transform: translateY(-50%); color: var(--accent); opacity: .7; pointer-events: none; overflow: visible; }
+.grainline text { fill: currentColor; font-family: var(--sans); font-size: 9px; letter-spacing: .26em; text-transform: uppercase; }
+
+.pinked::after {
+  content: ""; position: absolute; left: 0; right: 0; top: -9px; height: 10px; z-index: 4; pointer-events: none;
+  background: var(--edge, currentColor);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='10' viewBox='0 0 18 10'%3E%3Cpolygon points='0,10 9,0 18,10' fill='black'/%3E%3C/svg%3E") repeat-x left bottom / 18px 10px;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='10' viewBox='0 0 18 10'%3E%3Cpolygon points='0,10 9,0 18,10' fill='black'/%3E%3C/svg%3E") repeat-x left bottom / 18px 10px;
+}
+.manifesto { --edge: var(--kraft); }
+.atelier { --edge: var(--bg-tint); }
+.sizing { --edge: var(--kraft); }
+.contact { --edge: #1b1612; }
+
+.manifesto, .sizing { background-color: var(--kraft); }
+.sizing { background-image: linear-gradient(rgba(107,74,47,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(107,74,47,.12) 1px, transparent 1px); }
+.manifesto .cm, .sizing .cm { color: var(--accent); }
+
+/* hoja de patrón en cada colección */
+.sheet { position: absolute; inset: 0; z-index: 2; pointer-events: none; color: var(--mark); }
+.sheet .cm { --i: 18px; opacity: .55; }
+.sheet .cm--tl, .sheet .cm--tr { top: 84px; }
+.sheet .grainline { right: calc(var(--pad) - 8px); left: auto; display: none; }
+.sheet__title { display: none; position: absolute; right: var(--pad); bottom: 5vh; margin: 0; color: var(--soft); border: 1px solid currentColor; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; }
+.sheet__title > div { padding: 7px 16px 8px; min-width: 96px; }
+.sheet__title > div + div { border-left: 1px solid currentColor; }
+.sheet__title dt { opacity: .62; font-size: 9px; }
+.sheet__title dd { margin: 2px 0 0; font-size: 11px; font-variant-numeric: tabular-nums; color: inherit; }
+
+/* tejido jacquard: monograma tono sobre tono */
+.stage--dark { background-image: var(--mono-dark); background-size: 256px 256px; }
+.contact { background-image: var(--mono-dark); background-size: 256px 256px; }
+.footer { background-image: var(--mono-dark); background-size: 256px 256px; }
+.atelier__frame { position: relative; }
+.atelier__frame::after { content: ""; position: absolute; inset: 0; background-image: var(--mono-strong); background-size: 150px 150px; pointer-events: none; }
+.stage__hint { bottom: 4.5vh; }
+.stage--light { --edge: var(--bg-tint); }
+.stage--stone { --edge: #cdc4b5; }
+.stage--dark { --edge: #1b1612; }
+
+@media (min-width: 900px) {
+  .grainline { display: block; left: calc(var(--pad) - 14px); }
+  .sheet .grainline { display: block; left: auto; }
+  .sheet__title { display: flex; }
+  .stage__hint { bottom: 4.5vh; right: calc(var(--pad) + 470px); }
+  .manifesto__text { padding-left: 28px; }
+}

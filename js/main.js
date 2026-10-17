@@ -72,13 +72,23 @@
   var stagesEl = $("stages");
   stagesEl.innerHTML = D.collections.map(function (c, ci) {
     var name = c.label.replace(/^Línea\s+/, "");
-    return '<section class="stage stage--' + esc(c.theme || "light") + '" id="' + (ci === 0 ? "colecciones" : esc(c.id)) + '" data-i="' + ci + '" aria-label="' + esc(c.label) + '">' +
+    return '<section class="stage pinked stage--' + esc(c.theme || "light") + '" id="' + (ci === 0 ? "colecciones" : esc(c.id)) + '" data-i="' + ci + '" aria-label="' + esc(c.label) + '">' +
       '<div class="stage__pin">' +
         '<canvas class="stage__canvas" aria-hidden="true"></canvas>' +
         '<div class="stage__text">' +
           '<p class="stage__season">' + esc(c.season) + '</p>' +
           '<h2 class="stage__title">' + esc(name) + '</h2>' +
           '<p class="stage__desc">' + esc(c.text) + '</p>' +
+        '</div>' +
+        '<div class="sheet" aria-hidden="true">' +
+          '<i class="cm cm--tl"></i><i class="cm cm--tr"></i><i class="cm cm--bl"></i><i class="cm cm--br"></i>' +
+          '<svg class="grainline" viewBox="0 0 32 220" width="32" height="220"><g stroke="currentColor" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><line x1="10" y1="12" x2="10" y2="208"/><path d="M4 24 L10 10 L16 24"/><path d="M4 196 L10 210 L16 196"/></g><text transform="rotate(-90)" x="-110" y="26" text-anchor="middle">Hilo recto</text></svg>' +
+          '<dl class="sheet__title">' +
+            '<div><dt>Línea</dt><dd>' + esc(name) + '</dd></div>' +
+            '<div><dt>Hoja</dt><dd class="sheet__n">1 / ' + c.products.length + '</dd></div>' +
+            '<div><dt>Escala</dt><dd>1 : 4</dd></div>' +
+            '<div><dt>Tallas</dt><dd>' + esc(D.sizing.sizes[0].code) + ' – ' + esc(D.sizing.sizes[D.sizing.sizes.length - 1].code) + '</dd></div>' +
+          '</dl>' +
         '</div>' +
         '<div class="stage__items">' +
         c.products.map(function (p, pi) {
@@ -297,13 +307,14 @@
   var threadEl = $("thread");
   document.querySelectorAll(".stage").forEach(function (el, ci) {
     var c = D.collections[ci], n = c.products.length, ctl = stageCtl[ci];
-    var infos = el.querySelectorAll(".pinfo"), btns = el.querySelectorAll(".stage__go"), hint = el.querySelector(".stage__hint");
+    var sheetN = el.querySelector(".sheet__n"), infos = el.querySelectorAll(".pinfo"), btns = el.querySelectorAll(".stage__go"), hint = el.querySelector(".stage__hint");
     var active = 0;
     function setActive(a) {
       if (a === active) return;
       active = a;
       infos.forEach(function (x, i) { x.classList.toggle("is-active", i === a); });
       btns.forEach(function (x, i) { x.classList.toggle("is-active", i === a); });
+      if (sheetN) sheetN.textContent = (a + 1) + " / " + n;
     }
     var st = ScrollTrigger.create({
       trigger: el, start: "top top", pin: true, anticipatePin: 1, invalidateOnRefresh: true,

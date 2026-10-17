@@ -6,6 +6,8 @@ Maqueta provisional de una marca premium de ropa para perros. Sitio estático (H
 - Hero con tejido 3D (Three.js, shader propio) que reacciona al cursor y al scroll.
 - Scroll suave (Lenis + GSAP ScrollTrigger).
 - Cada colección fija el scroll y presenta sus prendas en 3D sobre una escultura de perro en yeso; cada prenda se disuelve en la siguiente. Numeradas «Nº 07 / 30».
+- **Monograma «MC» y tejido jacquard:** el tejido del hero lleva el monograma (anillo de puntadas, «MC», huella de pata y cruces de punto) en satén sobre fondo mate, y el mismo patrón sirve de fondo tono sobre tono en las secciones oscuras.
+- **Patronaje:** papel kraft con marcas de corte y «hilo recto», bordes dentados de tijera de zigzag entre secciones y una hoja de patrón (cajetín con línea, hoja, escala y tallas) en cada colección.
 - Hilo de costura que recorre la página y cursor propio.
 - Guía de tallas interactiva: dibujo técnico con cotas que se reescala por talla.
 - Las animaciones se muestran siempre, aunque el sistema tenga «reducir movimiento». Para respetar ese ajuste, `RESPECT_REDUCED_MOTION = true` al inicio de `js/main.js`. Funciona sin WebGL.
@@ -17,6 +19,7 @@ index.html        Secciones
 css/styles.css    Estilos (paleta y tipografías en :root)
 js/data.js        Textos, precios, tallas e imágenes (editar aquí)
 js/main.js        Render, animaciones, tallas, formulario
+js/monogram.js    Monograma y tejido jacquard (dibujados por código)
 js/hero3d.js      Tejido 3D del hero
 js/stage3d.js     Escultura de perro y prendas 3D de las colecciones
 js/vendor/        three, gsap, ScrollTrigger, lenis (copias locales)
