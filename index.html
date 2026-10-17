@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maison Canis — Alta artesanía para perros</title>
+  <meta name="description" content="Maison Canis: prendas artesanales de lujo para perros. Lana merino, cachemira y terciopelo, en series limitadas y a medida.">
+  <meta name="robots" content="noindex"><!-- maqueta provisional -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F5F0E8'/%3E%3Ctext x='16' y='22' font-family='serif' font-size='18' text-anchor='middle' fill='%236B4A2F'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="header" id="header">
+    <a href="#inicio" class="logo">Maison Canis</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span>
+    </button>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#colecciones">Colecciones</a>
+      <a href="#atelier">Atelier</a>
+      <a href="#a-medida">Hecho a medida</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="hero__bg ph" id="heroBg" data-tone="noche"></div>
+      <div class="hero__veil"></div>
+      <div class="hero__content">
+        <p class="eyebrow eyebrow--light">Alta artesanía canina</p>
+        <h1 class="hero__title">Maison Canis</h1>
+        <p class="hero__tagline" id="heroTagline"></p>
+        <a href="#colecciones" class="btn btn--light">Descubrir la colección</a>
+      </div>
+      <a href="#colecciones" class="hero__scroll" aria-label="Desplazarse">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- COLECCIONES -->
+    <section class="section" id="colecciones">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">Colecciones</p>
+          <h2 class="title">Tres líneas, una misma exigencia.</h2>
+        </header>
+        <div id="collections"></div>
+      </div>
+    </section>
+
+    <!-- ATELIER -->
+    <section class="section section--tint" id="atelier">
+      <div class="container atelier">
+        <div class="atelier__media reveal">
+          <div class="ph ph--tall" id="atelierImg" data-tone="tabaco"></div>
+        </div>
+        <div class="atelier__body reveal">
+          <p class="eyebrow" id="atelierLabel"></p>
+          <h2 class="title" id="atelierTitle"></h2>
+          <p class="lead" id="atelierText"></p>
+          <ul class="pillars" id="atelierPillars"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- HECHO A MEDIDA -->
+    <section class="section" id="a-medida">
+      <div class="container">
+        <header class="section__head section__head--center reveal">
+          <p class="eyebrow" id="bespokeLabel"></p>
+          <h2 class="title" id="bespokeTitle"></h2>
+          <p class="lead" id="bespokeText"></p>
+        </header>
+        <ol class="steps" id="bespokeSteps"></ol>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section section--dark" id="contacto">
+      <div class="container contact">
+        <div class="contact__intro reveal">
+          <p class="eyebrow eyebrow--light" id="contactLabel"></p>
+          <h2 class="title title--light" id="contactTitle"></h2>
+          <p class="lead lead--light" id="contactText"></p>
+        </div>
+        <form class="form reveal" id="waitlistForm" novalidate>
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="raza">Raza de su perro</label>
+            <input type="text" id="raza" name="raza" required>
+          </div>
+          <p class="form__error" id="formError" role="alert" hidden></p>
+          <button type="submit" class="btn btn--light">Unirme a la lista</button>
+          <p class="form__success" id="formSuccess" role="status" hidden></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#inicio" class="logo logo--footer">Maison Canis</a>
+      <ul class="social" id="social"></ul>
+      <p class="footer__copy">&copy; <span id="year">2026</span> Maison Canis. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
