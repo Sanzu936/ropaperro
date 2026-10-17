@@ -372,8 +372,6 @@ body.has-cursor .cursor { opacity: 1; }
   .contact { grid-template-columns: 5fr 6fr; gap: 8vw; align-items: start; }
 }
 
-/* ---------- Movimiento reducido ---------- */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { transition-duration: .01ms !important; animation: none !important; }
-  .thread { display: none; }
-}
+/* ---------- Movimiento reducido (solo si RESPECT_REDUCED_MOTION = true en main.js) ---------- */
+.reduce-motion *, .reduce-motion *::before, .reduce-motion *::after { transition-duration: .01ms !important; animation: none !important; }
+.reduce-motion .thread { display: none; }
