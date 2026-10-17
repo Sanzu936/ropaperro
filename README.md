@@ -5,7 +5,8 @@ Maqueta provisional de una marca premium de ropa para perros. Sitio estático (H
 ## Qué lleva
 - Hero con tejido 3D (Three.js, shader propio) que reacciona al cursor y al scroll.
 - Scroll suave (Lenis + GSAP ScrollTrigger).
-- Cada colección fija el scroll y presenta sus prendas en 3D sobre un maniquí de sastre que gira; cada prenda se disuelve en la siguiente. Numeradas «Nº 07 / 30».
+- Cada colección fija el scroll y presenta sus prendas en 3D sobre una escultura de perro en yeso; cada prenda se disuelve en la siguiente. Numeradas «Nº 07 / 30».
+- «El estuche»: escena 3D con scroll fijado donde se rompe el lacre, se abre la tapa, se despliega el papel de seda y sale la prenda con su tarjeta.
 - Hilo de costura que recorre la página y cursor propio.
 - Guía de tallas interactiva: dibujo técnico con cotas que se reescala por talla.
 - Las animaciones se muestran siempre, aunque el sistema tenga «reducir movimiento». Para respetar ese ajuste, `RESPECT_REDUCED_MOTION = true` al inicio de `js/main.js`. Funciona sin WebGL.
@@ -18,7 +19,8 @@ css/styles.css    Estilos (paleta y tipografías en :root)
 js/data.js        Textos, precios, tallas e imágenes (editar aquí)
 js/main.js        Render, animaciones, tallas, formulario
 js/hero3d.js      Tejido 3D del hero
-js/stage3d.js     Maniquí y prendas 3D de las colecciones
+js/stage3d.js     Escultura de perro y prendas 3D de las colecciones
+js/box3d.js       Estuche 3D
 js/vendor/        three, gsap, ScrollTrigger, lenis (copias locales)
 assets/img/       Imágenes propias
 ```
