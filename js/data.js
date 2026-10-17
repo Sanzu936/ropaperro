@@ -78,16 +78,6 @@ window.MAISON = {
     ]
   },
 
-  /* ---- El estuche (escena 3D con scroll fijado) ---- */
-  unbox: {
-    title: "El estuche.",
-    steps: [
-      "Cada pieza viaja en su estuche de cuero, cerrado con lacre.",
-      "Papel de seda y la tarjeta con el número de su serie.",
-      "La prenda, doblada a mano, lista para estrenar."
-    ]
-  },
-
   /* ---- Guía de tallas ----------------------------------------------------
      cuello / pecho / lomo en cm. `scale` escala el dibujo (1 = talla M).    */
   sizing: {
