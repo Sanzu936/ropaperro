@@ -30,7 +30,7 @@
 
   var FRAG = [
     "precision highp float;",
-    "uniform vec2 uRes;",
+    "uniform vec2 uRes; uniform sampler2D uMono;",
     "varying vec3 vN; varying vec3 vView; varying vec2 vUv; varying float vH;",
     "void main(){",
     "  vec3 n = normalize(vN);",
@@ -44,6 +44,9 @@
     "  col += fres * vec3(.50, .34, .21) * .75;",
     "  float spec = pow(max(dot(reflect(-l, n), v), 0.), 22.);",
     "  col += spec * vec3(.9, .72, .5) * .16;",
+    "  float mk = smoothstep(.35, .75, texture2D(uMono, vUv * vec2(15., 9.)).r);",
+    "  col = mix(col, col * 1.32 + vec3(.035, .02, .008), mk * .75);",
+    "  col += mk * spec * 2.4 * vec3(.9, .72, .5) * .16;",
     "  float weave = sin(vUv.x * 720.) * sin(vUv.y * 420.);",
     "  col *= 1. + weave * .018;",
     "  vec2 sp = gl_FragCoord.xy / uRes;",
@@ -75,6 +78,12 @@
       uScroll: { value: 0 },
       uRes: { value: new THREE.Vector2(1, 1) }
     };
+    // tejido jacquard: máscara del monograma
+    var monoTex = new THREE.CanvasTexture(window.MC.maskCanvas);
+    monoTex.wrapS = monoTex.wrapT = THREE.RepeatWrapping;
+    monoTex.anisotropy = 8;
+    uniforms.uMono = { value: monoTex };
+    window.addEventListener("mc-ready", function () { monoTex.needsUpdate = true; if (reduce) renderer.render(scene, camera); });
     var mat = new THREE.ShaderMaterial({ uniforms: uniforms, vertexShader: VERT, fragmentShader: FRAG, side: THREE.DoubleSide });
     var mesh = new THREE.Mesh(new THREE.PlaneGeometry(20, 12, 240, 140), mat);
     mesh.rotation.x = -0.72;
