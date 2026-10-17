@@ -4,8 +4,8 @@ Maqueta provisional de una marca premium de ropa para perros. Sitio estático (H
 
 ## Qué lleva
 - Hero con tejido 3D (Three.js, shader propio) que reacciona al cursor y al scroll.
-- Scroll suave (Lenis + GSAP ScrollTrigger) y galería de colecciones en horizontal.
-- Fichas numeradas «Nº 07 / 30», con inclinación 3D al pasar el cursor.
+- Scroll suave (Lenis + GSAP ScrollTrigger).
+- Cada colección fija el scroll y presenta sus prendas en 3D sobre un maniquí de sastre que gira; cada prenda se disuelve en la siguiente. Numeradas «Nº 07 / 30».
 - Hilo de costura que recorre la página y cursor propio.
 - Guía de tallas interactiva: dibujo técnico con cotas que se reescala por talla.
 - Respeta `prefers-reduced-motion` (versión estática sin animaciones) y funciona sin WebGL.
@@ -18,6 +18,7 @@ css/styles.css    Estilos (paleta y tipografías en :root)
 js/data.js        Textos, precios, tallas e imágenes (editar aquí)
 js/main.js        Render, animaciones, tallas, formulario
 js/hero3d.js      Tejido 3D del hero
+js/stage3d.js     Maniquí y prendas 3D de las colecciones
 js/vendor/        three, gsap, ScrollTrigger, lenis (copias locales)
 assets/img/       Imágenes propias
 ```
@@ -33,8 +34,8 @@ y abre http://localhost:8000 (mejor que abrir el archivo con doble clic).
 ## Cambiar contenido
 
 - Textos, productos, precios, tallas y frase del hero: `js/data.js`.
-- Imágenes: copia el archivo en `assets/img/` y pon su ruta en el campo `img` (`"assets/img/montmartre.jpg"`). Sin ruta se muestra una muestra de tejido.
-- Colores y tipografías: variables al inicio de `css/styles.css`.
+- Prendas 3D: parámetros `model` de cada producto (tejido, color, largo, cuello, botones...).
+- Tipografía: Marcellus (títulos) y Jost (texto). Colores y fuentes al inicio de `css/styles.css`.
 
 ## Publicar en Vercel
 

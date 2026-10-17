@@ -10,7 +10,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2316120f'/%3E%3Ctext x='16' y='22' font-family='serif' font-size='17' text-anchor='middle' fill='%23F5F0E8'%3EMC%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="is-loading">
@@ -63,14 +63,8 @@
       <p class="manifesto__text" id="manifestoText"></p>
     </section>
 
-    <!-- COLECCIONES -->
-    <section class="gallery" id="colecciones" aria-label="Colecciones">
-      <div class="track" id="track"></div>
-      <div class="gallery__bar" id="galleryBar" aria-hidden="true">
-        <span class="gallery__now" id="galleryNow"></span>
-        <span class="gallery__line"><i id="galleryFill"></i></span>
-      </div>
-    </section>
+    <!-- COLECCIONES: una escena fijada por colección -->
+    <div id="stages"></div>
 
     <!-- ATELIER -->
     <section class="atelier" id="atelier">
@@ -192,6 +186,7 @@
   <script src="js/vendor/lenis.min.js"></script>
   <script src="js/data.js"></script>
   <script src="js/hero3d.js"></script>
+  <script src="js/stage3d.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

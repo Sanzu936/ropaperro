@@ -64,38 +64,37 @@
     });
   })();
 
-  // Colecciones: panel de apertura + un capítulo por línea
-  var track = $("track");
-  var html = '<div class="chapter chapter--open"><div class="chapter__intro">' +
-    '<h2 class="chapter__title chapter__title--lead">Colecciones</h2>' +
-    '<p class="chapter__text">Tres líneas. Cada pieza es una serie de ' + D.edition + ' y lleva su número.</p>' +
-    '</div></div>';
-  D.collections.forEach(function (c) {
+  // Colecciones: una escena fijada por colección
+  var stagesEl = $("stages");
+  stagesEl.innerHTML = D.collections.map(function (c, ci) {
     var name = c.label.replace(/^Línea\s+/, "");
-    var dark = c.id === "ceremonia";
-    html += '<div class="chapter' + (dark ? " chapter--dark" : "") + '" id="' + esc(c.id) + '" data-name="' + esc(name) + '">' +
-      '<div class="chapter__intro">' +
-        '<p class="chapter__season">' + esc(c.season) + '</p>' +
-        '<h3 class="chapter__title">' + esc(name) + '</h3>' +
-        '<p class="chapter__text">' + esc(c.text) + '</p>' +
+    return '<section class="stage stage--' + esc(c.theme || "light") + '" id="' + (ci === 0 ? "colecciones" : esc(c.id)) + '" data-i="' + ci + '" aria-label="' + esc(c.label) + '">' +
+      '<div class="stage__pin">' +
+        '<canvas class="stage__canvas" aria-hidden="true"></canvas>' +
+        '<div class="stage__text">' +
+          '<p class="stage__season">' + esc(c.season) + '</p>' +
+          '<h2 class="stage__title">' + esc(name) + '</h2>' +
+          '<p class="stage__desc">' + esc(c.text) + '</p>' +
+        '</div>' +
+        '<div class="stage__items">' +
+        c.products.map(function (p, pi) {
+          return '<article class="pinfo' + (pi === 0 ? " is-active" : "") + '">' +
+            '<p class="pinfo__tag">N&ordm; ' + pad(p.number) + ' / ' + D.edition + '</p>' +
+            '<h3 class="pinfo__name">' + esc(p.name) + '</h3>' +
+            '<p class="pinfo__mat">' + esc(p.material) + '</p>' +
+            '<p class="pinfo__price">' + price(p.price) + '</p>' +
+          '</article>';
+        }).join("") +
+        '</div>' +
+        '<ol class="stage__list" aria-label="Prendas de la línea ' + esc(name) + '">' +
+        c.products.map(function (p, pi) {
+          return '<li><button type="button" class="stage__go' + (pi === 0 ? " is-active" : "") + '" data-p="' + pi + '"><span>' + esc(p.name) + '</span></button></li>';
+        }).join("") +
+        '</ol>' +
+        (ci === 0 ? '<p class="stage__hint" aria-hidden="true"><span></span>Desplace para ver cada prenda</p>' : "") +
       '</div>' +
-      '<div class="chapter__items">' +
-      c.products.map(function (p) {
-        return '<article class="ficha">' +
-          '<div class="ficha__tilt" data-cursor>' +
-            '<div class="swatch" data-tone="' + esc(p.tone || "arena") + '" data-img="' + esc(p.img || "") + '" data-alt="' + esc(p.name) + '">' +
-              '<span class="swatch__tag">N&ordm; ' + pad(p.number) + ' / ' + D.edition + '</span>' +
-            '</div>' +
-          '</div>' +
-          '<h4 class="ficha__name">' + esc(p.name) + '</h4>' +
-          '<p class="ficha__mat">' + esc(p.material) + '</p>' +
-          '<p class="ficha__price">' + price(p.price) + '</p>' +
-        '</article>';
-      }).join("") +
-      '</div></div>';
-  });
-  track.innerHTML = html;
-  document.querySelectorAll(".ficha .swatch").forEach(function (el) { setImage(el, el.dataset.img, el.dataset.alt); });
+    '</section>';
+  }).join("");
 
   // Atelier
   var A = D.atelier;
@@ -227,7 +226,16 @@
   if (window.THREE && window.initHero) hero = window.initHero(canvas, { reduceMotion: reduce });
   if (!hero) document.querySelector(".hero").classList.add("no-webgl");
 
+  var stageCtl = Array.prototype.map.call(document.querySelectorAll(".stage"), function (el, ci) {
+    if (!window.THREE || !window.initStage) return null;
+    var c = D.collections[ci];
+    return window.initStage(el.querySelector(".stage__canvas"), {
+      models: c.products.map(function (p) { return p.model; }), form: c.form, reduceMotion: reduce || !hasGSAP
+    });
+  });
+
   if (!animate) {
+    document.querySelectorAll(".stage").forEach(function (el) { el.classList.add("stage--static"); });
     document.body.classList.remove("is-loading");
     var l = $("loader"); if (l) l.remove();
     heroChars.forEach(function (c) { c.style.transform = "none"; });
@@ -272,7 +280,7 @@
   });
 
   /* ---- Títulos: máscara por palabra ---- */
-  document.querySelectorAll(".title").forEach(function (t) {
+  document.querySelectorAll(".title, .stage__title").forEach(function (t) {
     var ws = words(t, "mw");
     ws.forEach(function (w) { w.innerHTML = '<span class="mw__i">' + esc(w.textContent) + "</span>"; });
     gsap.from(t.querySelectorAll(".mw__i"), {
@@ -281,51 +289,37 @@
     });
   });
 
-  /* ---- Galería horizontal (escritorio) ---- */
-  var gallery = $("colecciones");
-  var chapters = Array.prototype.slice.call(track.querySelectorAll(".chapter"));
-  var now = $("galleryNow"), fill = $("galleryFill");
-  var mm = gsap.matchMedia();
-  mm.add("(min-width: 900px)", function () {
-    function dist() { return track.scrollWidth - window.innerWidth; }
-    gsap.to(track, {
-      x: function () { return -dist(); }, ease: "none",
-      scrollTrigger: {
-        trigger: gallery, start: "top top", end: function () { return "+=" + dist(); },
-        pin: true, scrub: 0.7, invalidateOnRefresh: true, anticipatePin: 1,
-        onToggle: function (self) { $("thread").classList.toggle("is-hidden", self.isActive); },
-        onUpdate: function (self) {
-          fill.style.transform = "scaleX(" + self.progress + ")";
-          var x = -gsap.getProperty(track, "x"), label = "Colecciones";
-          chapters.forEach(function (c) { if (c.dataset.name && c.offsetLeft - window.innerWidth * 0.55 < x) label = c.dataset.name; });
-          if (now.textContent !== label) now.textContent = label;
-        }
+  /* ---- Colecciones: cada línea fija el scroll y presenta sus prendas ---- */
+  var threadEl = $("thread");
+  document.querySelectorAll(".stage").forEach(function (el, ci) {
+    var c = D.collections[ci], n = c.products.length, ctl = stageCtl[ci];
+    var infos = el.querySelectorAll(".pinfo"), btns = el.querySelectorAll(".stage__go"), hint = el.querySelector(".stage__hint");
+    var active = 0;
+    function setActive(a) {
+      if (a === active) return;
+      active = a;
+      infos.forEach(function (x, i) { x.classList.toggle("is-active", i === a); });
+      btns.forEach(function (x, i) { x.classList.toggle("is-active", i === a); });
+    }
+    var st = ScrollTrigger.create({
+      trigger: el, start: "top top", pin: true, anticipatePin: 1, invalidateOnRefresh: true,
+      end: function () { return "+=" + Math.round(window.innerHeight * n * 0.95); },
+      onToggle: function (self) { if (c.theme === "dark") threadEl.classList.toggle("on-dark", self.isActive); },
+      onUpdate: function (self) {
+        var k = self.progress * n;
+        if (ctl) ctl.setK(k);
+        setActive(Math.max(0, Math.min(n - 1, Math.floor(k))));
+        if (hint) hint.classList.toggle("is-gone", self.progress > 0.02);
       }
     });
-    // las fichas se desplazan un poco más despacio que el carril: sensación de profundidad
-    gsap.utils.toArray(".chapter__items").forEach(function (items) {
-      gsap.fromTo(items, { x: 60 }, {
-        x: -60, ease: "none",
-        scrollTrigger: { trigger: gallery, start: "top top", end: function () { return "+=" + dist(); }, scrub: 0.7, invalidateOnRefresh: true }
+    btns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var y = st.start + ((+b.dataset.p + 0.5) / n) * (st.end - st.start);
+        if (lenis) lenis.scrollTo(y, { duration: 1.5, easing: function (t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); } });
+        else window.scrollTo({ top: y });
       });
     });
-    now.textContent = "Colecciones";
   });
-
-  /* ---- Fichas: inclinación 3D al pasar el cursor ---- */
-  if (finePointer) {
-    document.querySelectorAll(".ficha__tilt").forEach(function (el) {
-      var rx = gsap.quickTo(el, "rotationX", { duration: 0.6, ease: "power3.out" });
-      var ry = gsap.quickTo(el, "rotationY", { duration: 0.6, ease: "power3.out" });
-      gsap.set(el, { transformPerspective: 900, transformOrigin: "50% 50%" });
-      el.addEventListener("pointermove", function (e) {
-        var r = el.getBoundingClientRect();
-        ry(((e.clientX - r.left) / r.width - 0.5) * 12);
-        rx(-((e.clientY - r.top) / r.height - 0.5) * 12);
-      });
-      el.addEventListener("pointerleave", function () { rx(0); ry(0); });
-    });
-  }
 
   /* ---- Atelier: la pieza se abre como un paño ---- */
   gsap.fromTo("#atelierFrame", { clipPath: "inset(16% 16% 16% 16%)" }, {
