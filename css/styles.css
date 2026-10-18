@@ -574,14 +574,7 @@ main[data-product="abrigo"] { background: var(--tint-abrigo); }
   .gallery-hint { display: block; margin-top: 14px; font-size: 12.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
   .gallery:focus-visible { outline-offset: -2px; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .js-fx .reveal, .js-fx .scene-media.reveal, .js-fx .split-media.reveal { opacity: 1; transform: none; }
-  .js-fx .scene-media.reveal .frame, .js-fx .split-media.reveal .frame { clip-path: none; }
-  .js-fx .stitch i { clip-path: none; }
-  .cota path { stroke-dashoffset: 0; }
-  .cota text { opacity: 1; }
-  .hero-pic, .cotas { animation: none; }
-}
+
 
 
 /* ===== Acabado de casa de lujo ===== */
@@ -662,7 +655,7 @@ main[data-product="abrigo"] { background: var(--tint-abrigo); }
 .rail-end { align-self: center; width: clamp(200px, 40vw, 300px); }
 .rail-cta { display: grid; place-items: center; aspect-ratio: 1; border: 1px solid var(--ink); border-radius: 50%; font-size: 12.5px; letter-spacing: .2em; text-transform: uppercase; text-align: center; padding: 24px; transition: background-color .5s var(--ease), color .5s var(--ease); }
 .rail-cta:hover { background: var(--ink); color: var(--ivory); }
-@media (min-width: 961px) and (prefers-reduced-motion: no-preference) {
+@media (min-width: 961px) {
   .rail.is-pinned .rail-sticky { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: calc(var(--header-h) + 8px) 0 24px; overflow: hidden; }
   .rail.is-pinned .rail-viewport { overflow: visible; }
   .rail.is-pinned .rail-track { will-change: transform; }
@@ -704,13 +697,7 @@ main[data-product="abrigo"] { background: var(--tint-abrigo); }
   .figures-grid { grid-template-columns: minmax(0, 1fr); }
   .manifesto-lg blockquote { font-size: clamp(36px, 10.5vw, 52px); }
 }
-@media (prefers-reduced-motion: reduce) {
-  .intro .intro-curtain { display: none; }
-  .marquee-track { animation: none; }
-  .js-fx .sw .si { transform: none; }
-  .scroll-cue span { animation: none; }
-  .header-hidden .site-header { transform: none; }
-}
+
 /* Adaptación */
 @media (max-width: 1100px) {
   .services { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -772,7 +759,4 @@ main[data-product="abrigo"] { background: var(--tint-abrigo); }
   #size-table tr.is-match td { background: none; }
   #size-table tr.is-match { background: var(--paper); }
 }
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0s !important; transition-duration: .01ms !important; }
-}
+

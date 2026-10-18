@@ -24,7 +24,8 @@
     }
   };
 
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  /* Decisión de marca: las animaciones se muestran siempre, aunque el sistema pida reducir el movimiento. */
+  var reduce = { matches: false, addEventListener: function () {} };
   var threePromise = null;
 
   function hasWebGL() {
