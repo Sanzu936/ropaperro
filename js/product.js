@@ -128,8 +128,8 @@ MC.ready(function () {
       '<p>' + msg + '</p>' +
       '<div class="t-actions"><a class="text-link" href="carrito.html">Ver el carrito</a><a class="text-link" href="checkout.html">Finalizar el pedido</a></div>'
     );
-    btn.textContent = 'Añadida al carrito';
     clearTimeout(resetTimer);
+    btn.textContent = added <= 0 ? 'Máximo alcanzado' : 'Añadida al carrito';
     resetTimer = setTimeout(function () { btn.textContent = 'Añadir al carrito'; }, 2400);
   });
 
