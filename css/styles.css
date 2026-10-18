@@ -116,7 +116,7 @@ h1 em, h2 em, .display em { font-style: italic; font-weight: 300; }
 .cart-link.has-items .cart-count { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
 .menu-toggle { display: none; align-items: center; gap: 12px; background: none; border: 0; padding: 12px 0; cursor: pointer; font-size: 12.5px; letter-spacing: .18em; text-transform: uppercase; font-weight: 400; }
 .menu-toggle-bars { width: 22px; height: 7px; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; }
-.mobile-nav { position: fixed; top: var(--header-h); left: 0; right: 0; bottom: 0; background: var(--ivory); padding: 24px var(--gutter) 48px; overflow-y: auto; animation: page-in .35s var(--ease) both; }
+.mobile-nav { position: fixed; z-index: 49; top: var(--header-h); left: 0; right: 0; bottom: 0; background: var(--ivory); padding: 24px var(--gutter) 48px; overflow-y: auto; animation: page-in .35s var(--ease) both; }
 .mobile-nav[hidden] { display: none; }
 .mobile-nav li { border-bottom: 1px solid var(--line); }
 .mobile-nav a { display: block; padding: 18px 0; font-family: var(--serif); font-size: 32px; line-height: 1.1; font-weight: 300; }
@@ -148,7 +148,7 @@ h1 em, h2 em, .display em { font-style: italic; font-weight: 300; }
 
 /* Tarjetas de producto */
 .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 48px); }
-.cards.two { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 960px; margin: 0 auto; }
+.cards.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .card { display: block; }
 .card-media { aspect-ratio: 4 / 5; }
 .card-img { position: absolute; inset: 0; transition: opacity .9s var(--ease), transform 1.4s var(--ease); }
@@ -471,6 +471,16 @@ select.input { background-image: linear-gradient(45deg, transparent 50%, var(--i
   .step { grid-template-columns: 40px 1fr; }
   .btn { padding: 0 24px; }
   .notice { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 640px) {
+  #size-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  #size-table, #size-table tbody, #size-table tr, #size-table td { display: block; }
+  #size-table tr { padding: 20px 0; border-bottom: 1px solid var(--line); }
+  #size-table td { padding: 3px 0; border: 0; font-size: 15.5px; }
+  #size-table td:first-child { font-size: 34px; margin-bottom: 6px; }
+  #size-table td[data-label]::before { content: attr(data-label) ' · '; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+  #size-table tr.is-match td { background: none; }
+  #size-table tr.is-match { background: var(--paper); }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

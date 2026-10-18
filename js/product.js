@@ -116,10 +116,16 @@ MC.ready(function () {
       form.querySelector('input[name="size"]').focus();
       return;
     }
+    var prev = MC.cart.items().filter(function (i) { return i.id === p.id && i.size === size; })[0];
+    var before = prev ? prev.qty : 0;
     MC.cart.add(p.id, size, qty);
+    var added = Math.min(qty, MC.MAX_QTY - before);
+    var msg = added <= 0
+      ? 'Ya tiene ' + MC.MAX_QTY + ' unidades en talla ' + size + ', el máximo por línea. Para más, escríbanos.'
+      : 'Talla ' + size + ', ' + added + (added === 1 ? ' unidad añadida' : ' unidades añadidas') + ' al carrito' + (added < qty ? ' (máximo de ' + MC.MAX_QTY + ' por línea).' : '.');
     MC.toast(
       '<span class="t-name">' + p.name + '</span>' +
-      '<p>Talla ' + size + ', ' + qty + (qty === 1 ? ' unidad añadida' : ' unidades añadidas') + ' al carrito.</p>' +
+      '<p>' + msg + '</p>' +
       '<div class="t-actions"><a class="text-link" href="carrito.html">Ver el carrito</a><a class="text-link" href="checkout.html">Finalizar el pedido</a></div>'
     );
     btn.textContent = 'Añadida al carrito';

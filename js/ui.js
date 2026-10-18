@@ -103,6 +103,13 @@
       });
     }
 
+    if (window.MC_ROOT) {
+      Array.prototype.forEach.call(document.querySelectorAll('#site-header a[href], #mobile-nav a[href], #site-footer a[href], .lost a[href]'), function (a) {
+        var h = a.getAttribute('href');
+        if (!/^(\/|#|mailto:|https?:)/.test(h)) a.setAttribute('href', window.MC_ROOT + h);
+      });
+    }
+
     updateCount();
     MC.cart.onChange(updateCount);
   }

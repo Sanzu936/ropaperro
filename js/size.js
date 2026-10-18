@@ -2,7 +2,7 @@
 MC.ready(function () {
   var tbody = document.querySelector('#size-table tbody');
   tbody.innerHTML = MC.SIZES.map(function (s) {
-    return '<tr data-size="' + s.id + '"><td>' + s.id + '</td><td>' + s.chest[0] + '–' + s.chest[1] + ' cm</td><td>' + s.back[0] + '–' + s.back[1] + ' cm</td><td>' + s.breeds + '</td></tr>';
+    return '<tr data-size="' + s.id + '"><td>' + s.id + '</td><td data-label="Pecho">' + s.chest[0] + '–' + s.chest[1] + ' cm</td><td data-label="Lomo">' + s.back[0] + '–' + s.back[1] + ' cm</td><td data-label="Razas">' + s.breeds + '</td></tr>';
   }).join('');
 
   var form = document.getElementById('calc-form');
@@ -31,8 +31,8 @@ MC.ready(function () {
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var chest = parse(chestEl.value);
-    var back = parse(backEl.value);
+    var chest = Math.round(parse(chestEl.value));
+    var back = Math.round(parse(backEl.value));
     if (isNaN(chest) || chest <= 0) return fail('Indique el contorno de pecho en centímetros.', chestEl);
     if (isNaN(back) || back <= 0) return fail('Indique el largo de lomo en centímetros.', backEl);
     var ci = indexFor(chest, 'chest');
