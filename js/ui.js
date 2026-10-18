@@ -84,6 +84,9 @@
       toggle.querySelector('.menu-toggle-label').textContent = open ? 'Cerrar' : 'Menú';
       panel.hidden = !open;
       document.documentElement.classList.toggle('menu-open', open);
+      Array.prototype.forEach.call(document.querySelectorAll('main, #site-footer, .skip'), function (el) {
+        if (open) el.setAttribute('inert', ''); else el.removeAttribute('inert');
+      });
     }
     if (toggle) {
       toggle.addEventListener('click', function () {

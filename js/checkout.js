@@ -174,7 +174,7 @@ MC.ready(function () {
 
     sending = true;
     payBtn.disabled = true;
-    payBtn.textContent = 'Procesando el pago…';
+    payBtn.textContent = 'Registrando el pedido…';
     setTimeout(function () {
       var now = new Date();
       var ship = shipping();

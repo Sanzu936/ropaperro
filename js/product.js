@@ -72,7 +72,7 @@ MC.ready(function () {
     '<section class="section bg-stone" aria-labelledby="otras">' +
       '<div class="container">' +
         '<div class="section-head"><div><p class="eyebrow">La colección</p><h2 id="otras" style="margin-top:20px">Las otras dos prendas.</h2></div>' +
-        '<p>Pensadas para combinarse: el jersey bajo la gabardina, la gabardina sobre el jersey.</p></div>' +
+        '<p>Las otras dos prendas de la colección, cortadas sobre las mismas medidas.</p></div>' +
         '<div class="cards two">' + others.map(MC.card).join('') + '</div>' +
       '</div>' +
     '</section>';

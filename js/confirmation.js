@@ -23,7 +23,7 @@ MC.ready(function () {
     '<section class="confirm-head" aria-labelledby="gracias">' +
       '<p class="eyebrow">Pedido confirmado</p>' +
       '<h1 id="gracias">Gracias, <em>' + MC.esc(c.firstName) + '.</em></h1>' +
-      '<p>Su pedido queda registrado a nombre de ' + MC.esc(c.email) + '. Esta compra es una simulación: no se ha realizado ningún cargo ni se enviará ningún correo.</p>' +
+      '<p>Su pedido queda registrado con el correo ' + MC.esc(c.email) + '. Esta compra es una simulación: no se ha realizado ningún cargo ni se enviará ningún correo.</p>' +
       '<p class="order-no">Pedido ' + MC.esc(o.number) + '</p>' +
     '</section>' +
     '<div class="confirm-grid">' +
