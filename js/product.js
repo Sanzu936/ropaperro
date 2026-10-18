@@ -63,9 +63,8 @@ MC.ready(function () {
           '<div class="accordion">' +
             acc('Descripción', p.description.map(function (t) { return '<p>' + t + '</p>'; }).join(''), true) +
             acc('Detalles', '<ul>' + p.details.map(function (t) { return '<li>' + t + '</li>'; }).join('') + '</ul>') +
-            acc('Materiales y origen', '<p>' + p.materials + '</p>') +
             acc('Cuidado', '<p>' + p.care + '</p>') +
-            acc('Envíos y cambios', '<p>Envío asegurado y gratuito en 3 a 4 días laborables, o en 24 horas por 18 €. Cambio de talla sin coste durante 30 días.</p><p><a href="envios-y-cuidados.html">Consultar las condiciones completas</a></p>') +
+            acc('Envíos y cambios', '<p><a href="envios-y-cuidados.html">Consultar plazos, cambios y devoluciones</a></p>') +
           '</div>' +
         '</div>' +
       '</div>' +
@@ -86,7 +85,7 @@ MC.ready(function () {
     '<section class="section bg-stone" aria-labelledby="otras">' +
       '<div class="container">' +
         '<div class="section-head"><div><p class="eyebrow">La colección</p><h2 id="otras" style="margin-top:20px">Las otras dos piezas.</h2></div>' +
-        '<p>Las otras dos piezas de la colección de invierno.</p></div>' +
+        '</div>' +
         '<div class="cards two">' + others.map(MC.card).join('') + '</div>' +
       '</div>' +
     '</section>';

@@ -10,8 +10,8 @@ vendome.html               Nº 1 · Abrigo Vendôme (1.290 €)
 montaigne.html            Nº 2 · Plumífero Montaigne (1.190 €)
 rivoli.html                Nº 3 · Capa Rivoli (1.680 €)
 guia-de-tallas.html        Cómo medir, calculadora y tabla de tallas
-la-maison.html             Historia, materiales y artesanía
-envios-y-cuidados.html     Envíos, cambios, cuidado y reparaciones
+la-maison.html             Marca y contacto
+envios-y-cuidados.html     Envíos, cambios y cuidado
 carrito.html               Carrito
 checkout.html              Entrega y pago simulado
 confirmacion.html          Pedido confirmado
@@ -35,7 +35,7 @@ fonts/                     Cormorant Garamond y Jost, alojadas en local
 ## Decisiones
 
 - **Prendas:** abrigo cruzado de lana gris (Vendôme, a partir de la fotografía de referencia del cliente), plumífero negro lacado (Montaigne, ídem) y una capa de cachemir camel (Rivoli, propuesta de la casa). Los precios son provisionales.
-- **Un solo color por prenda** (Arena, Avena, Loden): da a cada prenda un tono propio y evita un selector de color.
+- **Un solo color por prenda** (gris jaspeado, negro lacado, camel): evita un selector de color.
 - **Tallas por medidas** (pecho y lomo), cinco tallas XS–XL, con calculadora que enlaza a cada prenda con la talla ya elegida.
 - **Carrito:** `localStorage` (clave `maisoncanis.cart.v1`), máximo 10 unidades por línea, con «Deshacer» al retirar.
 - **Checkout:** valida todos los campos; no almacena datos de tarjeta y acepta cualquier número de 13 a 19 dígitos. El pedido queda en `localStorage` solo para mostrar la confirmación. No se envía ningún correo real.

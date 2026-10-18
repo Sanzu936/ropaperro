@@ -20,23 +20,23 @@
       color: 'Gris jaspeado',
       price: 1290,
       cardLine: 'Lana gris jaspeada, doble botonadura y cinturón.',
-      lead: 'Un abrigo cruzado de lana gris, con solapas de pico, doble botonadura y cinturón anudado.',
+      lead: 'Un abrigo cruzado de lana gris, con solapas, doble botonadura y cinturón anudado.',
       description: [
-        'Abrigo largo de lana en gris jaspeado, de corte cruzado: solapas de pico, dos filas de botones negros y un cinturón a juego que se anuda en la cintura.',
-        'Cubre el lomo y el pecho y cae recto, con la línea limpia de un abrigo de sastrería.'
+        'Abrigo de lana en gris jaspeado, de corte cruzado: solapas, dos filas de botones negros y un cinturón a juego que se anuda en la cintura.',
+        'Cubre el lomo y el pecho.'
       ],
       details: [
         'Lana en gris jaspeado',
         'Cierre cruzado con doble botonadura',
-        'Solapas de pico',
+        'Solapas',
         'Botones negros',
         'Cinturón de lana a juego'
       ],
-      materials: 'Exterior: lana. Botones: negros.',
+      materials: 'Lana.',
       care: 'Limpieza en seco profesional. Cepíllela en el sentido del tejido y déjela airear tras cada uso. No la planche: si fuera necesario, aplique vapor desde lejos.',
       images: [
         { file: 'vendome-01.jpg', w: 1200, h: 1500, alt: 'Galgo whippet con el abrigo cruzado Vendôme de lana gris, de perfil, sobre fondo de piedra gris claro' },
-        { file: 'vendome-02.jpg', w: 1000, h: 1000, alt: 'Detalle de las solapas de pico y de los botones negros del abrigo Vendôme' },
+        { file: 'vendome-02.jpg', w: 1000, h: 1000, alt: 'Detalle de la solapa y de los botones negros del abrigo Vendôme' },
         { file: 'vendome-03.jpg', w: 1000, h: 1000, alt: 'Detalle del cinturón anudado y de la lana jaspeada del abrigo Vendôme' },
         { file: 'vendome-04.jpg', w: 1500, h: 1000, alt: 'Lomo y costado del abrigo Vendôme sobre un galgo whippet' }
       ]
@@ -81,14 +81,12 @@
       cardLine: 'Cachemir doble faz en camel, con broche de latón.',
       lead: 'Una capa de cachemir doble faz en camel que cae sobre el lomo y se cierra con un broche de latón.',
       description: [
-        'Capa de cachemir doble faz en tono camel. Se apoya sobre el lomo y el pecho, se cierra en el cuello con un broche de latón y deja las patas libres.',
-        'Los bordes van rematados y la caída es la de una capa de sastrería, sin costuras que interrumpan la línea.'
+        'Capa de cachemir doble faz en tono camel. Se apoya sobre el lomo y el pecho, se cierra en el cuello con un broche de latón y deja las patas libres.'
       ],
       details: [
         'Cachemir doble faz',
         'Tono camel',
         'Broche de latón en el cuello',
-        'Bordes rematados',
         'Deja las patas libres'
       ],
       materials: 'Cachemir doble faz. Broche: latón.',

@@ -47,7 +47,6 @@
         '<div class="footer-col"><h2>Colección</h2><ul>' + prendas + '</ul></div>' +
         '<div class="footer-col"><h2>La Maison</h2><ul>' +
           '<li><a href="la-maison.html">La Maison</a></li>' +
-          '<li><a href="la-maison.html#tejidos">Tejidos</a></li>' +
           '<li><a href="guia-de-tallas.html">Guía de tallas</a></li>' +
         '</ul></div>' +
         '<div class="footer-col"><h2>Atención</h2><ul>' +

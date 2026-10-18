@@ -8,7 +8,7 @@
       name: 'Lana jaspeada',
       text: 'Lana en gris jaspeado, con botones negros y un cinturón a juego que se anuda en la cintura.',
       photo: 'vendome-02.jpg',
-      alt: 'Detalle de las solapas de pico y de los botones negros del abrigo Vendôme'
+      alt: 'Detalle de la solapa y de los botones negros del abrigo Vendôme'
     },
     montaigne: {
       name: 'Acolchado lacado',
@@ -288,7 +288,7 @@
     tex2.repeat.set(W / rep, H / rep);
     var mat;
     if (id === 'vendome') {
-      mat = new T.MeshStandardMaterial({ color: 0xa5a8a8, roughness: 0.9, metalness: 0, normalMap: tex2, normalScale: new T.Vector2(0.55, 0.55), vertexColors: true, side: T.DoubleSide });
+      mat = new T.MeshStandardMaterial({ color: 0x9aa0a8, roughness: 0.9, metalness: 0, normalMap: tex2, normalScale: new T.Vector2(0.55, 0.55), vertexColors: true, side: T.DoubleSide });
     } else if (id === 'montaigne') {
       mat = new T.MeshPhysicalMaterial({ color: 0x0c0c0d, roughness: 0.2, metalness: 0.15, clearcoat: 1, clearcoatRoughness: 0.12, envMap: this.env(T), envMapIntensity: 1.5, vertexColors: true, side: T.DoubleSide });
     } else {
@@ -373,7 +373,7 @@
     var self = this, pts = [], x = -0.15;
     for (var y = -H / 2 + 0.14; y <= H / 2 - 0.14; y += 0.1) pts.push(new T.Vector3(x, y, self.height('montaigne', x, y).z + 0.045));
     var metal = new T.MeshStandardMaterial({ color: 0xb9b9bd, roughness: 0.3, metalness: 0.95 });
-    var tube = new T.Mesh(new T.TubeGeometry(new T.CatmullRomCurve3(pts), 80, 0.022, 8, false), metal);
+    var tube = new T.Mesh(new T.TubeGeometry(new T.CatmullRomCurve3(pts), 80, 0.034, 8, false), metal);
     var tape = new T.Mesh(new T.TubeGeometry(new T.CatmullRomCurve3(pts), 80, 0.05, 8, false), new T.MeshStandardMaterial({ color: 0x050505, roughness: 0.5 }));
     var pull = new T.Mesh(new T.BoxGeometry(0.09, 0.2, 0.025), metal);
     var top = pts[pts.length - 3];

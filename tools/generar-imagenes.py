@@ -33,19 +33,6 @@ DOG = (
     "The dog is a slender FEMALE fawn-and-white whippet (no male anatomy visible, belly line clean) with correct canine anatomy: one head, two ears, four legs with paws, "
     "one tail, natural proportions, calm dignified expression, no genitals visible. "
 )
-GAB = (
-    "The dog wears the 'Auteuil' rain coat: a sand-coloured (warm khaki beige) dense cotton gabardine coat cut straight, "
-    "covering the back and chest, with a high fold-over collar closed by four small round horn-brown corozo buttons down the chest, "
-    "no belt, no straps, no buckles, no hood, no logos, impeccable tailoring. "
-)
-JER = (
-    "The dog wears the 'Passy' jumper: an oatmeal-coloured (warm cream beige) fine-gauge smooth cashmere knit jumper with a soft "
-    "folded turtleneck collar and a ribbed hem, no pattern, no logos. "
-)
-ABR = (
-    "The dog wears the 'Marais' coat: a loden-green (deep muted olive green) boiled-wool coat quilted in a regular square-grid lattice (squares about five centimetres), "
-    "with a high lined collar and a concealed placket, no visible buttons, no straps, no belts, no buckles, no logos, impeccable tailoring. "
-)
 
 # archivo: (modelo, aspecto, tamaño final px (ancho, alto), referencias, prompt)
 # Las referencias son nombres de imágenes ya generadas (images/) o rutas a archivos (tools/referencias/).
