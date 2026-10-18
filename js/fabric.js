@@ -18,9 +18,9 @@
     },
     rivoli: {
       name: 'Cachemir doble faz',
-      text: 'Cachemir doble faz en camel, de caída suave, con un botón de latón en el cuello.',
+      text: 'Cachemir doble faz en camel, de caída suave, con un broche de latón en el cuello.',
       photo: 'rivoli-02.jpg',
-      alt: 'Detalle del cuello y del botón de latón de la capa Rivoli'
+      alt: 'Detalle del cuello y del broche de latón de la capa Rivoli'
     }
   };
 

@@ -30,7 +30,7 @@ STYLE = (
     "Clean image: no props, no bowls, no furniture, no windows, no objects on the floor, nothing in the foreground. "
 )
 DOG = (
-    "The dog is a slender female fawn-and-white whippet with correct canine anatomy: one head, two ears, four legs with paws, "
+    "The dog is a slender FEMALE fawn-and-white whippet (no male anatomy visible, belly line clean) with correct canine anatomy: one head, two ears, four legs with paws, "
     "one tail, natural proportions, calm dignified expression, no genitals visible. "
 )
 GAB = (
@@ -51,7 +51,7 @@ ABR = (
 # Las referencias son nombres de imágenes ya generadas (images/) o rutas a archivos (tools/referencias/).
 VEND = (
     "The dog wears the 'Vendôme' coat: a long double-breasted coat in heather-grey wool flannel, adapted to a dog's body: tailored peak-lapel collar, "
-    "two vertical rows of two large black horn buttons on the chest, and a matching wool tie belt around the waist knotted in a soft bow at the side. "
+    "two vertical rows of two large, clearly JET-BLACK glossy buttons on the chest (the buttons must be black, not brown or tan), and a matching wool tie belt around the waist knotted in a soft bow at the side. "
     "The coat covers the back and chest and falls just past the ribs. No hood, no logos, impeccable tailoring. "
     "Reproduce the cut, fabric and colour of the garment in the attached design reference, but fitted on the dog; do not include the woman from the reference. "
 )
@@ -82,16 +82,16 @@ IMAGES = {
 # Recortes sin coste: detalles sacados del original de alta resolución (tools/originales/*.png)
 # nombre: (origen, caja (x0, y0, x1, y1) en fracciones del original, tamaño final)
 DERIVED = {
- "vendome-02": ("vendome-01", (0.40, 0.18, 0.88, 0.60), (1000, 1000)),
- "vendome-03": ("vendome-01", (0.06, 0.34, 0.60, 0.88), (1000, 1000)),
- "vendome-04": ("vendome-01", (0.00, 0.20, 1.00, 0.86), (1500, 1000)),
- "montaigne-02": ("montaigne-01", (0.40, 0.18, 0.88, 0.60), (1000, 1000)),
- "montaigne-03": ("montaigne-01", (0.06, 0.34, 0.60, 0.88), (1000, 1000)),
- "montaigne-04": ("montaigne-01", (0.00, 0.20, 1.00, 0.86), (1500, 1000)),
- "rivoli-02": ("rivoli-01", (0.40, 0.18, 0.88, 0.60), (1000, 1000)),
- "rivoli-03": ("rivoli-01", (0.06, 0.34, 0.60, 0.88), (1000, 1000)),
- "rivoli-04": ("rivoli-01", (0.00, 0.20, 1.00, 0.86), (1500, 1000)),
- "hero-inicio-movil": ("hero-inicio", (0.07, 0.0, 0.52, 1.0), (1200, 1500)),
+ "vendome-02": ("vendome-01", (0.45, 0.38, 0.80, 0.66), (1000, 1000)),
+ "vendome-03": ("vendome-01", (0.12, 0.42, 0.52, 0.74), (1000, 1000)),
+ "vendome-04": ("vendome-01", (0.08, 0.36, 0.90, 0.80), (1500, 1000)),
+ "montaigne-02": ("montaigne-01", (0.40, 0.29, 0.76, 0.58), (1000, 1000)),
+ "montaigne-03": ("montaigne-01", (0.18, 0.33, 0.50, 0.585), (1000, 1000)),
+ "montaigne-04": ("montaigne-01", (0.22, 0.28, 0.78, 0.58), (1500, 1000)),
+ "rivoli-02": ("rivoli-01", (0.50, 0.22, 0.85, 0.50), (1000, 1000)),
+ "rivoli-03": ("rivoli-01", (0.12, 0.34, 0.50, 0.64), (1000, 1000)),
+ "rivoli-04": ("rivoli-01", (0.08, 0.28, 0.82, 0.68), (1500, 1000)),
+ "hero-inicio-movil": ("vendome-01", (0.0, 0.0, 1.0, 1.0), (1200, 1500)),
 }
 
 def derive(name):
@@ -122,6 +122,39 @@ def data_url(path):
     return "data:image/jpeg;base64," + base64.b64encode(path.read_bytes()).decode()
 
 # Nota: images/guia-medicion.jpg es un recorte (cuello, manos y cinta) del original 2528×1696 generado con este prompt.
+
+def generate_kie(prompt, aspect, big, res4k=False):
+    """Alternativa cuando OpenRouter no tiene saldo: Kie API (modelo nano-banana-pro).
+    La clave va en el entorno (KIE_API_KEY) o en .env; en el entorno de desarrollo la inyecta el proxy.
+    Kie solo admite imágenes de referencia por URL pública, así que aquí se usa solo el texto."""
+    import time
+    headers = {"Content-Type": "application/json"}
+    key = os.environ.get("KIE_API_KEY", "")
+    env = ROOT / ".env"
+    if not key and env.exists():
+        for line in env.read_text().splitlines():
+            if line.startswith("KIE_API_KEY="):
+                key = line.split("=", 1)[1].strip()
+    if key:
+        headers["Authorization"] = "Bearer " + key
+    body = {"model": "nano-banana-pro", "input": {"prompt": prompt, "image_input": [], "aspect_ratio": aspect,
+            "resolution": "4K" if res4k else ("2K" if big else "1K"), "output_format": "png"}}
+    req = urllib.request.Request("https://api.kie.ai/api/v1/jobs/createTask", json.dumps(body).encode(), headers)
+    res = json.load(urllib.request.urlopen(req, timeout=120))
+    if res.get("code") != 200:
+        raise RuntimeError("Kie: " + json.dumps(res)[:300])
+    task = res["data"]["taskId"]
+    for _ in range(90):
+        time.sleep(6)
+        r = urllib.request.Request("https://api.kie.ai/api/v1/jobs/recordInfo?taskId=" + task, headers=headers)
+        d = json.load(urllib.request.urlopen(r, timeout=60)).get("data") or {}
+        if d.get("state") == "success":
+            url = json.loads(d["resultJson"])["resultUrls"][0]
+            return urllib.request.urlopen(url, timeout=120).read()
+        if d.get("state") == "fail":
+            raise RuntimeError("Kie: " + str(d.get("failMsg")))
+    raise RuntimeError("Kie: tiempo agotado")
+
 def generate(name, spec):
     from PIL import Image
     model, aspect, size, refs, prompt = spec
@@ -139,20 +172,28 @@ def generate(name, spec):
         headers["Authorization"] = "Bearer " + key
     req = urllib.request.Request("https://openrouter.ai/api/v1/chat/completions", json.dumps(body).encode(), headers)
     import time
-    for intento in range(5):           # OpenRouter responde 402/429 de forma intermitente
+    raw = None
+    for intento in range(3):           # OpenRouter primero
         try:
             with urllib.request.urlopen(req, timeout=300) as r:
                 res = json.load(r)
+            msg = res["choices"][0]["message"]
+            imgs = msg.get("images") or []
+            if not imgs:
+                raise RuntimeError("sin imagen: " + json.dumps(msg)[:300])
+            raw = base64.b64decode(imgs[0]["image_url"]["url"].split(",", 1)[1])
+            used = "openrouter"
             break
         except urllib.error.HTTPError as e:
-            if e.code not in (402, 429, 500, 502, 503) or intento == 4:
+            if e.code == 402:           # sin saldo: pasa a Kie API
+                break
+            if e.code not in (429, 500, 502, 503) or intento == 2:
                 raise
             time.sleep(15 * (intento + 1))
-    msg = res["choices"][0]["message"]
-    imgs = msg.get("images") or []
-    if not imgs:
-        raise RuntimeError("sin imagen: " + json.dumps(msg)[:300])
-    raw = base64.b64decode(imgs[0]["image_url"]["url"].split(",", 1)[1])
+    if raw is None:
+        used = "kie"
+        import re
+        raw = generate_kie(re.sub(r"Reproduce [^.]*\.", "", prompt), aspect, size[0] > 1300, res4k=(aspect == "4:5" and name.endswith("-01") and name != "hero-inicio-movil"))
     RAW.mkdir(exist_ok=True)
     (RAW / (name + ".png")).write_bytes(raw)
     im = Image.open(io.BytesIO(raw)).convert("RGB")
@@ -166,7 +207,7 @@ def generate(name, spec):
         nh = int(w / ratio); im = im.crop((0, (h - nh) // 2, w, (h - nh) // 2 + nh))
     im = im.resize(size, Image.LANCZOS)
     im.save(OUT / (name + ".jpg"), "JPEG", quality=80, optimize=True, progressive=True)
-    print(name, model, im.size, (OUT / (name + ".jpg")).stat().st_size // 1024, "KB", res.get("usage", {}).get("cost", ""))
+    print(name, used, im.size, (OUT / (name + ".jpg")).stat().st_size // 1024, "KB")
 
 if __name__ == "__main__":
     args = sys.argv[1:]
@@ -182,3 +223,6 @@ if __name__ == "__main__":
             derive(n)
         else:
             generate(n, IMAGES[n])
+
+# Nota: hero-inicio.jpg es una composición: la foto vendome-01 (original 4K) sobre un fondo de estudio
+# extendido a 16:9, porque la versión 16:9 generada tenía las patas cortadas por el borde inferior.

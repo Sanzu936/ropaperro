@@ -78,24 +78,24 @@
       type: 'Capa de cachemir doble faz',
       color: 'Camel',
       price: 1680,
-      cardLine: 'Cachemir doble faz en camel, con botón de latón.',
-      lead: 'Una capa de cachemir doble faz en camel que cae sobre el lomo y se cierra con un botón de latón.',
+      cardLine: 'Cachemir doble faz en camel, con broche de latón.',
+      lead: 'Una capa de cachemir doble faz en camel que cae sobre el lomo y se cierra con un broche de latón.',
       description: [
-        'Capa de cachemir doble faz en tono camel. Se apoya sobre el lomo y el pecho, se cierra en el cuello con un botón de latón y deja las patas libres.',
+        'Capa de cachemir doble faz en tono camel. Se apoya sobre el lomo y el pecho, se cierra en el cuello con un broche de latón y deja las patas libres.',
         'Los bordes van rematados y la caída es la de una capa de sastrería, sin costuras que interrumpan la línea.'
       ],
       details: [
         'Cachemir doble faz',
         'Tono camel',
-        'Cierre con botón de latón envejecido',
+        'Broche de latón en el cuello',
         'Bordes rematados',
         'Deja las patas libres'
       ],
-      materials: 'Cachemir doble faz. Cierre: botón de latón.',
+      materials: 'Cachemir doble faz. Broche: latón.',
       care: 'Limpieza en seco profesional. Guárdela doblada o en una percha ancha, nunca colgada de un solo punto. Cepíllela suavemente en el sentido del tejido.',
       images: [
         { file: 'rivoli-01.jpg', w: 1200, h: 1500, alt: 'Galgo whippet con la capa Rivoli de cachemir camel, de perfil, sobre fondo terracota' },
-        { file: 'rivoli-02.jpg', w: 1000, h: 1000, alt: 'Detalle del cuello y del botón de latón de la capa Rivoli' },
+        { file: 'rivoli-02.jpg', w: 1000, h: 1000, alt: 'Detalle del cuello y del broche de latón de la capa Rivoli' },
         { file: 'rivoli-03.jpg', w: 1000, h: 1000, alt: 'Detalle de la caída y del tejido de cachemir de la capa Rivoli' },
         { file: 'rivoli-04.jpg', w: 1500, h: 1000, alt: 'Lomo y costado de la capa Rivoli sobre un galgo whippet' }
       ]
