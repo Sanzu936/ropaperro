@@ -225,13 +225,15 @@
   var W = 3.7, H = 2.7;
   Viewer.prototype.height = function (id, x, y) {
     var z = 0.3 * Math.sin(x * 0.95 + 0.5) * Math.cos(y * 0.5) - 0.05 * y * y + 0.04 * Math.sin(y * 2.2 + x);
+    var edge = Math.min(W / 2 - Math.abs(x), H / 2 - Math.abs(y));
     if (id === 'abrigo') {
+      var fade = Math.max(0, Math.min(1, (edge - 0.1) / 0.24)); fade = fade * fade * (3 - 2 * fade);
       var c = 0.62, a = (x + y) / c, b = (x - y) / c;
       var fa = a - Math.floor(a), fb = b - Math.floor(b);
       var d = Math.min(Math.min(fa, 1 - fa), Math.min(fb, 1 - fb));
       var t = Math.min(1, d / 0.24);
-      z += (Math.sin(t * Math.PI / 2) * 0.8 + 0.2 * t) * 0.07;
-      return { z: z, shade: 0.62 + 0.38 * Math.min(1, d / 0.09) };
+      z += (Math.sin(t * Math.PI / 2) * 0.8 + 0.2 * t) * 0.07 * fade;
+      return { z: z, shade: 1 - (0.38 * fade) * (1 - Math.min(1, d / 0.09)) };
     }
     if (id === 'jersey') {
       z = 0.34 * Math.sin(x * 0.8 + 0.2) * Math.cos(y * 0.45) - 0.05 * y * y;
@@ -263,9 +265,18 @@
     var pos = geo.attributes.position;
     var cols = new Float32Array(pos.count * 3);
     for (var i = 0; i < pos.count; i++) {
-      var h = this.height(id, pos.getX(i), pos.getY(i));
-      pos.setZ(i, h.z);
-      cols[i * 3] = cols[i * 3 + 1] = cols[i * 3 + 2] = h.shade;
+      var px = pos.getX(i), py = pos.getY(i);
+      var h = this.height(id, px, py);
+      /* dobladillo cosido: borde ligeramente elevado y pespunte discontinuo a su lado */
+      var ex = W / 2 - Math.abs(px), ey = H / 2 - Math.abs(py);
+      var ed = Math.min(ex, ey), along = ex < ey ? py : px;
+      var z = h.z + (ed < 0.075 ? 0.012 : 0), shade = h.shade;
+      if (ed > 0.085 && ed < 0.105 && Math.floor(along * 16) % 2 === 0) shade *= id === 'gabardina' ? 0.74 : 0.5;
+      if (ed < 0.075) shade *= 1.04;
+      /* variación suave del hilo, para que no sea un color plano */
+      shade *= 0.96 + 0.04 * Math.sin(px * 5.1 + py * 3.3) * Math.cos(py * 4.2 - px * 1.7);
+      pos.setZ(i, z);
+      cols[i * 3] = cols[i * 3 + 1] = cols[i * 3 + 2] = shade;
     }
     geo.setAttribute('color', new T.BufferAttribute(cols, 3));
     geo.computeVertexNormals();
@@ -293,6 +304,15 @@
     mat.alphaTest = 0.5;
     this.mesh = new T.Mesh(geo, mat);
     this.group.add(this.mesh);
+    if (!this.shadow) {
+      var sc = document.createElement('canvas'); sc.width = sc.height = 128;
+      var sg = sc.getContext('2d'), gr = sg.createRadialGradient(64, 64, 6, 64, 64, 62);
+      gr.addColorStop(0, 'rgba(40,32,20,.34)'); gr.addColorStop(1, 'rgba(40,32,20,0)');
+      sg.fillStyle = gr; sg.fillRect(0, 0, 128, 128);
+      this.shadow = new T.Mesh(new T.PlaneGeometry(W * 1.35, H * 1.45), new T.MeshBasicMaterial({ map: new T.CanvasTexture(sc), transparent: true, depthWrite: false }));
+      this.shadow.position.set(0.12, -0.3, -0.55);
+      this.scene.add(this.shadow);
+    }
 
     if (id === 'gabardina') {
       this.addButton(T, 0.9, 0.3, 0.17);
