@@ -2,12 +2,13 @@
 (function () {
   'use strict';
   var root = document.documentElement;
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  /* Decisión de marca: las animaciones se muestran siempre, aunque el sistema pida reducir el movimiento. */
+  var reduce = { matches: false, addEventListener: function () {} };
   var fine = window.matchMedia('(hover: hover) and (pointer: fine)');
   MC.fx = {};
   root.classList.add('js-fx');
 
-  /* Scroll suave (Lenis, versión local fija). Desactivado con prefers-reduced-motion. */
+  /* Scroll suave (Lenis, versión local fija). Se mantiene siempre activo. */
   var lenis = null;
   function startLenis() {
     if (lenis || reduce.matches || typeof window.Lenis !== 'function') return;
