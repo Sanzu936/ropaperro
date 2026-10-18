@@ -35,7 +35,7 @@ fonts/                     Cormorant Garamond y Jost, alojadas en local
 ## Decisiones
 
 - **Prendas:** gabardina impermeable, jersey de cachemir y abrigo acolchado. Cubren tres capas del invierno, tres rangos de precio (540–1.180 €) y tres materiales distintos.
-- **Un solo color por prenda** (Arena, Avena, Loden): refuerza la idea de «tres prendas, ninguna de más» y evita un selector de color.
+- **Un solo color por prenda** (Arena, Avena, Loden): da a cada prenda un tono propio y evita un selector de color.
 - **Tallas por medidas** (pecho y lomo), cinco tallas XS–XL, con calculadora que enlaza a cada prenda con la talla ya elegida.
 - **Carrito:** `localStorage` (clave `maisoncanis.cart.v1`), máximo 10 unidades por línea, con «Deshacer» al retirar.
 - **Checkout:** valida todos los campos; no almacena datos de tarjeta y acepta cualquier número de 13 a 19 dígitos. El pedido queda en `localStorage` solo para mostrar la confirmación. No se envía ningún correo real.
