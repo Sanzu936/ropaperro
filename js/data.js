@@ -3,10 +3,10 @@
   'use strict';
 
   var SIZES = [
-    { id: 'XS', chest: [30, 38], back: [20, 26], breeds: 'Chihuahua, yorkshire terrier' },
-    { id: 'S',  chest: [38, 46], back: [26, 32], breeds: 'Bichón maltés, carlino, westie' },
-    { id: 'M',  chest: [46, 56], back: [32, 40], breeds: 'Beagle, cocker spaniel, bulldog francés' },
-    { id: 'L',  chest: [56, 68], back: [40, 50], breeds: 'Border collie, springer spaniel' },
+    { id: 'XS', chest: [30, 37], back: [20, 25], breeds: 'Chihuahua, yorkshire terrier' },
+    { id: 'S',  chest: [38, 45], back: [26, 31], breeds: 'Bichón maltés, carlino, westie' },
+    { id: 'M',  chest: [46, 55], back: [32, 39], breeds: 'Beagle, cocker spaniel, bulldog francés' },
+    { id: 'L',  chest: [56, 67], back: [40, 49], breeds: 'Border collie, springer spaniel' },
     { id: 'XL', chest: [68, 82], back: [50, 60], breeds: 'Labrador, golden retriever, bóxer' }
   ];
 
@@ -54,14 +54,14 @@
       lead: 'Punto de cachemir de dos cabos, suave contra la piel y lo bastante tupido para el invierno.',
       description: [
         'Tejido en cachemir de fibra larga, hilado en el Piamonte y trabajado en punto liso de galga fina. Es una prenda de capa intermedia: ligera, elástica y cálida sin añadir volumen.',
-        'El cuello vuelto se dobla sobre sí mismo y no aprieta. Las costuras son planas y el borde inferior lleva un remate elástico para que la prenda no suba al correr. Una pequeña abertura en el lomo deja pasar la anilla del arnés.'
+        'El cuello vuelto se dobla sobre sí mismo y no aprieta. Las costuras son planas y el borde inferior lleva un remate de canalé para que la prenda no suba al correr. Una pequeña abertura en el lomo deja pasar la anilla del arnés.'
       ],
       details: [
         '100 % cachemir de fibra larga, dos cabos',
         'Punto liso de galga fina',
         'Cuello vuelto que no aprieta',
         'Costuras planas, sin relieve sobre la piel',
-        'Remate inferior elástico',
+        'Remate inferior de canalé, del mismo cachemir',
         'Abertura dorsal para la anilla del arnés'
       ],
       materials: '100 % cachemir de Mongolia Interior, de fibra de 15,5 micras. Hilado en el Piamonte (Italia) y tricotado en nuestro taller del norte de Portugal.',

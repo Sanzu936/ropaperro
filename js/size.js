@@ -16,9 +16,9 @@ MC.ready(function () {
   }
   function indexFor(value, key) {
     var last = MC.SIZES.length - 1;
-    if (value < MC.SIZES[0][key][0] || value > MC.SIZES[last][key][1]) return -1;
-    for (var i = 0; i <= last; i++) if (value < MC.SIZES[i][key][1]) return i;
-    return last;
+    if (value < MC.SIZES[0][key][0] || value >= MC.SIZES[last][key][1] + 1) return -1;
+    for (var i = last; i >= 0; i--) if (value >= MC.SIZES[i][key][0]) return i;
+    return -1;
   }
   function fail(msg, field) {
     result.className = 'result is-error';

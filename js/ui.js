@@ -17,6 +17,7 @@
       link('la-maison.html', 'La Maison') +
       link('guia-de-tallas.html', 'Guía de tallas') +
       link('envios-y-cuidados.html', 'Envíos y cuidados');
+    headerHTML.mobile = '<nav class="mobile-nav" id="mobile-nav" aria-label="Menú principal" hidden><ul>' + mobile + '</ul></nav>';
     return '' +
       '<div class="header-inner container">' +
         '<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav">' +
@@ -30,8 +31,7 @@
             '<span>Carrito</span> <span class="cart-count" aria-hidden="true">0</span>' +
           '</a>' +
         '</div>' +
-      '</div>' +
-      '<nav class="mobile-nav" id="mobile-nav" aria-label="Menú principal" hidden><ul>' + mobile + '</ul></nav>';
+      '</div>';
   }
 
   function footerHTML() {
@@ -64,7 +64,10 @@
   function mount() {
     var header = document.getElementById('site-header');
     var footer = document.getElementById('site-footer');
-    if (header) header.innerHTML = headerHTML();
+    if (header) {
+      header.innerHTML = headerHTML();
+      header.insertAdjacentHTML('afterend', headerHTML.mobile);
+    }
     if (footer) footer.innerHTML = footerHTML();
 
     var toast = document.createElement('div');

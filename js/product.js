@@ -40,9 +40,9 @@ MC.ready(function () {
           '<div class="price-row"><span class="price">' + MC.money(p.price) + '</span><span class="price-note">IVA incluido · Color ' + p.color + '</span></div>' +
           '<form id="buy-form" novalidate>' +
             '<fieldset class="field-group" aria-describedby="size-hint size-error">' +
-              '<legend>Talla</legend><a class="text-link size-link" href="guia-de-tallas.html">Guía de tallas</a>' +
+              '<legend>Talla</legend>' +
               '<div class="sizes">' + sizes + '</div>' +
-              '<p class="size-hint" id="size-hint">Elija la talla según el contorno de pecho de su perro.</p>' +
+              '<div class="hint-row"><p class="size-hint" id="size-hint">Elija la talla según el contorno de pecho de su perro.</p><a class="text-link size-link" href="guia-de-tallas.html">Guía de tallas</a></div>' +
               '<p class="field-error" id="size-error" role="alert" hidden>Elija una talla para añadir la prenda al carrito.</p>' +
             '</fieldset>' +
             '<div class="buy-actions">' +

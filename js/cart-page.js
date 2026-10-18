@@ -1,7 +1,8 @@
 /* Maison Canis · página del carrito */
 MC.ready(function () {
   var root = document.getElementById('cart-root');
-  var removed = null;
+  var removed = [];
+  var info = '';
   var focusKey = null;
 
   function key(i) { return i.id + '|' + i.size; }
@@ -47,9 +48,12 @@ MC.ready(function () {
 
   function render() {
     var items = MC.cart.items();
-    var notice = removed
-      ? '<div class="notice" id="undo-notice" role="status"><span><strong style="font-weight:400">' + MC.product(removed.id).name + '</strong>, talla ' + removed.size + ', se ha retirado del carrito.</span><button class="btn-text" type="button" data-action="undo">Deshacer</button></div>'
+    var last = removed[removed.length - 1];
+    var notice = last
+      ? '<div class="notice" id="undo-notice"><span><strong style="font-weight:400">' + MC.product(last.id).name + '</strong>, talla ' + last.size + ', se ha retirado del carrito.</span><button class="btn-text" type="button" data-action="undo">Deshacer</button></div>'
       : '';
+    if (info) notice += '<div class="notice"><span>' + info + '</span></div>';
+    info = '';
     if (!items.length) {
       root.innerHTML = '<div role="status">' + notice + '</div>' + empty();
       var u = document.querySelector('[data-action="undo"]');
@@ -95,8 +99,7 @@ MC.ready(function () {
     if (!btn) return;
     var action = btn.getAttribute('data-action');
     if (action === 'undo') {
-      MC.cart.restore(removed);
-      removed = null;
+      MC.cart.restore(removed.pop());
       render();
       return;
     }
@@ -109,7 +112,7 @@ MC.ready(function () {
     if (action === 'plus') { focusKey = row.getAttribute('data-key') + '~plus'; MC.cart.setQty(id, size, item.qty + 1); }
     if (action === 'minus') { focusKey = row.getAttribute('data-key') + '~minus'; MC.cart.setQty(id, size, item.qty - 1); }
     if (action === 'remove') {
-      removed = { id: id, size: size, qty: item.qty };
+      removed.push({ id: id, size: size, qty: item.qty });
       focusKey = 'undo';
       MC.cart.remove(id, size);
     }
@@ -121,12 +124,19 @@ MC.ready(function () {
     if (!sel) return;
     var row = sel.closest('.line');
     var parts = row.getAttribute('data-key').split('|');
+    var before = MC.cart.items();
+    var target = before.filter(function (i) { return i.id === parts[0] && i.size === sel.value; })[0];
+    var from = before.filter(function (i) { return i.id === parts[0] && i.size === parts[1]; })[0];
     MC.cart.setSize(parts[0], parts[1], sel.value);
+    if (target && from) {
+      var sum = target.qty + from.qty;
+      info = 'Ya tenía esta prenda en talla ' + sel.value + ': hemos unido las dos líneas' + (sum > MC.MAX_QTY ? ' y limitado la cantidad a ' + MC.MAX_QTY + ' unidades, el máximo por línea.' : '.');
+    }
     focusKey = parts[0] + '|' + sel.value + '~size';
     render();
   });
 
-  window.addEventListener('storage', function () { removed = null; render(); });
+  window.addEventListener('storage', function () { removed = []; render(); });
 
   render();
 });
