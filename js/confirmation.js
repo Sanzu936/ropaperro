@@ -3,7 +3,7 @@ MC.ready(function () {
   var root = document.getElementById('confirm-root');
   var o = MC.cart.lastOrder();
 
-  if (!o || !o.items || !o.customer) {
+  if (!o || !Array.isArray(o.items) || !o.items.length || !o.customer || !o.shipping || !o.customer.firstName) {
     root.innerHTML =
       '<div class="empty"><h1 style="font-size:clamp(40px,5vw,72px);margin-bottom:20px">No hay ningún pedido reciente.</h1>' +
       '<p>Cuando complete una compra, aquí encontrará el resumen y la fecha de entrega prevista.</p>' +
