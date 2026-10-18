@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guía de tallas · Maison Canis</title>
+  <meta name="description" content="Cómo medir a su perro y elegir talla en Maison Canis: contorno de pecho y largo de lomo, con calculadora y tabla de equivalencias.">
+  <meta name="theme-color" content="#f5f1e8">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Saltar al contenido</a>
+  <header class="site-header" id="site-header"></header>
+
+  <main id="main">
+    <section class="page-head container">
+      <p class="eyebrow">Guía de tallas</p>
+      <h1>La talla se mide, <em>no se supone.</em></h1>
+      <p class="lead">Cada prenda se corta sobre dos medidas: el contorno de pecho y el largo de lomo. Con una cinta métrica y cinco minutos, la talla queda resuelta.</p>
+    </section>
+
+    <section class="container" style="padding-bottom:clamp(64px,8vw,128px)" aria-labelledby="medir">
+      <div class="split" style="align-items:start">
+        <div class="frame ratio-3-2"><img src="images/guia-medicion.jpg" width="1800" height="1200" alt="Perro de pie mientras se le toma el contorno de pecho y el largo de lomo con una cinta métrica"></div>
+        <div>
+          <h2 id="medir" style="font-size:clamp(30px,3.4vw,46px);margin-bottom:32px">Cómo medir.</h2>
+          <div class="steps">
+            <div class="step"><div><h3>Contorno de pecho</h3><p>Rodee con la cinta la parte más ancha del tórax, justo detrás de las patas delanteras. Debe quedar ajustada, pero permitir deslizar dos dedos por debajo.</p></div></div>
+            <div class="step"><div><h3>Largo de lomo</h3><p>Con el perro de pie, mida desde la base del cuello, donde termina el collar, hasta el nacimiento de la cola, siguiendo la línea de la columna.</p></div></div>
+            <div class="step"><div><h3>Compare con la tabla</h3><p>Redondee las medidas al centímetro. Si su perro queda entre dos tallas, elija la mayor: una prenda con holgura sienta mejor que una justa. Si pecho y lomo apuntan a tallas distintas, prevalece el pecho.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-stone" id="calculadora" aria-labelledby="calc-title">
+      <div class="container narrow">
+        <div class="calc">
+          <p class="eyebrow">Calculadora</p>
+          <h2 id="calc-title" style="font-size:clamp(30px,3.4vw,46px);margin-top:16px">Encuentre la talla de su perro.</h2>
+          <form id="calc-form" novalidate>
+            <div class="calc-grid">
+              <div class="field" style="margin:0">
+                <label for="chest">Contorno de pecho (cm)</label>
+                <input class="input" id="chest" name="chest" type="text" inputmode="decimal" autocomplete="off" placeholder="Por ejemplo, 52" aria-describedby="calc-result">
+              </div>
+              <div class="field" style="margin:0">
+                <label for="back">Largo de lomo (cm)</label>
+                <input class="input" id="back" name="back" type="text" inputmode="decimal" autocomplete="off" placeholder="Por ejemplo, 36" aria-describedby="calc-result">
+              </div>
+            </div>
+            <button class="btn" type="submit">Calcular la talla</button>
+          </form>
+          <div class="result" id="calc-result" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="tabla-title">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="eyebrow">Equivalencias</p><h2 id="tabla-title" style="margin-top:20px">Cinco tallas.</h2></div>
+          <p>Las razas son orientativas: dentro de una misma raza, el tamaño varía. Guíese siempre por la medida, no por el nombre de la raza.</p>
+        </div>
+        <div class="table-wrap">
+          <table id="size-table">
+            <caption class="visually-hidden">Tallas de Maison Canis según contorno de pecho y largo de lomo, en centímetros</caption>
+            <thead><tr><th scope="col">Talla</th><th scope="col">Contorno de pecho</th><th scope="col">Largo de lomo</th><th scope="col">Razas orientativas</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0" aria-labelledby="notas-title">
+      <div class="container">
+        <h2 id="notas-title" class="visually-hidden">Casos particulares</h2>
+        <div class="notes">
+          <div><h3>Pelo largo o abundante</h3><p>Mida sobre el pelo tal como está. Si el manto es muy denso, pase a la talla siguiente para que la prenda no lo comprima.</p></div>
+          <div><h3>Pecho ancho, lomo corto</h3><p>En bulldogs, carlinos y razas de tórax amplio, elija siempre por el contorno de pecho. El largo de lomo es secundario.</p></div>
+          <div><h3>Cachorros</h3><p>Es mejor esperar a que termine de crecer, hacia los doce meses. Si necesita una prenda antes, escríbanos y la estudiamos juntos.</p></div>
+        </div>
+        <p style="margin-top:56px;max-width:60ch" class="muted">¿Su perro queda fuera de la tabla o tiene dudas? Escríbanos a <a class="text-link" style="font-size:15px;letter-spacing:.04em;text-transform:none" href="mailto:atelier@maisoncanis.com">atelier@maisoncanis.com</a> con las dos medidas y una fotografía de perfil.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/size.js"></script>
+</body>
+</html>
