@@ -36,10 +36,10 @@
       materials: 'Exterior: 100 % algodón, tejido en Cataluña. Forro: 100 % lino, cultivado en Normandía. Botones: corozo (nuez de tagua), tallados y pulidos a mano. Confeccionada en nuestro taller del norte de Portugal.',
       care: 'Limpie con un paño húmedo y deje secar al aire, lejos de cualquier fuente de calor. Limpieza en seco profesional una vez por temporada. El acabado hidrorrepelente se renueva cada dos inviernos; en la Maison lo hacemos sin coste.',
       images: [
-        { file: 'gabardina-01.jpg', w: 1600, h: 2000, alt: 'Perro de pelo corto con la gabardina Auteuil en color arena, de perfil, sobre fondo neutro' },
-        { file: 'gabardina-02.jpg', w: 1200, h: 1200, alt: 'Detalle del cuello alto y de los botones de corozo de la gabardina Auteuil' },
-        { file: 'gabardina-03.jpg', w: 1200, h: 1200, alt: 'Interior de la gabardina Auteuil con el forro de lino a rayas' },
-        { file: 'gabardina-04.jpg', w: 1800, h: 1200, alt: 'Perro caminando bajo la lluvia con la gabardina Auteuil, en una calle empedrada' }
+        { file: 'gabardina-01.jpg', w: 1200, h: 1500, alt: 'Perro de pelo corto con la gabardina Auteuil en color arena, de perfil, sobre fondo neutro' },
+        { file: 'gabardina-02.jpg', w: 1000, h: 1000, alt: 'Detalle del cuello alto y de los botones de corozo de la gabardina Auteuil' },
+        { file: 'gabardina-03.jpg', w: 1000, h: 1000, alt: 'Interior de la gabardina Auteuil con el forro de lino a rayas' },
+        { file: 'gabardina-04.jpg', w: 1500, h: 1000, alt: 'Perro caminando bajo la lluvia con la gabardina Auteuil, en una calle empedrada' }
       ]
     },
     {
@@ -67,10 +67,10 @@
       materials: '100 % cachemir de Mongolia Interior, de fibra de 15,5 micras. Hilado en el Piamonte (Italia) y tricotado en nuestro taller del norte de Portugal.',
       care: 'Lávelo a mano a 30 °C con un champú neutro, sin retorcer. Séquelo en plano, a la sombra. Guárdelo doblado, nunca colgado. Durante los primeros lavados el cachemir suelta algo de pelusa; es normal y se retira con un peine para punto.',
       images: [
-        { file: 'jersey-01.jpg', w: 1600, h: 2000, alt: 'Perro sentado con el jersey Passy en color avena, de tres cuartos, sobre fondo neutro' },
-        { file: 'jersey-02.jpg', w: 1200, h: 1200, alt: 'Detalle del punto liso de cachemir del jersey Passy' },
-        { file: 'jersey-03.jpg', w: 1200, h: 1200, alt: 'Cuello vuelto del jersey Passy doblado sobre sí mismo' },
-        { file: 'jersey-04.jpg', w: 1800, h: 1200, alt: 'Jersey Passy plegado sobre una superficie de madera clara' }
+        { file: 'jersey-01.jpg', w: 1200, h: 1500, alt: 'Perro sentado con el jersey Passy en color avena, de tres cuartos, sobre fondo neutro' },
+        { file: 'jersey-02.jpg', w: 1000, h: 1000, alt: 'Detalle del punto liso de cachemir del jersey Passy' },
+        { file: 'jersey-03.jpg', w: 1000, h: 1000, alt: 'Cuello vuelto del jersey Passy doblado sobre sí mismo' },
+        { file: 'jersey-04.jpg', w: 1500, h: 1000, alt: 'Jersey Passy plegado sobre una superficie de madera clara' }
       ]
     },
     {
@@ -81,15 +81,15 @@
       type: 'Abrigo acolchado',
       color: 'Loden',
       price: 1180,
-      cardLine: 'Lana batida acolchada en rombos, relleno de merino.',
-      lead: 'Un abrigo acolchado en rombos, de lana batida, para los días en que el frío deja de ser una promesa.',
+      cardLine: 'Lana batida acolchada en retícula, relleno de merino.',
+      lead: 'Un abrigo acolchado en retícula, de lana batida, para los días en que el frío deja de ser una promesa.',
       description: [
-        'Lana batida de tipo loden, acolchada en rombos de cinco centímetros sobre un relleno de lana merino. Aísla sin pesar: en la talla M, el conjunto no supera los 280 gramos.',
+        'Lana batida de tipo loden, acolchada en retícula de cinco centímetros sobre un relleno de lana merino. Aísla sin pesar: en la talla M, el conjunto no supera los 280 gramos.',
         'El forro de algodón peinado es suave y no retiene electricidad estática. Se cierra con corchetes metálicos ocultos bajo una tapeta, que se abren de un solo gesto. La abertura dorsal para el arnés lleva un refuerzo de lona encerada.'
       ],
       details: [
         'Lana batida tipo loden, repelente a la lluvia ligera',
-        'Acolchado en rombos con relleno de lana merino',
+        'Acolchado en retícula con relleno de lana merino',
         'Forro de algodón peinado',
         'Corchetes metálicos ocultos bajo tapeta',
         'Cuello alto forrado que cubre la nuca',
@@ -98,10 +98,10 @@
       materials: 'Exterior: 100 % lana, tejida en Biella (Italia). Relleno: 100 % lana merino. Forro: 100 % algodón peinado. Confeccionado en nuestro taller del norte de Portugal.',
       care: 'Limpieza en seco profesional. Ventílelo al aire tras cada uso y cepíllelo en el sentido de la fibra. No lo planche: si fuera necesario, aplique vapor desde lejos y deje que la lana recupere su forma.',
       images: [
-        { file: 'abrigo-01.jpg', w: 1600, h: 2000, alt: 'Perro de pie con el abrigo acolchado Marais en color loden, de perfil, sobre fondo neutro' },
-        { file: 'abrigo-02.jpg', w: 1200, h: 1200, alt: 'Detalle del acolchado en rombos del abrigo Marais' },
-        { file: 'abrigo-03.jpg', w: 1200, h: 1200, alt: 'Tapeta y corchetes metálicos ocultos del abrigo Marais' },
-        { file: 'abrigo-04.jpg', w: 1800, h: 1200, alt: 'Perro paseando por un parque en otoño con el abrigo Marais' }
+        { file: 'abrigo-01.jpg', w: 1200, h: 1500, alt: 'Perro de pie con el abrigo acolchado Marais en color loden, de perfil, sobre fondo neutro' },
+        { file: 'abrigo-02.jpg', w: 1000, h: 1000, alt: 'Detalle del acolchado en retícula del abrigo Marais' },
+        { file: 'abrigo-03.jpg', w: 1000, h: 1000, alt: 'Tapeta del abrigo Marais levantada para mostrar los corchetes metálicos' },
+        { file: 'abrigo-04.jpg', w: 1500, h: 1000, alt: 'Perro paseando por un parque en otoño con el abrigo Marais' }
       ]
     }
   ];

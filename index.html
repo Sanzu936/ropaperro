@@ -6,6 +6,8 @@
   <title>Maison Canis · Ropa para perro, cortada a medida</title>
   <meta name="description" content="Tres prendas para perro, cortadas sobre medidas reales y confeccionadas a mano: una gabardina impermeable, un jersey de cachemir y un abrigo acolchado.">
   <meta name="theme-color" content="#f5f1e8">
+  <link rel="preload" as="image" href="images/hero-inicio.jpg" media="(min-width: 1101px)" fetchpriority="high">
+  <link rel="preload" as="image" href="images/hero-inicio-movil.jpg" media="(max-width: 1100px)" fetchpriority="high">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -14,66 +16,107 @@
   <header class="site-header" id="site-header"></header>
 
   <main id="main">
-    <section class="hero container" aria-labelledby="hero-title">
-      <p class="eyebrow">Colección de invierno</p>
-      <h1 id="hero-title">Tres prendas. <em>Ninguna de más.</em></h1>
-      <div class="hero-foot">
-        <p>Maison Canis hace ropa para perro con la contención de la alta costura: una gabardina, un jersey y un abrigo, cortados sobre las medidas reales de cada animal y pensados para durar años.</p>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-stage">
+        <picture class="hero-pic">
+          <source media="(max-width: 1100px)" srcset="images/hero-inicio-movil.jpg" width="1200" height="1500">
+          <img src="images/hero-inicio.jpg" width="2000" height="1125" fetchpriority="high" decoding="async" alt="Un galgo whippet de pelaje arena y blanco con la gabardina Auteuil, de perfil frente a un muro de piedra clara">
+        </picture>
+        <svg class="cotas cotas-d" viewBox="0 0 2000 1125" preserveAspectRatio="xMinYMid slice" aria-hidden="true" focusable="false">
+          <g class="cota">
+            <path pathLength="1" d="M325 570V500M722 585V500M325 530H722"/>
+            <text x="523" y="512" text-anchor="middle">Lomo · 36 cm</text>
+          </g>
+          <g class="cota cota-2">
+            <path pathLength="1" d="M870 590H910M870 795H910M890 590V795"/>
+            <text x="930" y="700">Pecho · 52 cm</text>
+          </g>
+        </svg>
+        <svg class="cotas cotas-m" viewBox="0 0 1200 1500" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+          <g class="cota">
+            <path pathLength="1" d="M230 750V580M715 640V580M230 610H715"/>
+            <text x="472" y="565" text-anchor="middle">Lomo · 36 cm</text>
+          </g>
+          <g class="cota cota-2">
+            <path pathLength="1" d="M935 690H985M935 935H985M960 690V935"/>
+            <text x="1030" y="812" transform="rotate(90 1030 812)" text-anchor="middle">Pecho · 52 cm</text>
+          </g>
+        </svg>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">Colección de invierno</p>
+        <h1 id="hero-title">Tres prendas. <em>Ninguna de más.</em></h1>
+        <p class="hero-lede">Maison Canis hace ropa para perro con la contención de la alta costura: una gabardina, un jersey y un abrigo, cortados sobre las medidas reales de cada animal y pensados para durar años.</p>
         <a class="btn" href="#coleccion">Ver la colección</a>
       </div>
     </section>
 
-    <div class="hero-media">
-      <div class="frame ratio-16-9">
-        <picture>
-          <source media="(max-width: 640px)" srcset="images/hero-inicio-movil.jpg" width="1200" height="1500">
-          <img src="images/hero-inicio.jpg" width="2400" height="1350" alt="Perro de pelo corto con la gabardina Auteuil, de pie frente a un muro de piedra clara">
-        </picture>
-      </div>
-    </div>
-
-    <section class="section" id="coleccion" aria-labelledby="coleccion-title">
+    <section class="stage" id="coleccion" aria-labelledby="coleccion-title">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <div>
             <p class="eyebrow">La colección</p>
             <h2 id="coleccion-title" style="margin-top:20px">Una gabardina, un jersey, un abrigo.</h2>
           </div>
           <p>Cada prenda responde a una necesidad distinta del invierno. Ninguna sigue un color de temporada: existe en un solo tono, elegido para no pasar de moda.</p>
         </div>
-        <div class="cards" id="cards"></div>
       </div>
+      <div id="scenes"></div>
     </section>
 
     <section class="section on-dark manifesto" aria-labelledby="manifiesto">
       <div class="container">
         <p class="eyebrow">Una convicción</p>
         <h2 id="manifiesto" class="visually-hidden">Manifiesto</h2>
-        <blockquote>Un perro no necesita un armario. Necesita <em>la prenda correcta.</em></blockquote>
+        <blockquote data-words>Un perro no necesita un armario. Necesita <em>la prenda correcta.</em></blockquote>
         <p class="sub">Preferimos hacer tres cosas muy bien que treinta a medias. Por eso solo existen tres prendas, y por eso cada una se desarrolla durante más de un año antes de salir del taller.</p>
+      </div>
+    </section>
+
+    <section class="section bg-stone tejido" id="tejido" aria-labelledby="tejido-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">El tejido, de cerca</p>
+            <h2 id="tejido-title" style="margin-top:20px">Tres materiales. <em>Tres relieves.</em></h2>
+          </div>
+          <p>Arrastre la muestra para girarla y mueva el cursor para cambiar la luz: el cruce del sarga, el punto del cachemir y el acolchado en retícula se entienden mejor con las manos que con palabras.</p>
+        </div>
+        <div class="fabric-viewer reveal" id="fabric-home" data-fabric="gabardina" data-tabs>
+          <div class="fabric-stage" data-stage>
+            <img class="fabric-fallback" src="images/gabardina-02.jpg" width="1000" height="1000" loading="lazy" decoding="async" alt="Detalle del cuello alto y de los botones de corozo de la gabardina Auteuil">
+          </div>
+          <div class="fabric-panel">
+            <div class="fabric-tabs" role="group" aria-label="Elegir tejido"></div>
+            <p class="eyebrow fabric-kicker"></p>
+            <h3 class="fabric-name"></h3>
+            <p class="fabric-text"></p>
+            <p class="fabric-hint" aria-hidden="true">Arrastre para girar · Cursor para mover la luz</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="section" aria-labelledby="metodo">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <div>
             <p class="eyebrow">El método</p>
             <h2 id="metodo" style="margin-top:20px">Patrón, material y mano.</h2>
           </div>
         </div>
-        <div class="pillars">
-          <article class="pillar">
+        <div class="pillars reveal-group">
+          <article class="pillar reveal"><span class="stitch" aria-hidden="true"><i></i><b></b></span>
             <span class="num">01</span>
             <h3>Patrón</h3>
             <p>Cada talla se dibuja a partir de medidas reales de pecho y de lomo, no reduciendo una talla humana. La prenda acompaña el movimiento del animal y no se desplaza al caminar.</p>
           </article>
-          <article class="pillar">
+          <article class="pillar reveal"><span class="stitch" aria-hidden="true"><i></i><b></b></span>
             <span class="num">02</span>
             <h3>Material</h3>
             <p>Algodón de trama densa, cachemir de fibra larga y lana merino: fibras naturales de proveedores que conocemos por su nombre, elegidas por cómo envejecen.</p>
           </article>
-          <article class="pillar">
+          <article class="pillar reveal"><span class="stitch" aria-hidden="true"><i></i><b></b></span>
             <span class="num">03</span>
             <h3>Mano</h3>
             <p>Una sola costurera acompaña cada prenda de principio a fin. Sus iniciales van bordadas en la etiqueta interior, junto al número de serie.</p>
@@ -84,8 +127,8 @@
 
     <section class="section" style="padding-top:0" aria-labelledby="maison-title">
       <div class="container split">
-        <div class="split-media">
-          <div class="frame ratio-4-5"><img src="images/home-maison.jpg" width="1600" height="2000" loading="lazy" decoding="async" alt="Manos de una costurera sobre un patrón, en el taller de la Maison"></div>
+        <div class="split-media reveal">
+          <div class="frame ratio-4-5" data-parallax><img src="images/home-maison.jpg" width="1200" height="1500" loading="lazy" decoding="async" alt="Manos de una costurera sobre un patrón, en el taller de la Maison"></div>
         </div>
         <div class="split-body">
           <p class="eyebrow">La Maison</p>
@@ -122,9 +165,12 @@
 
   <footer class="site-footer" id="site-footer"></footer>
 
-  <script src="js/data.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/ui.js"></script>
-  <script src="js/home.js"></script>
+  <script defer src="js/data.js"></script>
+  <script defer src="js/cart.js"></script>
+  <script defer src="js/ui.js"></script>
+  <script defer src="js/home.js"></script>
+  <script defer src="js/vendor/lenis.min.js"></script>
+  <script defer src="js/fx.js"></script>
+  <script defer src="js/fabric.js"></script>
 </body>
 </html>
