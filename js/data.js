@@ -22,8 +22,7 @@
       cardLine: 'Lana gris jaspeada, doble botonadura y cinturón.',
       lead: 'Un abrigo cruzado de lana gris, con solapas, doble botonadura y cinturón anudado.',
       description: [
-        'Abrigo de lana en gris jaspeado, de corte cruzado: solapas, dos filas de botones negros y un cinturón a juego que se anuda en la cintura.',
-        'Cubre el lomo y el pecho.'
+        'Abrigo de lana en gris jaspeado, de corte cruzado: solapas, dos filas de botones negros y un cinturón a juego que se anuda en la cintura. Cubre el lomo y el pecho.'
       ],
       details: [
         'Lana en gris jaspeado',

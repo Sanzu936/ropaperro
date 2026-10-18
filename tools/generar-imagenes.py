@@ -22,7 +22,7 @@ PRO = "google/gemini-3-pro-image-preview"
 FLASH = "google/gemini-3.1-flash-image-preview"
 
 STYLE = (
-    "Editorial luxury campaign photograph for a quiet, exclusive Parisian-Portuguese house of dog couture. "
+    "Editorial luxury campaign photograph for a quiet, exclusive fashion house for dogs. "
     "Soft diffused overcast daylight from the left, warm ivory and stone neutral palette with muted forest-green and "
     "bronze accents, natural colour, fine film grain, restrained minimal composition with generous negative space, "
     "shot on a medium-format camera, 85mm lens, shallow depth of field. "

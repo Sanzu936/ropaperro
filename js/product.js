@@ -56,7 +56,7 @@ MC.ready(function () {
             '</div>' +
           '</form>' +
           '<ul class="reassure">' +
-            '<li>Envío asegurado y gratuito</li>' +
+            '<li><a href="envios-y-cuidados.html">Envío asegurado y gratuito</a></li>' +
             '<li>Cambio de talla sin coste durante 30 días</li>' +
             '<li>Tallas definidas por pecho y lomo</li>' +
           '</ul>' +
@@ -64,7 +64,6 @@ MC.ready(function () {
             acc('Descripción', p.description.map(function (t) { return '<p>' + t + '</p>'; }).join(''), true) +
             acc('Detalles', '<ul>' + p.details.map(function (t) { return '<li>' + t + '</li>'; }).join('') + '</ul>') +
             acc('Cuidado', '<p>' + p.care + '</p>') +
-            acc('Envíos y cambios', '<p><a href="envios-y-cuidados.html">Consultar plazos, cambios y devoluciones</a></p>') +
           '</div>' +
         '</div>' +
       '</div>' +
