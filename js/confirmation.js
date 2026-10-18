@@ -32,7 +32,7 @@ MC.ready(function () {
         '<dl class="summary" style="padding:0;border:0;background:none;position:static">' +
           '<div style="display:flex;justify-content:space-between;padding:8px 0"><dt style="color:var(--muted)">Subtotal</dt><dd style="margin:0">' + MC.money(o.subtotal) + '</dd></div>' +
           '<div style="display:flex;justify-content:space-between;padding:8px 0"><dt style="color:var(--muted)">' + MC.esc(o.shipping.name) + '</dt><dd style="margin:0">' + (o.shipping.price ? MC.money(o.shipping.price) : 'Gratuito') + '</dd></div>' +
-          '<div class="total" style="display:flex;justify-content:space-between;align-items:baseline;margin-top:8px;padding-top:18px;border-top:1px solid var(--ink)"><dt style="font-size:12.5px;letter-spacing:.2em;text-transform:uppercase">Total pagado</dt><dd style="margin:0;font-family:var(--serif);font-size:34px;line-height:1">' + MC.money(o.total) + '</dd></div>' +
+          '<div class="total" style="display:flex;justify-content:space-between;align-items:baseline;margin-top:8px;padding-top:18px;border-top:1px solid var(--ink)"><dt style="font-size:12.5px;letter-spacing:.2em;text-transform:uppercase">Total del pedido</dt><dd style="margin:0;font-family:var(--serif);font-size:34px;line-height:1">' + MC.money(o.total) + '</dd></div>' +
         '</dl>' +
       '</section>' +
       '<section aria-labelledby="c-entrega"><h2 id="c-entrega">Entrega</h2>' +

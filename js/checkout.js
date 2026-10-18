@@ -44,7 +44,7 @@ MC.ready(function () {
       '<div><dt>' + ship.name + '</dt><dd>' + (ship.price ? MC.money(ship.price) : 'Gratuito') + '</dd></div>' +
       '<div class="total"><dt>Total</dt><dd>' + MC.money(total) + '</dd></div>' +
       '<div><dt style="font-size:13.5px">IVA incluido (21 %)</dt><dd style="font-size:13.5px;font-weight:300">' + MC.money2(total - total / (1 + MC.VAT)) + '</dd></div>';
-    if (!payBtn.disabled) payBtn.textContent = 'Confirmar y pagar · ' + MC.money(total);
+    if (!payBtn.disabled) payBtn.textContent = 'Confirmar el pedido · ' + MC.money(total);
   }
   form.addEventListener('change', function (e) { if (e.target.name === 'shipping') renderSummary(); });
   renderSummary();
