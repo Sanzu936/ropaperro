@@ -16,20 +16,18 @@
       page: 'vendome.html',
       num: 'Nº 1',
       name: 'Abrigo Vendôme',
-      type: 'Abrigo cruzado de lana',
+      type: 'Abrigo cruzado',
       color: 'Gris jaspeado',
       price: 1290,
       cardLine: 'Lana gris jaspeada, doble botonadura y cinturón.',
-      lead: 'Un abrigo cruzado de lana gris, con solapas, doble botonadura y cinturón anudado.',
+      lead: 'Abrigo cruzado de lana gris jaspeada.',
       description: [
         'Abrigo de lana en gris jaspeado, de corte cruzado: solapas, dos filas de botones negros y un cinturón a juego que se anuda en la cintura. Cubre el lomo y el pecho.'
       ],
       details: [
-        'Lana en gris jaspeado',
-        'Cierre cruzado con doble botonadura',
-        'Solapas',
-        'Botones negros',
-        'Cinturón de lana a juego'
+        'Solapas y doble botonadura con botones negros',
+        'Cinturón a juego, anudado en la cintura',
+        'Cubre el lomo y el pecho'
       ],
       materials: 'Lana.',
       care: 'Limpieza en seco profesional. Cepíllela en el sentido del tejido y déjela airear tras cada uso. No la planche: si fuera necesario, aplique vapor desde lejos.',
@@ -45,19 +43,17 @@
       page: 'montaigne.html',
       num: 'Nº 2',
       name: 'Plumífero Montaigne',
-      type: 'Plumífero acolchado',
+      type: 'Plumífero',
       color: 'Negro lacado',
       price: 1190,
       cardLine: 'Acolchado en canales, negro brillante, con capucha.',
-      lead: 'Un plumífero negro de acabado brillante, acolchado en canales horizontales, con cuello alto y capucha.',
+      lead: 'Plumífero negro de acabado brillante y lacado.',
       description: [
         'Plumífero acolchado en canales horizontales, con un acabado negro brillante y lacado. Cuello alto, capucha y cremallera frontal.'
       ],
       details: [
-        'Acabado negro brillante',
         'Acolchado en canales horizontales',
-        'Cuello alto',
-        'Capucha',
+        'Cuello alto y capucha',
         'Cremallera frontal'
       ],
       materials: 'Exterior: tejido negro de acabado lacado. Cierre: cremallera.',
@@ -74,18 +70,17 @@
       page: 'rivoli.html',
       num: 'Nº 3',
       name: 'Capa Rivoli',
-      type: 'Capa de cachemir doble faz',
+      type: 'Capa',
       color: 'Camel',
       price: 1680,
       cardLine: 'Cachemir doble faz en camel, con broche de latón.',
-      lead: 'Una capa de cachemir doble faz en camel que cae sobre el lomo y se cierra con un broche de latón.',
+      lead: 'Capa de cachemir doble faz en camel.',
       description: [
         'Capa de cachemir doble faz en tono camel. Se apoya sobre el lomo y el pecho, se cierra en el cuello con un broche de latón y deja las patas libres.'
       ],
       details: [
-        'Cachemir doble faz',
-        'Tono camel',
         'Broche de latón en el cuello',
+        'Se apoya sobre el lomo y el pecho',
         'Deja las patas libres'
       ],
       materials: 'Cachemir doble faz. Broche: latón.',

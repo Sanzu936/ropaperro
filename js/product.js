@@ -69,14 +69,11 @@ MC.ready(function () {
     '</div>' +
     '<section class="section bg-stone tejido" aria-labelledby="tejido-title">' +
       '<div class="container">' +
-        '<div class="section-head reveal"><div><p class="eyebrow">El tejido, de cerca</p><h2 id="tejido-title" style="margin-top:20px">' + MC.fabric.FABRICS[p.id].name + '.</h2></div>' +
-        '<p>Arrastre la muestra para girarla y mueva el cursor para cambiar la luz.</p></div>' +
-        '<div class="fabric-viewer reveal" data-fabric="' + p.id + '">' +
+        '<div class="section-head reveal"><div><p class="eyebrow">El tejido, de cerca</p><h2 id="tejido-title" style="margin-top:20px">' + MC.fabric.FABRICS[p.id].name + '.</h2></div></div>' +
+        '</div>' +
+        '<div class="fabric-viewer solo reveal" data-fabric="' + p.id + '">' +
           '<div class="fabric-stage" data-stage><img class="fabric-fallback" src="images/' + MC.fabric.FABRICS[p.id].photo + '" width="1000" height="1000" loading="lazy" decoding="async" alt="' + MC.esc(MC.fabric.FABRICS[p.id].alt) + '"></div>' +
-          '<div class="fabric-panel">' +
-            '<p class="eyebrow fabric-kicker"></p><h3 class="fabric-name"></h3><p class="fabric-text"></p>' +
-            '<p class="fabric-hint" aria-hidden="true">Arrastre para girar</p>' +
-          '</div>' +
+          '<p class="fabric-hint" aria-hidden="true">Arrastre para girar</p>' +
         '</div>' +
       '</div>' +
     '</section>' +

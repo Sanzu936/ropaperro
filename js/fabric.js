@@ -6,19 +6,19 @@
   var FABRICS = {
     vendome: {
       name: 'Lana jaspeada',
-      text: 'Lana en gris jaspeado.',
+      text: '',
       photo: 'vendome-02.jpg',
       alt: 'Detalle de la solapa y de los botones negros del abrigo Vendôme'
     },
     montaigne: {
       name: 'Acolchado lacado',
-      text: 'Negro brillante, acolchado en canales horizontales.',
+      text: '',
       photo: 'montaigne-02.jpg',
       alt: 'Detalle del cuello alto y de la cremallera del plumífero Montaigne'
     },
     rivoli: {
       name: 'Cachemir doble faz',
-      text: 'Cachemir doble faz en camel.',
+      text: '',
       photo: 'rivoli-02.jpg',
       alt: 'Detalle del cuello y del broche de latón de la capa Rivoli'
     }
