@@ -61,8 +61,7 @@ MC.ready(function () {
             '<li>Tallas definidas por pecho y lomo</li>' +
           '</ul>' +
           '<div class="accordion">' +
-            acc('Descripción', p.description.map(function (t) { return '<p>' + t + '</p>'; }).join(''), true) +
-            acc('Detalles', '<ul>' + p.details.map(function (t) { return '<li>' + t + '</li>'; }).join('') + '</ul>') +
+            acc('Detalles', '<ul>' + p.details.map(function (t) { return '<li>' + t + '</li>'; }).join('') + '</ul>', true) +
             acc('Cuidado', '<p>' + p.care + '</p>') +
           '</div>' +
         '</div>' +

@@ -34,7 +34,7 @@
       materials: 'Lana.',
       care: 'Limpieza en seco profesional. Cepíllela en el sentido del tejido y déjela airear tras cada uso. No la planche: si fuera necesario, aplique vapor desde lejos.',
       images: [
-        { file: 'vendome-01.jpg', w: 1200, h: 1500, alt: 'Galgo whippet con el abrigo cruzado Vendôme de lana gris, de perfil, sobre fondo de piedra gris claro' },
+        { file: 'vendome-01.jpg', w: 1200, h: 1500, alt: 'Galgo whippet con el abrigo cruzado Vendôme de lana gris, de perfil, sobre fondo liso de estudio' },
         { file: 'vendome-02.jpg', w: 1000, h: 1000, alt: 'Detalle de la solapa y de los botones negros del abrigo Vendôme' },
         { file: 'vendome-03.jpg', w: 1000, h: 1000, alt: 'Detalle del cinturón anudado y de la lana jaspeada del abrigo Vendôme' },
         { file: 'vendome-04.jpg', w: 1500, h: 1000, alt: 'Lomo y costado del abrigo Vendôme sobre un galgo whippet' }
