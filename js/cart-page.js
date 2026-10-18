@@ -41,7 +41,7 @@ MC.ready(function () {
     return '' +
       '<div class="empty">' +
         '<h2>Su carrito está vacío.</h2>' +
-        '<p>Aún no ha elegido ninguna prenda. La colección reúne tres: una gabardina, un jersey y un abrigo.</p>' +
+        '<p>Aún no ha elegido ninguna prenda. Descubra la colección de invierno.</p>' +
         '<div class="actions"><a class="btn" href="index.html#coleccion">Ver la colección</a><a class="btn btn-line" href="guia-de-tallas.html">Consultar la guía de tallas</a></div>' +
       '</div>';
   }

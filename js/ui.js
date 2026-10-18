@@ -42,13 +42,10 @@
       '<div class="container footer-inner">' +
         '<div class="footer-brand">' +
           '<a class="logo logo-footer" href="index.html" aria-label="Maison Canis, ir al inicio"><span>Maison</span> <span>Canis</span></a>' +
-          '<p>Costura para perros, cortada a medida y hecha para durar muchos inviernos.</p>' +
         '</div>' +
         '<div class="footer-col"><h2>Colección</h2><ul>' + prendas + '</ul></div>' +
         '<div class="footer-col"><h2>La Maison</h2><ul>' +
-          '<li><a href="la-maison.html">Nuestra historia</a></li>' +
-          '<li><a href="la-maison.html#materiales">Materiales</a></li>' +
-          '<li><a href="la-maison.html#artesania">Artesanía</a></li>' +
+          '<li><a href="la-maison.html">La Maison</a></li>' +
           '<li><a href="guia-de-tallas.html">Guía de tallas</a></li>' +
         '</ul></div>' +
         '<div class="footer-col"><h2>Atención</h2><ul>' +
@@ -59,7 +56,7 @@
         '</ul></div>' +
       '</div>' +
       '<div class="container"><p class="footer-mark" aria-hidden="true"></p></div>' +
-      '<div class="container footer-base"><p>© 2026 Maison Canis. Todos los precios incluyen IVA.</p><p>Madrid · Guimarães</p></div>';
+      '<div class="container footer-base"><p>© 2026 Maison Canis. Todos los precios incluyen IVA.</p></div>';
   }
 
   function mount() {

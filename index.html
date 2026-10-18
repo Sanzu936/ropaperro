@@ -3,13 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Maison Canis · Costura para perros, hecha a mano</title>
-  <meta name="description" content="Maison Canis, la casa de costura para perros: prendas cortadas sobre las medidas reales de cada animal y confeccionadas a mano, en Madrid y Guimarães.">
+  <title>Maison Canis · Moda para perros</title>
+  <meta name="description" content="Maison Canis, casa de moda para perros: abrigo cruzado, plumífero y capa para la temporada de invierno.">
   <meta name="theme-color" content="#f5f1e8">
   <link rel="preload" as="image" href="images/hero-inicio.jpg" media="(min-width: 641px)" fetchpriority="high">
   <link rel="preload" as="image" href="images/hero-inicio-movil.jpg" media="(max-width: 640px)" fetchpriority="high">
   <script>try{if(!sessionStorage.getItem("mc.intro")){document.documentElement.classList.add("intro");sessionStorage.setItem("mc.intro","1")}}catch(e){}</script>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/cormorant-garamond-latin-300-normal.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/cormorant-garamond-latin-400-italic.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/jost-latin-300-normal.woff2">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -22,72 +25,62 @@
       <div class="hero-stage">
         <picture class="hero-pic">
           <source media="(max-width: 640px)" srcset="images/hero-inicio-movil.jpg" width="1200" height="1500">
-          <img src="images/hero-inicio.jpg" width="2000" height="1125" fetchpriority="high" decoding="async" alt="Un galgo whippet de pelaje arena y blanco con una gabardina de la Maison, de perfil frente a un muro de piedra clara">
+          <img src="images/hero-inicio.jpg" width="2000" height="1125" fetchpriority="high" decoding="async" alt="Un galgo whippet con el abrigo cruzado Vendôme de lana gris, de perfil sobre un fondo liso de estudio">
         </picture>
         <svg class="cotas cotas-d" viewBox="0 0 2000 1125" preserveAspectRatio="xMinYMid slice" aria-hidden="true" focusable="false">
           <g class="cota">
-            <path pathLength="1" d="M325 570V500M722 585V500M325 530H722"/>
-            <text x="523" y="512" text-anchor="middle">Lomo · 36 cm</text>
+            <path pathLength="1" d="M290 480V405M640 480V405M290 437H640"/>
+            <text x="465" y="425" text-anchor="middle">Lomo · 36 cm</text>
           </g>
           <g class="cota cota-2">
-            <path pathLength="1" d="M870 590H910M870 795H910M890 590V795"/>
-            <text x="930" y="700">Pecho · 52 cm</text>
+            <path pathLength="1" d="M800 560H840M800 695H840M820 560V695"/>
+            <text x="860" y="635">Pecho · 52 cm</text>
           </g>
         </svg>
         <svg class="cotas cotas-m" viewBox="0 0 1200 1500" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
           <g class="cota">
-            <path pathLength="1" d="M230 750V580M715 640V580M230 610H715"/>
-            <text x="472" y="565" text-anchor="middle">Lomo · 36 cm</text>
+            <path pathLength="1" d="M190 730V560M700 620V560M190 560H700"/>
+            <text x="445" y="545" text-anchor="middle">Lomo · 36 cm</text>
           </g>
           <g class="cota cota-2">
-            <path pathLength="1" d="M935 690H985M935 935H985M960 690V935"/>
-            <text x="1030" y="812" transform="rotate(90 1030 812)" text-anchor="middle">Pecho · 52 cm</text>
+            <path pathLength="1" d="M870 745H920M870 925H920M895 745V925"/>
+            <text x="945" y="835" transform="rotate(90 945 835)" text-anchor="middle">Pecho · 52 cm</text>
           </g>
         </svg>
       </div>
       <div class="hero-copy">
-        <p class="eyebrow rule">Madrid · Guimarães · desde 2019</p>
-        <h1 id="hero-title">La casa de costura <em>para perros.</em></h1>
-        <p class="hero-lede">Maison Canis diseña, corta y confecciona a mano prendas para perro sobre las medidas reales de cada animal. Costura para quien camina a nuestro lado.</p>
+        <p class="eyebrow rule">Colección de invierno</p>
+        <h1 id="hero-title">La casa de moda <em>para perros.</em></h1>
+        <p class="hero-lede">Prendas de líneas limpias, en cinco tallas definidas por medidas.</p>
         <div class="hero-actions">
-          <a class="btn" href="#la-casa">Descubrir la Maison</a>
-          <a class="text-link" href="#coleccion">Ver la colección</a>
+          <a class="btn" href="#coleccion">Ver la colección</a>
+          <a class="text-link" href="guia-de-tallas.html#calculadora">Calcular la talla</a>
         </div>
       </div>
-      <a class="scroll-cue" href="#la-casa" aria-label="Seguir bajando"><span></span></a>
+      <a class="scroll-cue" href="#casa" aria-label="Seguir bajando"><span></span></a>
     </section>
 
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
-        <span>Maison Canis</span><span>Costura a medida</span><span>Hecho a mano en Guimarães</span><span>Madrid, desde 2019</span><span>Reparación de por vida</span>
-        <span>Maison Canis</span><span>Costura a medida</span><span>Hecho a mano en Guimarães</span><span>Madrid, desde 2019</span><span>Reparación de por vida</span>
+        <span>Maison Canis</span><span>Abrigo Vendôme</span><span>Plumífero Montaigne</span><span>Capa Rivoli</span><span>Maison Canis</span><span>Abrigo Vendôme</span><span>Plumífero Montaigne</span><span>Capa Rivoli</span>
       </div>
     </div>
 
-    <section class="section on-dark manifesto manifesto-lg" id="la-casa" aria-labelledby="manifiesto">
-      <div class="container">
-        <p class="eyebrow">La Maison</p>
-        <h2 id="manifiesto" class="visually-hidden">Manifiesto</h2>
-        <blockquote data-words>No vestimos perros. Vestimos a <em>quienes nos acompañan.</em></blockquote>
-        <p class="sub">Maison Canis nace de una convicción: lo que se hace para quien más queremos merece el mismo rigor que la mejor costura. Cada prenda se dibuja sobre medidas reales, se confecciona a mano y se cuida de por vida.</p>
-        <p class="manifesto-link"><a class="text-link" href="la-maison.html">Conocer la Maison</a></p>
-      </div>
-    </section>
-
-    <section class="rail" id="casa" aria-labelledby="casa-title" data-rail>
+        <section class="rail" id="casa" aria-labelledby="casa-title" data-rail>
       <div class="rail-sticky">
         <div class="rail-head container">
-          <p class="eyebrow rule">El savoir-faire</p>
-          <h2 id="casa-title">Un oficio que <em>no tiene prisa.</em></h2>
+          <p class="eyebrow rule">Al detalle</p>
+          <h2 id="casa-title">Cada pieza, <em>de cerca.</em></h2>
         </div>
         <div class="rail-viewport">
           <ul class="rail-track">
-            <li class="rail-item rail-wide"><figure><div class="frame ratio-3-2"><img src="images/maison-atelier.jpg" width="1500" height="1000" loading="lazy" decoding="async" alt="Mesa de corte de un taller luminoso, con patrones de papel, tijeras de sastre y una cinta métrica"></div><figcaption><span>I</span>El atelier. Patrones, tijeras y luz natural.</figcaption></figure></li>
-            <li class="rail-item"><figure><div class="frame ratio-4-5"><img src="images/maison-materiales.jpg" width="1200" height="1500" loading="lazy" decoding="async" alt="Muestras de gabardina de algodón, lino, cachemir y lana dispuestas sobre una mesa de trabajo"></div><figcaption><span>II</span>Cuatro fibras naturales, elegidas por cómo envejecen.</figcaption></figure></li>
-            <li class="rail-item rail-small"><figure><div class="frame ratio-1-1"><img src="images/maison-costura.jpg" width="1000" height="1000" loading="lazy" decoding="async" alt="Detalle de un ojal rematado a mano en una prenda de la Maison"></div><figcaption><span>III</span>Cada ojal, rematado a mano.</figcaption></figure></li>
-            <li class="rail-item"><figure><div class="frame ratio-4-5"><img src="images/home-maison.jpg" width="1200" height="1500" loading="lazy" decoding="async" alt="Manos de una costurera cortando un patrón de papel sobre una mesa de lino"></div><figcaption><span>IV</span>El patrón, dibujado sobre medidas reales.</figcaption></figure></li>
-            <li class="rail-item"><figure><div class="frame ratio-4-5"><img src="images/maison-retrato.jpg" width="1200" height="1500" loading="lazy" decoding="async" alt="Retrato de una galga italiana sentada junto a una ventana"></div><figcaption><span>V</span>Todo empezó con una galga y un abrigo mal cortado.</figcaption></figure></li>
-            <li class="rail-item rail-end"><a class="rail-cta" href="la-maison.html"><span>Entrar en la Maison</span></a></li>
+            <li class="rail-item"><figure><div class="frame ratio-1-1"><img src="images/vendome-02.jpg" width="1000" height="1000" loading="lazy" decoding="async" alt="Detalle de la solapa y de los botones negros del abrigo Vendôme"></div><figcaption><span>I</span>Vendôme. Solapa y doble botonadura.</figcaption></figure></li>
+            <li class="rail-item rail-wide"><figure><div class="frame ratio-3-2"><img src="images/montaigne-04.jpg" width="1500" height="1000" loading="lazy" decoding="async" alt="Lomo y costado del plumífero Montaigne sobre un galgo whippet"></div><figcaption><span>II</span>Montaigne. Acolchado en canales y negro lacado.</figcaption></figure></li>
+            <li class="rail-item"><figure><div class="frame ratio-1-1"><img src="images/rivoli-02.jpg" width="1000" height="1000" loading="lazy" decoding="async" alt="Detalle del cuello y del broche de latón de la capa Rivoli"></div><figcaption><span>III</span>Rivoli. Broche de latón en el cuello.</figcaption></figure></li>
+            <li class="rail-item"><figure><div class="frame ratio-1-1"><img src="images/vendome-03.jpg" width="1000" height="1000" loading="lazy" decoding="async" alt="Detalle del cinturón anudado y de la lana jaspeada del abrigo Vendôme"></div><figcaption><span>IV</span>Vendôme. Cinturón de lana a juego.</figcaption></figure></li>
+            <li class="rail-item"><figure><div class="frame ratio-1-1"><img src="images/montaigne-02.jpg" width="1000" height="1000" loading="lazy" decoding="async" alt="Detalle del cuello alto y de la cremallera del plumífero Montaigne"></div><figcaption><span>V</span>Montaigne. Cuello alto y cremallera frontal.</figcaption></figure></li>
+            <li class="rail-item rail-wide"><figure><div class="frame ratio-3-2"><img src="images/rivoli-04.jpg" width="1500" height="1000" loading="lazy" decoding="async" alt="Lomo y costado de la capa Rivoli sobre un galgo whippet"></div><figcaption><span>VI</span>Rivoli. Cachemir doble faz en camel.</figcaption></figure></li>
+            <li class="rail-item rail-end"><a class="rail-cta" href="#coleccion"><span>Ver la colección</span></a></li>
           </ul>
         </div>
       </div>
@@ -97,10 +90,10 @@
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <p class="eyebrow rule">La colección de invierno</p>
-            <h2 id="coleccion-title" style="margin-top:20px">Piezas para <em>los días de frío.</em></h2>
+            <p class="eyebrow rule">Colección</p>
+            <h2 id="coleccion-title" style="margin-top:20px">La colección <em>de invierno.</em></h2>
           </div>
-          <p>La colección de invierno reúne una gabardina, un jersey y un abrigo. Cada una existe en un solo tono, elegido para no pasar de moda, y se corta en cinco tallas sobre las medidas de su perro.</p>
+          
         </div>
       </div>
       <div id="scenes"></div>
@@ -111,13 +104,12 @@
         <div class="section-head reveal">
           <div>
             <p class="eyebrow">El tejido, de cerca</p>
-            <h2 id="tejido-title" style="margin-top:20px">Tres materiales. <em>Tres relieves.</em></h2>
+            <h2 id="tejido-title" style="margin-top:20px">Tres tejidos. <em>Tres acabados.</em></h2>
           </div>
-          <p>Arrastre la muestra para girarla y mueva el cursor para cambiar la luz: el cruce del sarga, el punto del cachemir y el acolchado en retícula se entienden mejor con las manos que con palabras.</p>
         </div>
-        <div class="fabric-viewer reveal" id="fabric-home" data-fabric="gabardina" data-tabs>
+        <div class="fabric-viewer reveal" id="fabric-home" data-fabric="vendome" data-tabs>
           <div class="fabric-stage" data-stage>
-            <img class="fabric-fallback" src="images/gabardina-02.jpg" width="1000" height="1000" loading="lazy" decoding="async" alt="Detalle del cuello alto y de los botones de corozo de la gabardina Auteuil">
+            <img class="fabric-fallback" src="images/vendome-02.jpg" width="1000" height="1000" loading="lazy" decoding="async" alt="Detalle de la solapa y de los botones negros del abrigo Vendôme">
           </div>
           <div class="fabric-panel">
             <div class="fabric-tabs" role="group" aria-label="Elegir tejido"></div>
@@ -130,29 +122,20 @@
       </div>
     </section>
 
-    <section class="section on-dark figures" aria-label="La Maison en cifras">
-      <div class="container">
-        <div class="figures-grid">
-          <div class="reveal"><span class="stitch" aria-hidden="true"><i></i><b></b></span><div class="n" data-count="2019" data-from="1990">2019</div><p>Año en que Maison Canis abrió su primer taller, en Madrid.</p></div>
-          <div class="reveal"><span class="stitch" aria-hidden="true"><i></i><b></b></span><div class="n" data-count="5">5</div><p>Tallas, definidas por medidas de pecho y lomo, no por peso.</p></div>
-          <div class="reveal"><span class="stitch" aria-hidden="true"><i></i><b></b></span><div class="n" data-count="1">1</div><p>Costurera por prenda, de principio a fin. Sus iniciales van en la etiqueta.</p></div>
-          <div class="reveal"><span class="stitch" aria-hidden="true"><i></i><b></b></span><div class="n n-text">De por vida</div><p>Reparamos cualquier prenda Maison Canis, sea cual sea su edad.</p></div>
-        </div>
-      </div>
-    </section>
+    
 
     <section class="section atelier-cta" aria-labelledby="atelier-title">
       <div class="container">
         <div class="atelier-grid">
           <div class="reveal">
-            <p class="eyebrow rule">Atelier</p>
+            <p class="eyebrow rule">Guía de tallas</p>
             <h2 id="atelier-title" style="margin-top:20px">La talla se mide, <em>no se supone.</em></h2>
           </div>
           <div class="reveal">
-            <p class="muted">Dos medidas bastan: el contorno de pecho y el largo de lomo. Indíquelas y le recomendamos la talla que mejor se ajusta a su perro. Si necesita algo distinto, el atelier le atiende personalmente.</p>
+            <p class="muted">Dos medidas bastan: el contorno de pecho y el largo de lomo. Indíquelas y le recomendamos la talla que mejor se ajusta a su perro.</p>
             <div class="atelier-actions">
               <a class="btn" href="guia-de-tallas.html#calculadora">Calcular la talla</a>
-              <a class="text-link" href="mailto:atelier@maisoncanis.com">Escribir al atelier</a>
+              <a class="text-link" href="mailto:atelier@maisoncanis.com">Escribir a la Maison</a>
             </div>
           </div>
         </div>
@@ -160,12 +143,10 @@
     </section>
 
     <section class="container" aria-label="Servicio">
-      <div class="services" style="margin:0 0 clamp(56px,7vw,104px)">
-        <div class="service reveal"><h3>Envío asegurado</h3><p>Gratuito en todos los pedidos, en estuche y papel de seda.</p></div>
-        <div class="service reveal"><h3>Cambio de talla</h3><p>Sin coste durante 30 días, también si ya la ha probado.</p></div>
-        <div class="service reveal"><h3>Reparación de por vida</h3><p>Arreglamos cualquier prenda Maison Canis, sea cual sea su edad.</p></div>
-        <div class="service reveal"><h3>Atención personal</h3><p>Escríbanos y le responderá una persona del taller en menos de un día laborable.</p></div>
-      </div>
+      <div class="services two" style="margin:0 0 clamp(56px,7vw,104px)">
+        <div class="service reveal"><h3>Envío asegurado</h3><p>Gratuito en todos los pedidos.</p></div>
+        <div class="service reveal"><h3>Cambio de talla</h3><p>Sin coste durante 30 días.</p></div>
+              </div>
     </section>
   </main>
 

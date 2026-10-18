@@ -35,7 +35,7 @@ MC.ready(function () {
         '<div class="gallery-wrap"><div class="gallery" role="group" tabindex="0" aria-label="Fotografías de ' + p.name + '">' + gallery + '</div>' +
           '<p class="gallery-hint" aria-hidden="true">Deslice para ver las ' + p.images.length + ' fotografías</p></div>' +
         '<div class="buy">' +
-          '<p class="eyebrow">' + p.num + ' · ' + p.type + '</p>' +
+          '<p class="eyebrow">' + p.num + '</p>' +
           '<h1>' + p.name + '</h1>' +
           '<p class="lead">' + p.lead + '</p>' +
           '<div class="price-row"><span class="price">' + MC.money(p.price) + '</span><span class="price-note">IVA incluido · Color ' + p.color + '</span></div>' +
@@ -56,37 +56,30 @@ MC.ready(function () {
             '</div>' +
           '</form>' +
           '<ul class="reassure">' +
-            '<li>Envío asegurado y gratuito</li>' +
+            '<li><a href="envios-y-cuidados.html">Envío asegurado y gratuito</a></li>' +
             '<li>Cambio de talla sin coste durante 30 días</li>' +
-            '<li>Reparación de por vida</li>' +
+            '<li>Tallas definidas por pecho y lomo</li>' +
           '</ul>' +
           '<div class="accordion">' +
-            acc('Descripción', p.description.map(function (t) { return '<p>' + t + '</p>'; }).join(''), true) +
-            acc('Detalles', '<ul>' + p.details.map(function (t) { return '<li>' + t + '</li>'; }).join('') + '</ul>') +
-            acc('Materiales y origen', '<p>' + p.materials + '</p>') +
+            acc('Detalles', '<ul>' + p.details.map(function (t) { return '<li>' + t + '</li>'; }).join('') + '</ul>', true) +
             acc('Cuidado', '<p>' + p.care + '</p>') +
-            acc('Envíos y cambios', '<p>Envío asegurado y gratuito en 3 a 4 días laborables, o en 24 horas por 18 €. Cambio de talla sin coste durante 30 días.</p><p><a href="envios-y-cuidados.html">Consultar las condiciones completas</a></p>') +
           '</div>' +
         '</div>' +
       '</div>' +
     '</div>' +
     '<section class="section bg-stone tejido" aria-labelledby="tejido-title">' +
       '<div class="container">' +
-        '<div class="section-head reveal"><div><p class="eyebrow">El tejido, de cerca</p><h2 id="tejido-title" style="margin-top:20px">' + MC.fabric.FABRICS[p.id].name + '.</h2></div>' +
-        '<p>Arrastre la muestra para girarla y mueva el cursor para cambiar la luz.</p></div>' +
-        '<div class="fabric-viewer reveal" data-fabric="' + p.id + '">' +
+        '<div class="section-head reveal"><div><h2 id="tejido-title">El tejido, de cerca.</h2></div></div>' +
+        '<div class="fabric-viewer solo reveal" data-fabric="' + p.id + '">' +
           '<div class="fabric-stage" data-stage><img class="fabric-fallback" src="images/' + MC.fabric.FABRICS[p.id].photo + '" width="1000" height="1000" loading="lazy" decoding="async" alt="' + MC.esc(MC.fabric.FABRICS[p.id].alt) + '"></div>' +
-          '<div class="fabric-panel">' +
-            '<p class="eyebrow fabric-kicker"></p><h3 class="fabric-name"></h3><p class="fabric-text"></p>' +
-            '<p class="fabric-hint" aria-hidden="true">Arrastre para girar</p>' +
-          '</div>' +
+          '<p class="fabric-hint" aria-hidden="true">Arrastre para girar</p>' +
         '</div>' +
       '</div>' +
     '</section>' +
     '<section class="section bg-stone" aria-labelledby="otras">' +
       '<div class="container">' +
-        '<div class="section-head"><div><p class="eyebrow">La colección</p><h2 id="otras" style="margin-top:20px">Las otras dos prendas.</h2></div>' +
-        '<p>Cortadas sobre las mismas medidas, para llevarse juntas o por separado.</p></div>' +
+        '<div class="section-head"><div><p class="eyebrow">La colección</p><h2 id="otras" style="margin-top:20px">Las otras dos piezas.</h2></div>' +
+        '</div>' +
         '<div class="cards two">' + others.map(MC.card).join('') + '</div>' +
       '</div>' +
     '</section>';

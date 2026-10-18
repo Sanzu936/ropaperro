@@ -16,13 +16,12 @@ MC.ready(function () {
           '</a>' +
           '<div class="scene-body">' +
             '<span class="scene-num" aria-hidden="true">' + n + '</span>' +
-            '<p class="eyebrow reveal">' + p.num + ' · ' + p.type + '</p>' +
+            '<p class="eyebrow reveal">' + p.num + '</p>' +
             '<h3 class="scene-title reveal" id="scene-' + p.id + '"><a href="' + p.page + '">' + p.name + '</a></h3>' +
             '<p class="scene-line reveal">' + p.lead + '</p>' +
             '<span class="stitch reveal" aria-hidden="true"><i></i><b></b></span>' +
             '<dl class="scene-facts reveal">' +
               '<div><dt>Tono</dt><dd>' + p.color + '</dd></div>' +
-              '<div><dt>Material</dt><dd>' + p.cardLine.split(',')[0].replace(/\.$/, '') + '</dd></div>' +
               '<div><dt>Precio</dt><dd>' + MC.money(p.price) + '</dd></div>' +
             '</dl>' +
             '<a class="text-link reveal" href="' + p.page + '">Descubrir ' + p.name + '</a>' +

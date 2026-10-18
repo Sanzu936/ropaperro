@@ -36,7 +36,7 @@ MC.ready(function () {
     if (isNaN(chest) || chest <= 0) return fail('Indique el contorno de pecho en centímetros.', chestEl);
     if (isNaN(back) || back <= 0) return fail('Indique el largo de lomo en centímetros.', backEl);
     var ci = indexFor(chest, 'chest');
-    if (ci < 0) return fail('Un contorno de pecho de ' + chest + ' cm queda fuera de nuestra gama, que va de 30 a 82 cm. Escríbanos a atelier@maisoncanis.com y estudiaremos una prenda a medida.', chestEl);
+    if (ci < 0) return fail('Un contorno de pecho de ' + chest + ' cm queda fuera de nuestra gama, que va de 30 a 82 cm. Escríbanos a atelier@maisoncanis.com.', chestEl);
     var bi = indexFor(back, 'back');
     var s = MC.SIZES[ci];
     var note = '';
