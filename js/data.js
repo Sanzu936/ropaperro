@@ -20,7 +20,7 @@
       color: 'Gris jaspeado',
       price: 1290,
       cardLine: 'Lana gris jaspeada, doble botonadura y cinturón.',
-      lead: 'Abrigo cruzado de lana gris jaspeada.',
+      lead: 'Abrigo cruzado de lana.',
       description: [
         'Abrigo de lana en gris jaspeado, de corte cruzado: solapas, dos filas de botones negros y un cinturón a juego que se anuda en la cintura. Cubre el lomo y el pecho.'
       ],
@@ -47,7 +47,7 @@
       color: 'Negro lacado',
       price: 1190,
       cardLine: 'Acolchado en canales, negro brillante, con capucha.',
-      lead: 'Plumífero negro de acabado brillante y lacado.',
+      lead: 'Plumífero acolchado de acabado brillante.',
       description: [
         'Plumífero acolchado en canales horizontales, con un acabado negro brillante y lacado. Cuello alto, capucha y cremallera frontal.'
       ],
@@ -74,7 +74,7 @@
       color: 'Camel',
       price: 1680,
       cardLine: 'Cachemir doble faz en camel, con broche de latón.',
-      lead: 'Capa de cachemir doble faz en camel.',
+      lead: 'Capa de cachemir doble faz.',
       description: [
         'Capa de cachemir doble faz en tono camel. Se apoya sobre el lomo y el pecho, se cierra en el cuello con un broche de latón y deja las patas libres.'
       ],
