@@ -1,4 +1,5 @@
 tools/originales/
+tools/referencias/
 .env
 .env.*
 node_modules/

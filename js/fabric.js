@@ -4,27 +4,26 @@
   'use strict';
 
   var FABRICS = {
-    gabardina: {
-      name: 'Gabardina de algodón',
-      text: 'Sarga de algodón de trama densa, tejida en Cataluña. El cruce diagonal del hilo es lo que hace resbalar la lluvia. Los botones, de corozo, se tallan y se pulen a mano.',
-      photo: 'gabardina-02.jpg',
-      alt: 'Detalle del cuello alto y de los botones de corozo de la gabardina Auteuil'
+    vendome: {
+      name: 'Lana jaspeada',
+      text: 'Lana en gris jaspeado, con botones negros y un cinturón a juego que se anuda en la cintura.',
+      photo: 'vendome-02.jpg',
+      alt: 'Detalle de las solapas de pico y de los botones negros del abrigo Vendôme'
     },
-    jersey: {
-      name: 'Cachemir de fibra larga',
-      text: 'Punto liso de galga fina en cachemir de 15,5 micras. Cada malla es una pequeña V: de ahí salen la suavidad y la caída de la prenda.',
-      photo: 'jersey-02.jpg',
-      alt: 'Detalle del punto liso de cachemir del jersey Passy'
+    montaigne: {
+      name: 'Acolchado lacado',
+      text: 'Canales de acolchado horizontales en un negro brillante que refleja la luz. Cuello alto, capucha y cremallera frontal.',
+      photo: 'montaigne-02.jpg',
+      alt: 'Detalle del cuello alto y de la cremallera del plumífero Montaigne'
     },
-    abrigo: {
-      name: 'Lana batida acolchada',
-      text: 'Loden de lana acolchado en retícula de cinco centímetros sobre un relleno de merino. El relieve es real: cada celda es una pequeña almohada de aire.',
-      photo: 'abrigo-02.jpg',
-      alt: 'Detalle del acolchado en retícula del abrigo Marais'
+    rivoli: {
+      name: 'Cachemir doble faz',
+      text: 'Cachemir doble faz en camel, de caída suave, con un botón de latón en el cuello.',
+      photo: 'rivoli-02.jpg',
+      alt: 'Detalle del cuello y del botón de latón de la capa Rivoli'
     }
   };
 
-  /* Decisión de marca: las animaciones se muestran siempre, aunque el sistema pida reducir el movimiento. */
   var reduce = { matches: false, addEventListener: function () {} };
   var threePromise = null;
 
@@ -227,22 +226,15 @@
   Viewer.prototype.height = function (id, x, y) {
     var z = 0.3 * Math.sin(x * 0.95 + 0.5) * Math.cos(y * 0.5) - 0.05 * y * y + 0.04 * Math.sin(y * 2.2 + x);
     var edge = Math.min(W / 2 - Math.abs(x), H / 2 - Math.abs(y));
-    if (id === 'abrigo') {
-      var fade = Math.max(0, Math.min(1, (edge - 0.1) / 0.24)); fade = fade * fade * (3 - 2 * fade);
-      var c = 0.62, a = (x + y) / c, b = (x - y) / c;
-      var fa = a - Math.floor(a), fb = b - Math.floor(b);
-      var d = Math.min(Math.min(fa, 1 - fa), Math.min(fb, 1 - fb));
-      var t = Math.min(1, d / 0.24);
-      z += (Math.sin(t * Math.PI / 2) * 0.8 + 0.2 * t) * 0.07 * fade;
-      return { z: z, shade: 1 - (0.38 * fade) * (1 - Math.min(1, d / 0.09)) };
+    if (id === 'montaigne') {
+      var fade = Math.max(0, Math.min(1, (edge - 0.08) / 0.2)); fade = fade * fade * (3 - 2 * fade);
+      var c = 0.62, f = y / c - Math.floor(y / c), d = Math.min(f, 1 - f);
+      var t = Math.min(1, d / 0.3);
+      z += (Math.sin(t * Math.PI / 2) * 0.85 + 0.15 * t) * 0.12 * fade;
+      return { z: z, shade: 1 - 0.55 * fade * (1 - Math.min(1, d / 0.07)) };
     }
-    if (id === 'jersey') {
-      z = 0.34 * Math.sin(x * 0.8 + 0.2) * Math.cos(y * 0.45) - 0.05 * y * y;
-      if (y < -H / 2 + 0.5) {
-        var k = Math.sin(x * 30);
-        z += k * 0.016;
-        return { z: z, shade: 0.88 + 0.12 * k };
-      }
+    if (id === 'rivoli') {
+      z = 0.34 * Math.sin(x * 0.8 + 0.2) * Math.cos(y * 0.45) - 0.05 * y * y + 0.05 * Math.sin(x * 2.4 + y);
     }
     return { z: z, shade: 1 };
   };
@@ -272,17 +264,18 @@
       var ex = W / 2 - Math.abs(px), ey = H / 2 - Math.abs(py);
       var ed = Math.min(ex, ey), along = ex < ey ? py : px;
       var z = h.z + (ed < 0.075 ? 0.012 : 0), shade = h.shade;
-      if (ed > 0.085 && ed < 0.105 && Math.floor(along * 16) % 2 === 0) shade *= id === 'gabardina' ? 0.74 : 0.5;
+      if (ed > 0.085 && ed < 0.105 && Math.floor(along * 16) % 2 === 0) shade *= id === 'montaigne' ? 0.4 : 0.7;
       if (ed < 0.075) shade *= 1.04;
       /* variación suave del hilo, para que no sea un color plano */
       shade *= 0.96 + 0.04 * Math.sin(px * 5.1 + py * 3.3) * Math.cos(py * 4.2 - px * 1.7);
+      if (id === 'vendome') { var hh = Math.sin(px * 91.7 + py * 47.3) * 43758.5453; shade *= 0.9 + 0.1 * (hh - Math.floor(hh)); }
       pos.setZ(i, z);
       cols[i * 3] = cols[i * 3 + 1] = cols[i * 3 + 2] = shade;
     }
     geo.setAttribute('color', new T.BufferAttribute(cols, 3));
     geo.computeVertexNormals();
 
-    var kind = id === 'gabardina' ? 'twill' : (id === 'jersey' ? 'knit' : 'felt');
+    var kind = id === 'rivoli' ? 'felt' : (id === 'vendome' ? 'twill' : 'felt');
     if (!this.normals[kind]) {
       var tex = new T.CanvasTexture(TEX[kind]());
       tex.wrapS = tex.wrapT = T.RepeatWrapping;
@@ -291,15 +284,15 @@
       this.normals[kind] = tex;
     }
     var tex2 = this.normals[kind];
-    var rep = kind === 'knit' ? 0.9 : (kind === 'twill' ? 1.05 : 0.45);
+    var rep = kind === 'twill' ? 1.05 : (id === 'rivoli' ? 0.7 : 0.45);
     tex2.repeat.set(W / rep, H / rep);
     var mat;
-    if (id === 'gabardina') {
-      mat = new T.MeshStandardMaterial({ color: 0xd2bf9b, roughness: 0.72, metalness: 0, normalMap: tex2, normalScale: new T.Vector2(0.7, 0.7), vertexColors: true, side: T.DoubleSide });
-    } else if (id === 'jersey') {
-      mat = new T.MeshPhysicalMaterial({ color: 0xece4d2, roughness: 0.96, metalness: 0, normalMap: tex2, normalScale: new T.Vector2(0.85, 0.85), sheen: 1, sheenRoughness: 0.55, sheenColor: new T.Color(0xfff2d9), vertexColors: true, side: T.DoubleSide });
+    if (id === 'vendome') {
+      mat = new T.MeshStandardMaterial({ color: 0xa5a8a8, roughness: 0.9, metalness: 0, normalMap: tex2, normalScale: new T.Vector2(0.55, 0.55), vertexColors: true, side: T.DoubleSide });
+    } else if (id === 'montaigne') {
+      mat = new T.MeshPhysicalMaterial({ color: 0x0c0c0d, roughness: 0.2, metalness: 0.15, clearcoat: 1, clearcoatRoughness: 0.12, envMap: this.env(T), envMapIntensity: 1.5, vertexColors: true, side: T.DoubleSide });
     } else {
-      mat = new T.MeshStandardMaterial({ color: 0x4d5840, roughness: 0.92, metalness: 0, normalMap: tex2, normalScale: new T.Vector2(0.7, 0.7), vertexColors: true, side: T.DoubleSide });
+      mat = new T.MeshPhysicalMaterial({ color: 0xbfa27a, roughness: 0.95, metalness: 0, normalMap: tex2, normalScale: new T.Vector2(0.3, 0.3), sheen: 1, sheenRoughness: 0.6, sheenColor: new T.Color(0xf3d9a8), vertexColors: true, side: T.DoubleSide });
     }
     mat.alphaMap = this.cornerMap(T);
     mat.alphaTest = 0.5;
@@ -315,11 +308,13 @@
       this.scene.add(this.shadow);
     }
 
-    if (id === 'gabardina') {
-      this.addButton(T, 0.9, 0.3, 0.17);
-      this.addButton(T, 0.9, -0.28, 0.17);
-    } else if (id === 'abrigo') {
-      this.addSnap(T, 0.95, -0.5);
+    if (id === 'vendome') {
+      this.addButton(T, 0.9, 0.3, 0.19, id);
+      this.addButton(T, 0.9, -0.28, 0.19, id);
+    } else if (id === 'montaigne') {
+      this.addZip(T);
+    } else if (id === 'rivoli') {
+      this.addSnap(T, 0.85, 0.55, id);
     }
     this.dirty = true;
   };
@@ -350,7 +345,7 @@
     this.corner = new T.CanvasTexture(c);
     return this.corner;
   };
-  Viewer.prototype.addButton = function (T, x, y, rad) {
+  Viewer.prototype.addButton = function (T, x, y, rad, id) {
     var s = new T.Shape();
     s.absarc(0, 0, rad, 0, Math.PI * 2, false);
     [[-1, -1], [1, -1], [1, 1], [-1, 1]].forEach(function (p) {
@@ -359,10 +354,10 @@
       s.holes.push(hole);
     });
     var g = new T.ExtrudeGeometry(s, { depth: 0.05, bevelEnabled: true, bevelThickness: 0.022, bevelSize: 0.022, bevelSegments: 4, curveSegments: 40 });
-    var m = new T.MeshPhysicalMaterial({ color: 0x6a4125, roughness: 0.34, clearcoat: 0.4, clearcoatRoughness: 0.4 });
+    var m = new T.MeshPhysicalMaterial({ color: 0x121212, roughness: 0.3, clearcoat: 0.6, clearcoatRoughness: 0.4 });
     var btn = new T.Group();
     btn.add(new T.Mesh(g, m));
-    var th = new T.MeshStandardMaterial({ color: 0xefe6d2, roughness: 0.9 });
+    var th = new T.MeshStandardMaterial({ color: 0x050505, roughness: 0.9 });
     var len = rad * 0.28 * 2.9;
     [Math.PI / 4, -Math.PI / 4].forEach(function (a) {
       var c = new T.Mesh(new T.CylinderGeometry(0.011, 0.011, len, 8), th);
@@ -371,9 +366,36 @@
       btn.add(c);
     });
     btn.rotation.z = 0.35;
-    this.place(T, btn, 'gabardina', x, y, 0.03);
+    this.place(T, btn, id, x, y, 0.03);
   };
-  Viewer.prototype.addSnap = function (T, x, y) {
+  /* cremallera metálica que sigue la caída del acolchado */
+  Viewer.prototype.addZip = function (T) {
+    var self = this, pts = [], x = -0.15;
+    for (var y = -H / 2 + 0.14; y <= H / 2 - 0.14; y += 0.1) pts.push(new T.Vector3(x, y, self.height('montaigne', x, y).z + 0.045));
+    var metal = new T.MeshStandardMaterial({ color: 0xb9b9bd, roughness: 0.3, metalness: 0.95 });
+    var tube = new T.Mesh(new T.TubeGeometry(new T.CatmullRomCurve3(pts), 80, 0.022, 8, false), metal);
+    var tape = new T.Mesh(new T.TubeGeometry(new T.CatmullRomCurve3(pts), 80, 0.05, 8, false), new T.MeshStandardMaterial({ color: 0x050505, roughness: 0.5 }));
+    var pull = new T.Mesh(new T.BoxGeometry(0.09, 0.2, 0.025), metal);
+    var top = pts[pts.length - 3];
+    pull.position.set(top.x, top.y - 0.06, top.z + 0.03);
+    var g = new T.Group(); g.add(tape, tube, pull);
+    this.group.add(g); this.extras.push(g);
+  };
+  /* entorno de estudio (paneles de luz) para los reflejos del negro lacado */
+  Viewer.prototype.env = function (T) {
+    if (this.envMap) return this.envMap;
+    var sc = new T.Scene(), dark = new T.Mesh(new T.BoxGeometry(20, 20, 20), new T.MeshBasicMaterial({ color: 0x1a1a1c, side: T.BackSide }));
+    sc.add(dark);
+    [[-6, 3, 5, 6, 1.2, 0xffffff, 6], [6, -1, 4, 1.2, 6, 0xfff1da, 3], [0, 7, -2, 8, 1, 0xffffff, 4]].forEach(function (l) {
+      var m = new T.Mesh(new T.PlaneGeometry(l[3], l[4]), new T.MeshBasicMaterial({ color: new T.Color(l[5]).multiplyScalar(l[6]) }));
+      m.position.set(l[0], l[1], l[2]); m.lookAt(0, 0, 0); sc.add(m);
+    });
+    var pm = new T.PMREMGenerator(this.renderer);
+    this.envMap = pm.fromScene(sc, 0.04).texture;
+    pm.dispose();
+    return this.envMap;
+  };
+  Viewer.prototype.addSnap = function (T, x, y, id) {
     var g = new T.Group();
     var brass = new T.MeshStandardMaterial({ color: 0xa98a4c, roughness: 0.32, metalness: 0.95 });
     var disc = new T.Mesh(new T.CylinderGeometry(0.17, 0.17, 0.035, 48), brass);
@@ -383,7 +405,7 @@
     var ring = new T.Mesh(new T.TorusGeometry(0.2, 0.012, 12, 64), brass);
     ring.position.z = 0.004;
     g.add(disc, dome, ring);
-    this.place(T, g, 'abrigo', x, y, 0.07);
+    this.place(T, g, id, x, y, 0.07);
   };
 
   Viewer.prototype.resize = function () {

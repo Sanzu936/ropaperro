@@ -58,7 +58,7 @@ MC.ready(function () {
           '<ul class="reassure">' +
             '<li>Envío asegurado y gratuito</li>' +
             '<li>Cambio de talla sin coste durante 30 días</li>' +
-            '<li>Reparación de por vida</li>' +
+            '<li>Tallas definidas por pecho y lomo</li>' +
           '</ul>' +
           '<div class="accordion">' +
             acc('Descripción', p.description.map(function (t) { return '<p>' + t + '</p>'; }).join(''), true) +
@@ -85,8 +85,8 @@ MC.ready(function () {
     '</section>' +
     '<section class="section bg-stone" aria-labelledby="otras">' +
       '<div class="container">' +
-        '<div class="section-head"><div><p class="eyebrow">La colección</p><h2 id="otras" style="margin-top:20px">Las otras dos prendas.</h2></div>' +
-        '<p>Cortadas sobre las mismas medidas, para llevarse juntas o por separado.</p></div>' +
+        '<div class="section-head"><div><p class="eyebrow">La colección</p><h2 id="otras" style="margin-top:20px">Las otras dos piezas.</h2></div>' +
+        '<p>Las otras dos piezas de la colección de invierno.</p></div>' +
         '<div class="cards two">' + others.map(MC.card).join('') + '</div>' +
       '</div>' +
     '</section>';

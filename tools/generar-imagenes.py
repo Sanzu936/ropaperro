@@ -48,51 +48,66 @@ ABR = (
 )
 
 # archivo: (modelo, aspecto, tamaño final px (ancho, alto), referencias, prompt)
+# Las referencias son nombres de imágenes ya generadas (images/) o rutas a archivos (tools/referencias/).
+VEND = (
+    "The dog wears the 'Vendôme' coat: a long double-breasted coat in heather-grey wool flannel, adapted to a dog's body: tailored peak-lapel collar, "
+    "two vertical rows of two large black horn buttons on the chest, and a matching wool tie belt around the waist knotted in a soft bow at the side. "
+    "The coat covers the back and chest and falls just past the ribs. No hood, no logos, impeccable tailoring. "
+    "Reproduce the cut, fabric and colour of the garment in the attached design reference, but fitted on the dog; do not include the woman from the reference. "
+)
+MONT = (
+    "The dog wears the 'Montaigne' down jacket: a glossy black lacquered nylon puffer jacket with horizontal channel quilting, a high standing collar, "
+    "a hood lowered and resting folded at the back of the neck, and a black zip closing along the chest. It covers the back and chest and ends at the ribs. "
+    "No logos, no patches, no text. Reproduce the glossy quilted look of the attached design reference, but adapted and fitted to the dog's body; do not include any human. "
+)
+RIV = (
+    "The dog wears the 'Rivoli' cape: a camel-coloured double-faced cashmere cape that drapes over the back and chest like a short cloak, "
+    "closing at the throat with a single large antique-brass toggle button, with softly finished raw edges and a clean hem that ends mid-body, leaving the legs free. "
+    "No hood, no logos, impeccable tailoring. "
+)
 IMAGES = {
- "hero-inicio": (PRO, "16:9", (2000, 1125), ["gabardina-01"], STYLE + DOG + GAB +
-   "Wide horizontal composition: the whippet stands in full profile on the left third of the frame, facing right, in front of a plain pale limestone wall with subtle texture; "
-   "wide empty stone space on the right. The dog is large in the frame: its body from paws to ears occupies about 70% of the image height. Full body visible including all four legs and paws. Serene, museum-like."),
- "hero-inicio-movil": (PRO, "4:5", (1200, 1500), ["gabardina-01"], STYLE + DOG + GAB +
-   "Vertical composition: the whippet stands in full profile, facing right, centred in the lower two thirds, in front of a plain smooth pale limestone wall with subtle texture and NO columns, NO doors, NO architecture details; empty wall above. The dog is large in the frame: it spans about 80% of the image width and 55% of its height. Full body visible including all four legs and paws."),
- "home-maison": (FLASH, "4:5", (1200, 1500), [], STYLE +
-   "Close view of a seamstress's hands (no face) cutting and pinning a paper dog-coat pattern on a pale linen-covered table in a quiet atelier, "
-   "a tailor's chalk, a brass thimble and a spool of cream thread beside it. Hands with natural, correct anatomy and five fingers each."),
- "gabardina-01": (PRO, "4:5", (1200, 1500), [], STYLE + DOG + GAB +
-   "Studio portrait, the whippet standing in full profile facing right on a seamless warm stone-grey backdrop with a soft floor shadow. The dog fills about 75% of the frame width, centred. Full body visible including all four legs and paws."),
- "gabardina-02": (FLASH, "1:1", (1000, 1000), ["gabardina-01"], STYLE +
-   "Macro detail of the same sand-coloured gabardine coat: the high collar and two horn-brown corozo buttons with the dense twill weave visible, tight crop, no dog's face, soft shadow."),
- "gabardina-03": (FLASH, "1:1", (1000, 1000), ["gabardina-01"], STYLE +
-   "The sand gabardine coat laid open flat, showing its interior lined in fine natural linen with thin cream-and-ivory stripes; crisp seams, still life on pale stone surface, top-down."),
- "gabardina-04": (PRO, "3:2", (1500, 1000), ["gabardina-01"], STYLE + DOG + GAB +
-   "The whippet walking on a wet cobblestone street in light rain, side view, soft grey mist, old pale stone façades blurred behind, droplets beading on the sand coat. Full body with all four legs."),
- "jersey-01": (PRO, "4:5", (1200, 1500), [], STYLE + DOG + JER +
-   "Studio portrait, the whippet sitting upright, three-quarter view, on a seamless uniform warm stone-grey backdrop with soft shadow, no coloured bands or edges in the background. Correct anatomy of seated dog, both front paws visible."),
- "jersey-02": (FLASH, "1:1", (1000, 1000), ["jersey-01"], STYLE +
-   "Extreme macro of the oatmeal fine-gauge cashmere knit, smooth stockinette stitches with a soft halo of fibres, raking light, fills the whole frame."),
- "jersey-03": (FLASH, "1:1", (1000, 1000), ["jersey-01"], STYLE +
-   "A turtleneck collar tube of an oatmeal cashmere dog jumper, wide soft cylinder folded over on itself once (a fold-over roll collar, not a sleeve cuff), standing upright on a pale surface, no dog visible, tight crop."),
- "jersey-04": (FLASH, "3:2", (1500, 1000), ["jersey-01"], STYLE +
-   "The oatmeal cashmere dog jumper neatly folded on a light oak wooden surface, a small sprig of dried lavender beside it, still life, side light."),
- "abrigo-01": (PRO, "4:5", (1200, 1500), [], STYLE + DOG + ABR +
-   "Studio portrait, the whippet standing in full profile facing right on a seamless warm stone-grey backdrop with soft floor shadow. The dog fills about 75% of the frame width, centred. Full body visible including all four legs and paws."),
- "abrigo-02": (FLASH, "1:1", (1000, 1000), ["abrigo-01"], STYLE +
-   "Macro detail of a flat piece of loden-green boiled wool quilted in a lattice of clear DIAMOND shapes (lozenges standing on their points, rotated 45 degrees, about five centimetres), soft puffed relief and fine stitching lines, raking light, fills the whole frame. No dog, no animal, no collar."),
- "abrigo-03": (FLASH, "1:1", (1000, 1000), ["abrigo-01"], STYLE +
-   "Detail of a DEEP DARK loden-green (very dark olive, same dark tone as a hunting-coat) quilted wool coat's placket: a fabric flap lifted slightly to reveal discreet antique-brass snap fasteners, tight crop, no dog visible."),
- "abrigo-04": (PRO, "3:2", (1500, 1000), ["abrigo-01"], STYLE + DOG + ABR +
-   "The whippet strolling along a gravel path in a park in autumn, side view, golden and russet leaves softly blurred, low misty light. Full body with all four legs."),
- "maison-retrato": (PRO, "4:5", (1200, 1500), [], STYLE +
-   "Portrait of an elegant grey Italian greyhound (galga italiana) seated beside a tall window with sheer linen curtain, soft window light on its face, "
-   "plain ivory wall, correct canine anatomy, one head two ears four legs, dignified gaze toward camera. No clothing."),
- "maison-materiales": (FLASH, "4:5", (1200, 1500), [], STYLE +
-   "Still life on a pale oak table: folded swatches of sand cotton gabardine, striped natural linen, oatmeal cashmere knit and loden-green wool, arranged in a calm grid, top-down, plus a small brass thimble."),
- "maison-atelier": (FLASH, "3:2", (1500, 1000), [], STYLE +
-   "A quiet atelier cutting table with paper patterns, long tailor's shears, chalk and a tape measure, large north-facing window, whitewashed walls, no people."),
- "maison-costura": (FLASH, "1:1", (1000, 1000), [], STYLE +
-   "Macro of a hand-finished buttonhole stitched in cream silk thread on loden-green wool cloth, tiny precise stitches, no text."),
+ "vendome-01": (PRO, "4:5", (1200, 1500), ["tools/referencias/abrigo-cruzado-ref.jpg"], STYLE + DOG + VEND +
+   "Studio portrait, the whippet standing in full profile facing right on a seamless pale stone-grey backdrop with a soft floor shadow. The dog fills about 75% of the frame width. Full body visible including all four legs and paws."),
+ "montaigne-01": (PRO, "4:5", (1200, 1500), ["tools/referencias/plumifero-ref.jpg"], STYLE.replace("Soft diffused overcast daylight from the left, warm ivory and stone neutral palette", "Dramatic low-key lighting: soft side light plus a subtle rim light, deep charcoal-black backdrop") + DOG + MONT +
+   "Studio portrait, the whippet standing in full profile facing right on a seamless deep charcoal backdrop with a faint floor reflection. The dog fills about 75% of the frame width. Full body visible including all four legs and paws."),
+ "rivoli-01": (PRO, "4:5", (1200, 1500), [], STYLE.replace("warm ivory and stone neutral palette", "warm terracotta and sand palette") + DOG + RIV +
+   "Studio portrait, the whippet standing in full profile facing right on a seamless warm terracotta-clay backdrop with a soft floor shadow. The dog fills about 75% of the frame width. Full body visible including all four legs and paws."),
+ "hero-inicio": (PRO, "16:9", (2000, 1125), ["vendome-01"], STYLE + DOG + VEND +
+   "Wide horizontal composition: the whippet stands in full profile on the left third of the frame, facing right, in front of a plain smooth pale limestone wall with subtle texture, no columns or architecture; wide empty wall on the right. "
+   "The dog is large in the frame: paws to ears about 70% of the image height. Full body visible including all four legs and paws. Serene, museum-like."),
  "guia-medicion": (PRO, "3:2", (1500, 1000), [], STYLE + DOG +
-   "The female fawn whippet stands calmly in profile, entirely inside the frame with a margin around all four paws, tail and head, on a pale wooden floor in a bright room, while bare hands (no gloves, no face, correct anatomy) hold a cream cloth tape measure around its chest right behind the front legs. Camera slightly farther away so the whole dog is visible. No clothing on the dog. Photographed so that no genitals are visible."),
+   "The female fawn whippet stands calmly in profile, entirely inside the frame with a margin around all four paws, tail and head, on a pale wooden floor in a bright room, while bare hands (no gloves, no face, correct anatomy) hold a cream cloth tape measure around its chest right behind the front legs. No clothing on the dog. Photographed so that no genitals are visible. Camera slightly farther away so the whole dog is visible."),
 }
+
+# Recortes sin coste: detalles sacados del original de alta resolución (tools/originales/*.png)
+# nombre: (origen, caja (x0, y0, x1, y1) en fracciones del original, tamaño final)
+DERIVED = {
+ "vendome-02": ("vendome-01", (0.40, 0.18, 0.88, 0.60), (1000, 1000)),
+ "vendome-03": ("vendome-01", (0.06, 0.34, 0.60, 0.88), (1000, 1000)),
+ "vendome-04": ("vendome-01", (0.00, 0.20, 1.00, 0.86), (1500, 1000)),
+ "montaigne-02": ("montaigne-01", (0.40, 0.18, 0.88, 0.60), (1000, 1000)),
+ "montaigne-03": ("montaigne-01", (0.06, 0.34, 0.60, 0.88), (1000, 1000)),
+ "montaigne-04": ("montaigne-01", (0.00, 0.20, 1.00, 0.86), (1500, 1000)),
+ "rivoli-02": ("rivoli-01", (0.40, 0.18, 0.88, 0.60), (1000, 1000)),
+ "rivoli-03": ("rivoli-01", (0.06, 0.34, 0.60, 0.88), (1000, 1000)),
+ "rivoli-04": ("rivoli-01", (0.00, 0.20, 1.00, 0.86), (1500, 1000)),
+ "hero-inicio-movil": ("hero-inicio", (0.07, 0.0, 0.52, 1.0), (1200, 1500)),
+}
+
+def derive(name):
+    from PIL import Image
+    src, box, size = DERIVED[name]
+    im = Image.open(RAW / (src + ".png")).convert("RGB")
+    w, h = im.size
+    c = im.crop((int(box[0] * w), int(box[1] * h), int(box[2] * w), int(box[3] * h)))
+    tw, th = size
+    r = tw / th; cw, ch = c.size
+    if cw / ch > r:
+        nw = int(ch * r); c = c.crop(((cw - nw) // 2, 0, (cw - nw) // 2 + nw, ch))
+    else:
+        nh = int(cw / r); c = c.crop((0, (ch - nh) // 2, cw, (ch - nh) // 2 + nh))
+    c.resize(size, Image.LANCZOS).save(OUT / (name + ".jpg"), "JPEG", quality=82, optimize=True, progressive=True)
+    print(name, "recorte de", src, size)
 
 def load_key():
     k = os.environ.get("OPENROUTER_API_KEY", "")
@@ -112,7 +127,8 @@ def generate(name, spec):
     model, aspect, size, refs, prompt = spec
     content = [{"type": "text", "text": prompt}]
     for r in refs:
-        content.append({"type": "image_url", "image_url": {"url": data_url(OUT / (r + ".jpg"))}})
+        path = (ROOT / r) if "/" in r else (OUT / (r + ".jpg"))
+        content.append({"type": "image_url", "image_url": {"url": data_url(path)}})
         content[0]["text"] += " Keep the exact same garment, fabric, colour and lighting as in the reference image."
     body = {"model": model, "modalities": ["image", "text"],
             "image_config": {"aspect_ratio": aspect, "image_size": "2K" if size[0] > 1300 else "1K"},
@@ -157,7 +173,12 @@ if __name__ == "__main__":
     if "--lista" in args:
         for n, s in IMAGES.items():
             print(n, s[0], s[1], s[2])
+        for n in DERIVED:
+            print(n, "recorte")
         sys.exit()
-    todo = args or list(IMAGES)
+    todo = args or (list(IMAGES) + list(DERIVED))
     for n in todo:
-        generate(n, IMAGES[n])
+        if n in DERIVED:
+            derive(n)
+        else:
+            generate(n, IMAGES[n])
