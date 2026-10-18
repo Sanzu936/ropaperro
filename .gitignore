@@ -1,0 +1,5 @@
+tools/originales/
+.env
+.env.*
+node_modules/
+.vercel
