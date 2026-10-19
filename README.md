@@ -6,9 +6,9 @@ Web estática de una marca de ropa para perro de gama alta. HTML, CSS y JavaScri
 
 ```
 index.html                 Portada
-vendome.html               Nº 1 · Abrigo Vendôme (1.290 €)
-montaigne.html            Nº 2 · Plumífero Montaigne (1.190 €)
-rivoli.html                Nº 3 · Capa Rivoli (1.680 €)
+vendome.html               Nº 1 · Abrigo Vendôme (185 €)
+montaigne.html            Nº 2 · Plumífero Montaigne (165 €)
+rivoli.html                Nº 3 · Capa Rivoli (240 €)
 guia-de-tallas.html        Cómo medir, calculadora y tabla de tallas
 la-maison.html             Marca y contacto
 envios-y-cuidados.html     Envíos, cambios y cuidado
