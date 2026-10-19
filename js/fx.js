@@ -3,7 +3,6 @@
   'use strict';
   var root = document.documentElement;
   /* Decisión de marca: las animaciones se muestran siempre, aunque el sistema pida reducir el movimiento. */
-  MC.fx = {};
   root.classList.add('js-fx');
 
   /* Scroll suave (Lenis, versión local fija) */

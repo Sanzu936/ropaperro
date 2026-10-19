@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
-"""Maison Canis · generación única de las imágenes de la web con OpenRouter.
+"""Maison Canis · generación única de las imágenes de la web (OpenRouter, con Kie API de respaldo).
 
 La web NO llama a OpenRouter: este script se ejecuta una vez (o cuando se quiera
 rehacer alguna foto) y deja los JPG en images/.
 
 Uso:
     export OPENROUTER_API_KEY=...        # o ponerla en .env (ignorado por git)
-    python3 tools/generar-imagenes.py                 # genera las que falten
-    python3 tools/generar-imagenes.py hero-inicio     # fuerza una concreta
-    python3 tools/generar-imagenes.py --lista         # muestra nombres y coste estimado
+    export KIE_API_KEY=...               # respaldo si OpenRouter responde 402 (sin saldo)
+    python3 tools/generar-imagenes.py                 # = --reconstruir
+    python3 tools/generar-imagenes.py vendome-01      # genera una foto concreta (guarda el original 4K)
+    python3 tools/generar-imagenes.py --reconstruir   # rehace recortes, lupa, portada y acabado desde tools/originales
+    python3 tools/generar-imagenes.py --lista         # muestra los nombres disponibles
 
 Requiere Pillow (pip install pillow). La clave nunca se escribe en ningún archivo.
 """
@@ -19,7 +21,6 @@ OUT = ROOT / "images"
 RAW = ROOT / "tools" / "originales"          # copias sin recortar (ignoradas por git)
 
 PRO = "google/gemini-3-pro-image-preview"
-FLASH = "google/gemini-3.1-flash-image-preview"
 
 STYLE = (
     "Editorial luxury campaign photograph for a quiet, exclusive fashion house for dogs. "
