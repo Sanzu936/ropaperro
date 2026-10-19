@@ -55,7 +55,6 @@
           '<li><a href="mailto:atelier@maisoncanis.com">atelier@maisoncanis.com</a></li>' +
         '</ul></div>' +
       '</div>' +
-      '<div class="container"><p class="footer-mark" aria-hidden="true"></p></div>' +
       '<div class="container footer-base"><p>© 2026 Maison Canis. Todos los precios incluyen IVA.</p></div>';
   }
 
