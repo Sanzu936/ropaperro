@@ -4,3 +4,4 @@ tools/referencias/
 .env.*
 node_modules/
 .vercel
+undefined/
