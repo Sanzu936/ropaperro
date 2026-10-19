@@ -69,10 +69,13 @@ MC.ready(function () {
     '</div>' +
     '<section class="section bg-stone tejido" aria-labelledby="tejido-title">' +
       '<div class="container">' +
-        '<div class="section-head reveal"><div><h2 id="tejido-title">El tejido, de cerca.</h2></div></div>' +
-        '<div class="fabric-viewer solo reveal" data-fabric="' + p.id + '">' +
-          '<div class="fabric-stage" data-stage><img class="fabric-fallback" src="images/' + MC.fabric.FABRICS[p.id].photo + '" width="1000" height="1000" loading="lazy" decoding="async" alt="' + MC.esc(MC.fabric.FABRICS[p.id].alt) + '"></div>' +
-          '<p class="fabric-hint" aria-hidden="true">Arrastre para girar</p>' +
+        '<div class="section-head reveal"><h2 id="tejido-title">El tejido, <em>de cerca.</em></h2></div>' +
+        '<div class="lupa-viewer solo reveal" data-detail="' + p.id + '">' +
+          '<div class="lupa-stage" tabindex="0" role="group" aria-label="Foto de detalle ampliable. Use las flechas del teclado para mover la lupa.">' +
+            '<img class="lupa-img" src="images/' + MC.lupa.DETAIL[p.id].photo + '" width="1000" height="1000" loading="lazy" decoding="async" alt="' + MC.esc(MC.lupa.DETAIL[p.id].alt) + '">' +
+            '<span class="lupa-lens" aria-hidden="true"></span>' +
+          '</div>' +
+          '<p class="lupa-hint" aria-hidden="true"></p>' +
         '</div>' +
       '</div>' +
     '</section>' +
@@ -84,7 +87,7 @@ MC.ready(function () {
       '</div>' +
     '</section>';
 
-  MC.fabric.mountAll();
+  MC.lupa.mountAll();
 
   var form = document.getElementById('buy-form');
   var hint = document.getElementById('size-hint');

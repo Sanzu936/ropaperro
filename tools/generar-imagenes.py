@@ -196,20 +196,110 @@ def generate(name, spec):
     im.save(OUT / (name + ".jpg"), "JPEG", quality=80, optimize=True, progressive=True)
     print(name, used, im.size, (OUT / (name + ".jpg")).stat().st_size // 1024, "KB")
 
+
+# ---------- Acabado fotográfico y reconstrucción desde los originales 4K ----------
+def grade(im, grain=2.7):
+    """Acabado común a todas las fotos: negros levemente elevados, luces suaves, algo menos de saturación,
+    viñeta ligera y grano de película. Evita el aspecto demasiado limpio y uniforme de la salida directa del modelo."""
+    import numpy as np
+    from PIL import Image, ImageEnhance
+    im = ImageEnhance.Color(im).enhance(0.94)
+    a = np.asarray(im).astype(np.float32) / 255.0
+    a = 0.025 + a * 0.955                                   # negros elevados
+    hi = np.clip((a - 0.82) / 0.18, 0, 1)
+    a = a - 0.045 * hi * hi                                 # luces con caída suave
+    h, w = a.shape[:2]
+    yy, xx = np.mgrid[0:h, 0:w]
+    d = np.sqrt(((xx - w / 2) / (w / 2)) ** 2 + ((yy - h / 2) / (h / 2)) ** 2)
+    a = a * (1 - 0.07 * np.clip(d - 0.55, 0, 1)[..., None])  # viñeta
+    rng = np.random.default_rng(7)
+    lum = rng.normal(0, grain / 255.0, (h, w, 1))
+    col = rng.normal(0, grain * 0.35 / 255.0, (h, w, 3))
+    a = np.clip(a + lum + col, 0, 1)
+    return Image.fromarray((a * 255).astype(np.uint8))
+
+def _fit(c, size):
+    from PIL import Image
+    tw, th = size
+    r = tw / th; cw, ch = c.size
+    if cw / ch > r:
+        nw = int(ch * r); c = c.crop(((cw - nw) // 2, 0, (cw - nw) // 2 + nw, ch))
+    else:
+        nh = int(cw / r); c = c.crop((0, (ch - nh) // 2, cw, (ch - nh) // 2 + nh))
+    return c.resize(size, Image.LANCZOS)
+
+def _save(im, name, grain=2.7):
+    grade(im, grain).save(OUT / (name + ".jpg"), "JPEG", quality=72, optimize=True, progressive=True)
+    print(name, im.size)
+
+ZOOM = {  # zona de cada prenda que se amplía con la lupa (fracciones del original)
+ "vendome": (0.45, 0.38, 0.80, 0.66), "montaigne": (0.40, 0.29, 0.76, 0.58), "rivoli": (0.50, 0.22, 0.85, 0.50),
+}
+
+def rebuild():
+    from PIL import Image, ImageFilter
+    import numpy as np
+    for prod in ("vendome", "montaigne", "rivoli"):
+        im = Image.open(RAW / (prod + "-01.png")).convert("RGB")
+        w, h = im.size
+        c = im
+        if prod == "montaigne":      # el original trae un borde oscuro de escáner
+            m = int(w * 0.022); c = im.crop((m, int(m * 1.25), w - m, h - int(m * 1.25)))
+        _save(_fit(c, (1200, 1500)), prod + "-01")
+        for n in ("02", "03", "04"):
+            derive_graded(prod + "-" + n)
+        x0, y0, x1, y1 = ZOOM[prod]
+        _save(_fit(im.crop((int(x0 * w), int(y0 * h), int(x1 * w), int(y1 * h))), (1600, 1600)), prod + "-zoom", 3.0)
+    compose_hero()
+    v = Image.open(OUT / "vendome-01.jpg"); v.save(OUT / "hero-inicio-movil.jpg", "JPEG", quality=60, optimize=True, progressive=True)
+    g = Image.open(RAW / "guia-medicion.png").convert("RGB"); k = g.width / 1500
+    _save(_fit(g.crop((int(180 * k), int(110 * k), int(1020 * k), int(670 * k))), (1500, 1000)), "guia-medicion")
+
+def derive_graded(name):
+    from PIL import Image
+    src, box, size = DERIVED[name]
+    im = Image.open(RAW / (src + ".png")).convert("RGB")
+    if src.startswith("montaigne"):
+        w, h = im.size; m = int(w * 0.022); im = im.crop((m, int(m * 1.25), w - m, h - int(m * 1.25)))
+    w, h = im.size
+    _save(_fit(im.crop((int(box[0] * w), int(box[1] * h), int(box[2] * w), int(box[3] * h))), size), name)
+
+def compose_hero():
+    """16:9 de portada: la foto de Vendôme sobre un fondo de estudio extendido (la versión 16:9 generada cortaba las patas)."""
+    from PIL import Image, ImageFilter
+    import numpy as np
+    src = Image.open(RAW / "vendome-01.png").convert("RGB")
+    W, H = 2000, 1125; pw = int(src.width * H / src.height)
+    a = np.asarray(src.resize((pw, H), Image.LANCZOS)).astype(np.float32)
+    def edge(col):
+        c = a[:, col:col + 10, :].mean(axis=1)
+        return np.asarray(Image.fromarray(c[:, None, :].astype(np.uint8)).filter(ImageFilter.GaussianBlur(50)))[:, 0, :].astype(np.float32)
+    x0 = 140; L = edge(2); R = edge(pw - 12); b = a.copy(); F = 330
+    upper = np.clip(1 - (np.arange(H) / (H * 0.55)), 0, 1)[:, None]
+    for i in range(F):
+        x = pw - F + i; t = i / F; t = t * t * (3 - 2 * t); tt = t * (0.35 + 0.65 * upper)
+        b[:, x] = a[:, x] * (1 - tt) + R * tt
+    for i in range(150):
+        t = (1 - i / 150) ** 1.5; b[:, i] = a[:, i] * (1 - t) + L * t
+    cv = np.zeros((H, W, 3), np.float32); cv[:, :x0] = L[:, None, :]; cv[:, x0:x0 + pw] = b
+    fw = W - (x0 + pw); sm = np.linspace(0, 1, fw); sm = sm * sm * (3 - 2 * sm)
+    cv[:, x0 + pw:] = R[:, None, :] * (1 + 0.07 * sm[None, :, None])
+    im = Image.fromarray(np.clip(cv, 0, 255).astype(np.uint8))
+    bl = np.asarray(im.filter(ImageFilter.GaussianBlur(45))).astype(np.float32); cva = np.asarray(im).astype(np.float32)
+    xs = np.arange(W); m1 = np.clip(1 - np.abs(xs - 1045) / 150, 0, 1); m1 = (m1 * m1 * (3 - 2 * m1))[None, :, None]
+    out = Image.fromarray(np.clip(cva * (1 - m1) + bl * m1, 0, 255).astype(np.uint8))
+    _save(out, "hero-inicio", 2.2)
+
 if __name__ == "__main__":
     args = sys.argv[1:]
     if "--lista" in args:
-        for n, s in IMAGES.items():
-            print(n, s[0], s[1], s[2])
+        for n, sp in IMAGES.items():
+            print(n, sp[0], sp[1], sp[2])
         for n in DERIVED:
             print(n, "recorte")
         sys.exit()
-    todo = args or (list(IMAGES) + list(DERIVED))
-    for n in todo:
-        if n in DERIVED:
-            derive(n)
-        else:
-            generate(n, IMAGES[n])
-
-# Nota: hero-inicio.jpg es una composición: la foto vendome-01 (original 4K) sobre un fondo de estudio
-# extendido a 16:9, porque la versión 16:9 generada tenía las patas cortadas por el borde inferior.
+    if "--reconstruir" in args or not args:
+        rebuild()                      # recortes, lupa, portada y acabado a partir de los originales 4K
+    else:
+        for n in args:
+            generate(n, IMAGES[n])     # genera (OpenRouter primero, Kie API de respaldo) y guarda el original 4K

@@ -15,7 +15,6 @@ MC.ready(function () {
             '</span>' +
           '</a>' +
           '<div class="scene-body">' +
-            '<span class="scene-num" aria-hidden="true">' + n + '</span>' +
             '<p class="eyebrow reveal">' + p.num + '</p>' +
             '<h3 class="scene-title reveal" id="scene-' + p.id + '"><a href="' + p.page + '">' + p.name + '</a></h3>' +
             '<p class="scene-line reveal">' + p.lead + '</p>' +
