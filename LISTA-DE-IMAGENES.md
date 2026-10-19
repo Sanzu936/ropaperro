@@ -5,7 +5,7 @@ Las 18 imágenes de `images/` están generadas con IA y optimizadas (JPG progres
 | Archivo | Medida | Dónde aparece |
 |---|---|---|
 | hero-inicio, hero-inicio-movil | 2000×1125, 1200×1500 | Portada |
-| vendome-01…04, montaigne-01…04, rivoli-01…04 | 1200×1500, 1000×1000 (×2), 1500×1000 | Fichas, colección, carrito, checkout |
+| vendome-01, -02, -04 (y lo mismo para montaigne y rivoli) | 1200×1500, 1000×1000, 1500×1000 | Fichas, colección, carrito, checkout |
 | vendome-zoom, montaigne-zoom, rivoli-zoom | 1600×1600 | Capa ampliada de la lupa |
 | guia-medicion | 1500×1000 | Guía de tallas |
 

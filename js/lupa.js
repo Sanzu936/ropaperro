@@ -3,9 +3,9 @@
   'use strict';
 
   var DETAIL = {
-    vendome: { photo: 'vendome-02.jpg', zoom: 'vendome-zoom.jpg', alt: 'Detalle de la solapa y de los botones negros del abrigo Vendôme' },
-    montaigne: { photo: 'montaigne-02.jpg', zoom: 'montaigne-zoom.jpg', alt: 'Detalle del cuello alto y de la cremallera del plumífero Montaigne' },
-    rivoli: { photo: 'rivoli-02.jpg', zoom: 'rivoli-zoom.jpg', alt: 'Detalle del cuello y del broche de latón de la capa Rivoli' }
+    vendome: { photo: 'vendome-zoom.jpg', zoom: 'vendome-zoom.jpg', alt: 'Lana gris jaspeada del abrigo Vendôme' },
+    montaigne: { photo: 'montaigne-zoom.jpg', zoom: 'montaigne-zoom.jpg', alt: 'Acolchado en canales y acabado lacado del plumífero Montaigne' },
+    rivoli: { photo: 'rivoli-zoom.jpg', zoom: 'rivoli-zoom.jpg', alt: 'Cachemir doble faz camel de la capa Rivoli' }
   };
   var ZOOM = 2.6;
   var fine = window.matchMedia('(hover: hover) and (pointer: fine)');
@@ -25,12 +25,20 @@
     var s = this.stage;
     s.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { self.move(e); self.show(true); } });
     s.addEventListener('pointermove', function (e) { if (e.pointerType === 'mouse' || self.on) self.move(e); });
+    function endTouch(e) { if (e.pointerType !== 'mouse') setTimeout(function () { self.show(false); }, 900); }
+    s.addEventListener('pointerup', endTouch);
+    s.addEventListener('pointercancel', endTouch);
     s.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') self.show(false); });
     s.addEventListener('pointerdown', function (e) {
       if (e.pointerType === 'mouse') return;
       self.move(e); self.show(true);
     });
-    s.addEventListener('focus', function () { self.tx = self.x = 0.5; self.ty = self.y = 0.5; self.show(true); self.paint(); });
+    var byPointer = false;
+    s.addEventListener('pointerdown', function () { byPointer = true; });
+    s.addEventListener('focus', function () {
+      if (byPointer) { byPointer = false; return; }      // si el foco viene de un clic o toque, la lupa se queda donde se tocó
+      self.tx = self.x = 0.5; self.ty = self.y = 0.5; self.show(true); self.paint();
+    });
     s.addEventListener('blur', function () { self.show(false); });
     s.addEventListener('keydown', function (e) {
       var k = e.key, st = 0.06;

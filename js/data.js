@@ -34,7 +34,6 @@
       images: [
         { file: 'vendome-01.jpg', w: 1200, h: 1500, alt: 'Galgo whippet con el abrigo cruzado Vendôme de lana gris, de perfil, sobre fondo liso de estudio' },
         { file: 'vendome-02.jpg', w: 1000, h: 1000, alt: 'Detalle de la solapa y de los botones negros del abrigo Vendôme' },
-        { file: 'vendome-03.jpg', w: 1000, h: 1000, alt: 'Detalle del cinturón anudado y de la lana jaspeada del abrigo Vendôme' },
         { file: 'vendome-04.jpg', w: 1500, h: 1000, alt: 'Lomo y costado del abrigo Vendôme sobre un galgo whippet' }
       ]
     },
@@ -61,7 +60,6 @@
       images: [
         { file: 'montaigne-01.jpg', w: 1200, h: 1500, alt: 'Galgo whippet con el plumífero negro lacado Montaigne, de perfil, sobre fondo oscuro' },
         { file: 'montaigne-02.jpg', w: 1000, h: 1000, alt: 'Detalle del cuello alto y de la cremallera del plumífero Montaigne' },
-        { file: 'montaigne-03.jpg', w: 1000, h: 1000, alt: 'Detalle del acolchado en canales y del brillo negro del plumífero Montaigne' },
         { file: 'montaigne-04.jpg', w: 1500, h: 1000, alt: 'Lomo y costado del plumífero Montaigne sobre un galgo whippet' }
       ]
     },
@@ -88,7 +86,6 @@
       images: [
         { file: 'rivoli-01.jpg', w: 1200, h: 1500, alt: 'Galgo whippet con la capa Rivoli de cachemir camel, de perfil, sobre fondo terracota' },
         { file: 'rivoli-02.jpg', w: 1000, h: 1000, alt: 'Detalle del cuello y del broche de latón de la capa Rivoli' },
-        { file: 'rivoli-03.jpg', w: 1000, h: 1000, alt: 'Detalle de la caída y del tejido de cachemir de la capa Rivoli' },
         { file: 'rivoli-04.jpg', w: 1500, h: 1000, alt: 'Lomo y costado de la capa Rivoli sobre un galgo whippet' }
       ]
     }

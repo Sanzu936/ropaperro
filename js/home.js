@@ -18,7 +18,6 @@ MC.ready(function () {
             '<p class="eyebrow reveal">' + p.num + '</p>' +
             '<h3 class="scene-title reveal" id="scene-' + p.id + '"><a href="' + p.page + '">' + p.name + '</a></h3>' +
             '<p class="scene-line reveal">' + p.lead + '</p>' +
-            '<span class="stitch reveal" aria-hidden="true"><i></i><b></b></span>' +
             '<dl class="scene-facts reveal">' +
               '<div><dt>Tono</dt><dd>' + p.color + '</dd></div>' +
               '<div><dt>Precio</dt><dd>' + MC.money(p.price) + '</dd></div>' +

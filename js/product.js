@@ -9,7 +9,7 @@ MC.ready(function () {
   if (!MC.size(preset)) preset = '';
 
   var gallery = p.images.map(function (im, i) {
-    var ratio = i === 0 ? 'ratio-4-5' : (i === 3 ? 'ratio-3-2' : 'ratio-1-1');
+    var ratio = i === 0 ? 'ratio-4-5' : (im.w / im.h > 1.2 ? 'ratio-3-2' : 'ratio-1-1');
     return '<div class="frame ' + ratio + '"><img src="images/' + im.file + '" width="' + im.w + '" height="' + im.h + '" alt="' + MC.esc(im.alt) + '"' +
       (i === 0 ? ' fetchpriority="high"' : ' loading="lazy"') + ' decoding="async"></div>';
   }).join('');
@@ -69,7 +69,7 @@ MC.ready(function () {
     '</div>' +
     '<section class="section bg-stone tejido" aria-labelledby="tejido-title">' +
       '<div class="container">' +
-        '<div class="section-head reveal"><h2 id="tejido-title">El tejido, <em>de cerca.</em></h2></div>' +
+        '<div class="section-head reveal"><h2 id="tejido-title">El tejido <em>ampliado.</em></h2></div>' +
         '<div class="lupa-viewer solo reveal" data-detail="' + p.id + '">' +
           '<div class="lupa-stage" tabindex="0" role="group" aria-label="Foto de detalle ampliable. Use las flechas del teclado para mover la lupa.">' +
             '<img class="lupa-img" src="images/' + MC.lupa.DETAIL[p.id].photo + '" width="1000" height="1000" loading="lazy" decoding="async" alt="' + MC.esc(MC.lupa.DETAIL[p.id].alt) + '">' +

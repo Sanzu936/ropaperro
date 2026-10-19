@@ -70,13 +70,10 @@ IMAGES = {
 # nombre: (origen, caja (x0, y0, x1, y1) en fracciones del original, tamaño final)
 DERIVED = {
  "vendome-02": ("vendome-01", (0.45, 0.38, 0.80, 0.66), (1000, 1000)),
- "vendome-03": ("vendome-01", (0.12, 0.42, 0.52, 0.74), (1000, 1000)),
  "vendome-04": ("vendome-01", (0.08, 0.36, 0.90, 0.80), (1500, 1000)),
  "montaigne-02": ("montaigne-01", (0.40, 0.29, 0.76, 0.58), (1000, 1000)),
- "montaigne-03": ("montaigne-01", (0.18, 0.33, 0.50, 0.585), (1000, 1000)),
  "montaigne-04": ("montaigne-01", (0.22, 0.28, 0.78, 0.58), (1500, 1000)),
  "rivoli-02": ("rivoli-01", (0.50, 0.22, 0.85, 0.50), (1000, 1000)),
- "rivoli-03": ("rivoli-01", (0.12, 0.34, 0.50, 0.64), (1000, 1000)),
  "rivoli-04": ("rivoli-01", (0.08, 0.28, 0.82, 0.68), (1500, 1000)),
  "hero-inicio-movil": ("vendome-01", (0.0, 0.0, 1.0, 1.0), (1200, 1500)),
 }
@@ -233,7 +230,7 @@ def _save(im, name, grain=2.7):
     print(name, im.size)
 
 ZOOM = {  # zona de cada prenda que se amplía con la lupa (fracciones del original)
- "vendome": (0.45, 0.38, 0.80, 0.66), "montaigne": (0.40, 0.29, 0.76, 0.58), "rivoli": (0.50, 0.22, 0.85, 0.50),
+ "vendome": (0.20, 0.38, 0.52, 0.63), "montaigne": (0.18, 0.33, 0.50, 0.585), "rivoli": (0.12, 0.34, 0.50, 0.64),
 }
 
 def rebuild():
@@ -246,7 +243,7 @@ def rebuild():
         if prod == "montaigne":      # el original trae un borde oscuro de escáner
             m = int(w * 0.022); c = im.crop((m, int(m * 1.25), w - m, h - int(m * 1.25)))
         _save(_fit(c, (1200, 1500)), prod + "-01")
-        for n in ("02", "03", "04"):
+        for n in ("02", "04"):
             derive_graded(prod + "-" + n)
         x0, y0, x1, y1 = ZOOM[prod]
         _save(_fit(im.crop((int(x0 * w), int(y0 * h), int(x1 * w), int(y1 * h))), (1600, 1600)), prod + "-zoom", 3.0)
