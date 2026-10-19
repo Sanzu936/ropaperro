@@ -17,7 +17,7 @@
       num: 'Nº 1',
       name: 'Abrigo Vendôme',
       color: 'Gris jaspeado',
-      price: 1290,
+      price: 185,
       cardLine: 'Lana gris jaspeada, doble botonadura y cinturón.',
       lead: 'Abrigo cruzado de lana.',
       details: [
@@ -38,7 +38,7 @@
       num: 'Nº 2',
       name: 'Plumífero Montaigne',
       color: 'Negro lacado',
-      price: 1190,
+      price: 165,
       cardLine: 'Acolchado en canales, negro brillante, con capucha.',
       lead: 'Plumífero acolchado de acabado brillante.',
       details: [
@@ -59,7 +59,7 @@
       num: 'Nº 3',
       name: 'Capa Rivoli',
       color: 'Camel',
-      price: 1680,
+      price: 240,
       cardLine: 'Cachemir doble faz en camel, con broche de latón.',
       lead: 'Capa de cachemir doble faz.',
       details: [
