@@ -3,9 +3,9 @@
   'use strict';
 
   var DETAIL = {
-    vendome: { photo: 'vendome-zoom.jpg', zoom: 'vendome-zoom.jpg', alt: 'Lana gris jaspeada del abrigo Vendôme' },
-    montaigne: { photo: 'montaigne-zoom.jpg', zoom: 'montaigne-zoom.jpg', alt: 'Acolchado en canales y acabado lacado del plumífero Montaigne' },
-    rivoli: { photo: 'rivoli-zoom.jpg', zoom: 'rivoli-zoom.jpg', alt: 'Cachemir doble faz camel de la capa Rivoli' }
+    vendome: { photo: 'vendome-zoom.jpg', alt: 'Lana gris jaspeada del abrigo Vendôme' },
+    montaigne: { photo: 'montaigne-zoom.jpg', alt: 'Acolchado en canales y acabado lacado del plumífero Montaigne' },
+    rivoli: { photo: 'rivoli-zoom.jpg', alt: 'Cachemir doble faz camel de la capa Rivoli' }
   };
   var ZOOM = 2.6;
   var fine = window.matchMedia('(hover: hover) and (pointer: fine)');
@@ -70,7 +70,7 @@
     this.id = id;
     this.img.src = 'images/' + d.photo;
     this.img.alt = d.alt;
-    this.lens.style.backgroundImage = 'url("images/' + d.zoom + '")';
+    this.lens.style.backgroundImage = 'url("images/' + d.photo + '")';
     var q = function (s) { return this.el.querySelector(s); }.bind(this);
     if (q('.lupa-name')) q('.lupa-name').textContent = p.name;
     if (q('.lupa-link')) { q('.lupa-link').setAttribute('href', p.page); q('.lupa-link').textContent = 'Ver ' + p.name; }

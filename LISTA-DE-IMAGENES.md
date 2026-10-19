@@ -1,6 +1,6 @@
 # Imágenes
 
-Las 18 imágenes de `images/` están generadas con IA y optimizadas (JPG progresivo, entre 70 y 190 KB). Los prompts están en `tools/generar-imagenes.py`.
+Las 15 imágenes de `images/` están generadas con IA y optimizadas (JPG progresivo, entre 70 y 190 KB). Los prompts están en `tools/generar-imagenes.py`.
 
 | Archivo | Medida | Dónde aparece |
 |---|---|---|
@@ -9,6 +9,6 @@ Las 18 imágenes de `images/` están generadas con IA y optimizadas (JPG progres
 | vendome-zoom, montaigne-zoom, rivoli-zoom | 1600×1600 | Capa ampliada de la lupa |
 | guia-medicion | 1500×1000 | Guía de tallas |
 
-Las fotos `-02`, `-03` y `-04` de cada prenda son recortes de la foto principal `-01` (original 4K en `tools/originales/`, fuera de git). `hero-inicio.jpg` es la foto de Vendôme sobre un fondo de estudio extendido a 16:9. En `montaigne-01` se retocó el original para eliminar una zona no apta.
+Las fotos `-02` y `-04` de cada prenda y la `-zoom` de la lupa son recortes de la foto principal `-01` (original 4K en `tools/originales/`, fuera de git). `hero-inicio.jpg` es la foto de Vendôme sobre un fondo de estudio extendido a 16:9. En `montaigne-01` se retocó el original para eliminar una zona no apta.
 
 Los textos alternativos están en `js/data.js` (fichas) y en el HTML de cada página.

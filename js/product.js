@@ -72,7 +72,7 @@ MC.ready(function () {
         '<div class="section-head reveal"><h2 id="tejido-title">El tejido <em>ampliado.</em></h2></div>' +
         '<div class="lupa-viewer solo reveal" data-detail="' + p.id + '">' +
           '<div class="lupa-stage" tabindex="0" role="group" aria-label="Foto de detalle ampliable. Use las flechas del teclado para mover la lupa.">' +
-            '<img class="lupa-img" src="images/' + MC.lupa.DETAIL[p.id].photo + '" width="1000" height="1000" loading="lazy" decoding="async" alt="' + MC.esc(MC.lupa.DETAIL[p.id].alt) + '">' +
+            '<img class="lupa-img" src="images/' + MC.lupa.DETAIL[p.id].photo + '" width="1600" height="1600" loading="lazy" decoding="async" alt="' + MC.esc(MC.lupa.DETAIL[p.id].alt) + '">' +
             '<span class="lupa-lens" aria-hidden="true"></span>' +
           '</div>' +
           '<p class="lupa-hint" aria-hidden="true"></p>' +

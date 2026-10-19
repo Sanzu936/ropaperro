@@ -8,7 +8,7 @@ MC.ready(function () {
     return '' +
       '<article class="scene' + (i % 2 ? ' scene-flip' : '') + '" data-tint="' + p.id + '" aria-labelledby="scene-' + p.id + '">' +
         '<div class="container scene-grid">' +
-          '<a class="scene-media reveal" href="' + p.page + '" data-cursor="Descubrir" tabindex="-1">' +
+          '<a class="scene-media reveal" href="' + p.page + '" tabindex="-1">' +
             '<span class="frame ratio-4-5" data-parallax>' +
               '<img class="card-img" src="images/' + a.file + '" alt="' + MC.esc(a.alt) + '" width="' + a.w + '" height="' + a.h + '" loading="lazy" decoding="async">' +
               '<img class="card-img card-img-alt" src="images/' + b.file + '" alt="" width="' + b.w + '" height="' + b.h + '" loading="lazy" decoding="async">' +
